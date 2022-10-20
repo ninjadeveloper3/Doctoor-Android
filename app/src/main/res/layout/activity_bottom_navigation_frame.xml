@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.modules.frame.BottomNavigationFrameActivity">
+
+    <data>
+
+        <variable
+            name="bottomNavigationFrameVM"
+            type="com.Doctoor.app.ui.modules.frame.BottomNavigationFrameVM" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            style="@style/Doctoor.App.Widget.ToolBar">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/toolbarTitle"
+                style="@style/Doctoor.App.Widget.TextView.ToolBar"
+                android:text="@{bottomNavigationFrameVM.toolbarTitle}" />
+        </androidx.appcompat.widget.Toolbar>
+
+
+        <include
+            layout="@layout/content_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/bottomNavigation"
+            android:layout_below="@+id/toolbar" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/representativeFab"
+            style="@style/Doctoor.App.FloatingActionButton"
+            android:layout_above="@+id/bottomNavigation"
+            android:layout_alignParentEnd="true" />
+
+        <com.Doctoor.app.widget.bottomnavigation.BottomNavigation
+            android:id="@+id/bottomNavigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/white"
+            app:bbn_badgeProvider="@string/bbn_badgeProvider"
+            app:bbn_entries="@menu/bottom_navigation_bar"
+            app:bbn_scrollEnabled="true"
+            app:layout_behavior="@string/bbn_phone_view_behavior" />
+
+    </RelativeLayout>
+
+
+</layout>

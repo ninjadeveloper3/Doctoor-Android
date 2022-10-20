@@ -1,0 +1,225 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+                name="signupFragmentVM"
+                type="com.Doctoor.app.ui.modules.signup.SignupFragmentVM" />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@android:id/content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            android:orientation="vertical">
+
+        <ScrollView
+                android:id="@+id/mainLayout"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:scrollbars="none">
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingBottom="@dimen/padding">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingStart="@dimen/padding"
+                        android:paddingEnd="@dimen/padding">
+
+                    <com.Doctoor.app.widget.AspectRatioImageView
+                            style="@style/Doctoor.App.Widget.AppLogo"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="@dimen/margin" />
+
+                    <com.Doctoor.app.widget.validatedtextinputlayout.ValidatedTextInputLayout style="@style/Doctoor.App.Widget.TextInputLayout">
+
+                        <com.Doctoor.app.widget.EditTextRichDrawable
+                                style="@style/Doctoor.App.Widget.TextInputEditText.FullName"
+                                android:imeOptions="actionNext"
+                                android:text="@={signupFragmentVM.userName}"
+                                app:validateMinLength="@{4}"
+                                app:validateType='@{"username"}'
+                                app:validateTypeAutoDismiss="@{true}" />
+
+                    </com.Doctoor.app.widget.validatedtextinputlayout.ValidatedTextInputLayout>
+
+                    <com.Doctoor.app.widget.validatedtextinputlayout.ValidatedTextInputLayout style="@style/Doctoor.App.Widget.TextInputLayout">
+
+                        <com.Doctoor.app.widget.EditTextRichDrawable
+                                style="@style/Doctoor.App.Widget.TextInputEditText.Email"
+                                android:imeOptions="actionNext"
+                                android:text="@={signupFragmentVM.email}"
+                                app:validateType='@{"email"}'
+                                app:validateTypeAutoDismiss="@{true}" />
+
+                    </com.Doctoor.app.widget.validatedtextinputlayout.ValidatedTextInputLayout>
+
+                    <com.Doctoor.app.widget.validatedtextinputlayout.ValidatedTextInputLayout
+                            android:id="@+id/phone_layout"
+                            style="@style/Doctoor.App.Widget.TextInputLayout">
+
+                        <com.Doctoor.app.widget.EditTextRichDrawable
+                                style="@style/Doctoor.App.Widget.TextInputEditText.Phone"
+                                android:hint="@string/phone_no"
+                                android:imeOptions="actionNext"
+                                android:inputType="phone"
+                                android:text="@={signupFragmentVM.phone}"
+                                app:validPhone='@{"^((\\+92)|(0092))-{0,1}\\d{3}-{0,1}\\d{7}$|^\\d{11}$|^\\d{4}-\\d{7}$"}'
+                                app:validateEmpty="@{true}"
+                                app:validateMaxLength="@{15}"
+                                app:validateMinLength="@{11}"
+                                app:validateTypeAutoDismiss="@{true}" />
+
+                    </com.Doctoor.app.widget.validatedtextinputlayout.ValidatedTextInputLayout>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/Doctoor.App.Widget.TextView.Label"
+                            android:layout_marginTop="@dimen/margin_large"
+                            android:text="@string/whats_ur_gender" />
+
+
+                    <RadioGroup
+                            android:layout_width="match_parent"
+                            android:layout_height="52dp"
+                            android:layout_marginTop="@dimen/margin"
+                            android:background="@drawable/bg_rounded_corner_transparent"
+                            android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.AppCompatRadioButton
+                                style="@style/Doctoor.App.Widget.RadioButton.Gender"
+                                android:background="@drawable/bg_radio_btn_gender_male"
+                                android:button="@drawable/ic_male"
+                                android:checked="@{signupFragmentVM.gender.equals(@string/male)}"
+                                android:onClick="@{() -> signupFragmentVM.setGender(@string/male)}"
+                                android:text="@string/male"
+                                android:textAppearance="@style/Doctoor.App.Widget.TextView.Bold" />
+
+                        <androidx.appcompat.widget.AppCompatRadioButton
+                                style="@style/Doctoor.App.Widget.RadioButton.Gender"
+                                android:background="@drawable/bg_radio_btn_gender_female"
+                                android:button="@drawable/ic_female"
+                                android:checked="@{signupFragmentVM.gender.equals(@string/female)}"
+                                android:onClick="@{() -> signupFragmentVM.setGender(@string/female)}"
+                                android:text="@string/female"
+                                android:textAppearance="@style/Doctoor.App.Widget.TextView.Bold" />
+
+                    </RadioGroup>
+
+                    <!--<androidx.appcompat.widget.AppCompatTextView
+                        style="@style/Doctoor.App.Widget.TextView.Label"
+                        android:layout_marginTop="@dimen/margin_large"
+                        android:text="@string/date_of_birth" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/dateOfBirth"
+                        style="@style/Doctoor.App.DOBLayout"
+                        android:layout_marginTop="@dimen/margin"
+                        android:onClick="@{()->signupFragmentVM.onDisplayTimePickerDialogClick()}"
+                        android:text="@={signupFragmentVM.date}" />-->
+
+                    <com.Doctoor.app.widget.validatedtextinputlayout.ValidatedTextInputLayout
+                            android:id="@+id/password_layout"
+                            style="@style/Doctoor.App.Widget.TextInputLayout"
+                            android:layout_below="@+id/phone_layout">
+
+                        <com.Doctoor.app.widget.EditTextRichDrawable
+                                android:id="@+id/password"
+                                style="@style/Doctoor.App.Widget.TextInputEditText.Password"
+                                android:imeOptions="actionDone"
+                                android:text="@={signupFragmentVM.password}"
+                                app:isHidden="@{true}"
+                                app:validateEmpty="@{true}"
+                                app:validateMaxLength="@{15}"
+                                app:validateMinLength="@{8}" />
+
+                    </com.Doctoor.app.widget.validatedtextinputlayout.ValidatedTextInputLayout>
+
+                    <com.Doctoor.app.widget.progressbutton.CircularProgressButton
+                            android:id="@+id/signup"
+                            style="@style/Doctoor.App.Widget.Button.Login.CircularProgressButton"
+                            android:onClick="@{()-> signupFragmentVM.onSignup()}"
+                            android:text="@string/sign_up" />
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                            style="@style/Doctoor.App.Layout.LinearLayout.Horizontal.wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_margin="@dimen/margin_smaller">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                                style="@style/Doctoor.App.Widget.TextView.ForgotPassword"
+                                android:layout_gravity="center_horizontal"
+                                android:onClick="@{()-> signupFragmentVM.onLogin()}"
+                                android:text="@string/already_have" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                                style="@style/Doctoor.App.Widget.TextView.ForgotPassword"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginStart="@dimen/margin_smaller"
+                                android:onClick="@{()-> signupFragmentVM.onLogin()}"
+                                android:text="@string/sign_in_underline"
+                                android:textColor="@color/pink" />
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <com.Doctoor.app.widget.LineThroughTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:lt_lineColor="@color/grey"
+                        app:lt_text="@string/or_text"
+                        app:lt_textPadding="@dimen/padding_medium"
+                        app:lt_textSize="@dimen/text_primary_normal" />
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                        style="@style/Doctoor.App.Layout.LinearLayout.Horizontal.wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/margin">
+
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/margin_small"
+                            android:onClick="@{()-> signupFragmentVM.onFbLogin()}"
+                            android:src="@drawable/ic_facebook"
+                            app:backgroundTint="#1a72d6"
+                            app:elevation="0dp"
+                            app:fabCustomSize="56dp"
+                            app:maxImageSize="40dp"
+                            app:srcCompat="@drawable/ic_facebook" />
+
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/margin_small"
+                            android:onClick="@{()->signupFragmentVM.onGoogleLogin()}"
+                            android:src="@drawable/ic_google_plus"
+                            app:backgroundTint="#DE0044"
+                            app:elevation="0dp"
+                            app:fabCustomSize="56dp"
+                            app:maxImageSize="40dp"
+                            app:srcCompat="@drawable/ic_google_plus" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        </ScrollView>
+
+        <include
+                layout="@layout/privacy_policy"
+                app:browserBaseViewModel="@{signupFragmentVM}" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+</layout>

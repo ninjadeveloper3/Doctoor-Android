@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+                name="browserBaseViewModel"
+                type="com.Doctoor.app.base.BrowserBaseViewModel" />
+
+    </data>
+
+    <LinearLayout
+            android:id="@+id/privacyPolicy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#eeeeee"
+            android:gravity="center"
+            android:padding="@dimen/padding_small"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_alignParentBottom="true"
+            >
+
+        <androidx.appcompat.widget.AppCompatTextView
+                style="@style/Doctoor.App.Widget.TextView.PrivacyPolicy"
+                android:maxLines="1"
+                android:text="@string/privacy_policy_text"
+                android:textColor="@color/black"
+                app:autoSizeMaxTextSize="13sp"
+                app:autoSizeMinTextSize="5sp"
+                app:autoSizeStepGranularity="1sp"
+                app:autoSizeTextType="uniform" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+                style="@style/Doctoor.App.Widget.TextView.PrivacyPolicy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:maxLines="1"
+                android:onClick="@{()->browserBaseViewModel.onTerms()}"
+                android:paddingStart="@dimen/padding_smallest"
+                android:paddingEnd="@dimen/padding_smallest"
+                android:text="@string/terms"
+                android:textColor="@color/black"
+                app:autoSizeMaxTextSize="13sp"
+                app:autoSizeMinTextSize="5sp"
+                app:autoSizeStepGranularity="1sp"
+                app:autoSizeTextType="uniform" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+                style="@style/Doctoor.App.Widget.TextView.PrivacyPolicy"
+                android:maxLines="1"
+                android:text="&amp;"
+                android:textColor="@color/black"
+                app:autoSizeMaxTextSize="13sp"
+                app:autoSizeMinTextSize="5sp"
+                app:autoSizeStepGranularity="1sp"
+                app:autoSizeTextType="uniform" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+                style="@style/Doctoor.App.Widget.TextView.PrivacyPolicy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:maxLines="1"
+                android:onClick="@{()->browserBaseViewModel.onPrivacy()}"
+                android:paddingStart="@dimen/padding_smallest"
+                android:text="@string/policy"
+                android:textColor="@color/black"
+                app:autoSizeMaxTextSize="13sp"
+                app:autoSizeMinTextSize="5sp"
+                app:autoSizeStepGranularity="1sp"
+                app:autoSizeTextType="uniform" />
+
+
+    </LinearLayout>
+</layout>

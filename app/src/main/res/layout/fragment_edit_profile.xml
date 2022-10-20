@@ -1,0 +1,76 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="editProfileFragmentVM"
+            type="com.Doctoor.app.ui.modules.profile.edit_profile.EditProfileFragmentVM" />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat style="@style/Doctoor.App.Layout.LinearLayout.Vertical.MatchParent">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            style="@style/Doctoor.App.Layout.LinearLayout.Vertical.WrapContent"
+            android:layout_height="200dp"
+            android:background="@drawable/profile_background"
+            android:gravity="center"
+            android:padding="@dimen/padding">
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <com.Doctoor.app.widget.CircleImageView
+                    style="@style/Doctoor.App.CircularImage"
+                    android:onClick="@{()-> editProfileFragmentVM.onGalleryClick()}"
+                    app:civ_border_color="@color/pink"
+                    app:civ_border_width="2dp"
+                    app:loadAvatar='@{(editProfileFragmentVM.avatar!=null?editProfileFragmentVM.avatar:" ")}'
+                    app:srcCompat="@drawable/doctor_placegolder" />
+
+                <com.Doctoor.app.widget.SquareImageView
+                    style="@style/Doctoor.App.ProfileEditIcon"
+                    android:contentDescription="@string/edit_icon"
+                    app:srcCompat="@drawable/ic_profile_edit" />
+
+            </FrameLayout>
+
+            <com.Doctoor.app.widget.TextViewRichDrawable
+                style="@style/Doctoor.App.Widget.TextView.Bold"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/margin_small"
+                android:text="@{editProfileFragmentVM.userManager.currentUser.full_name}"
+                android:textSize="@dimen/text_secondary_medium" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            style="@style/Doctoor.App.Layout.LinearLayout.Vertical.MatchParent"
+            android:padding="@dimen/padding">
+
+            <com.Doctoor.app.widget.validatedtextinputlayout.ValidatedTextInputLayout style="@style/Doctoor.App.Widget.TextInputLayout">
+
+                <com.Doctoor.app.widget.EditTextRichDrawable
+                    style="@style/Doctoor.App.Widget.TextInputEditText.FullName"
+                    android:imeOptions="actionNext"
+                    android:text="@={editProfileFragmentVM.fullName}"
+                    app:validateMinLength="@{4}"
+                    app:validateType='@{"username"}'
+                    app:validateTypeAutoDismiss="@{true}" />
+
+            </com.Doctoor.app.widget.validatedtextinputlayout.ValidatedTextInputLayout>
+
+            <com.Doctoor.app.widget.progressbutton.CircularProgressButton
+                android:id="@+id/save"
+                style="@style/Doctoor.App.Widget.Button.Login.CircularProgressButton"
+                android:onClick="@{()-> editProfileFragmentVM.onSave()}"
+                android:text="Save" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</layout>

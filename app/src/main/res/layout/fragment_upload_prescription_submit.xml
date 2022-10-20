@@ -1,0 +1,101 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="uploadPrescriptionSubmitVM"
+            type="com.Doctoor.app.ui.modules.upload_prescription_submit.UploadPrescriptionSubmitVM" />
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            style="@style/Doctoor.App.Layout.LinearLayout.Vertical.MatchParent"
+            android:padding="@dimen/padding">
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/Doctoor.App.Widget.TextView.Bold"
+                android:layout_width="wrap_content"
+                android:layout_marginStart="@dimen/margin_small"
+                android:text="@string/please_fill_in_the_following_details"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_primary_medium" />
+
+            <com.Doctoor.app.widget.validatedtextinputlayout.ValidatedTextInputLayout style="@style/Doctoor.App.Widget.TextInputLayout">
+
+                <com.Doctoor.app.widget.EditTextRichDrawable
+                    style="@style/Doctoor.App.Widget.TextInputEditText.FullName"
+                    android:imeOptions="actionNext"
+                    android:text="@={uploadPrescriptionSubmitVM.userName}"
+                    app:validateMinLength="@{4}"
+                    app:validateType='@{"username"}'
+                    app:validateTypeAutoDismiss="@{true}" />
+
+            </com.Doctoor.app.widget.validatedtextinputlayout.ValidatedTextInputLayout>
+
+            <com.Doctoor.app.widget.validatedtextinputlayout.ValidatedTextInputLayout
+                android:id="@+id/phone_layout"
+                style="@style/Doctoor.App.Widget.TextInputLayout">
+
+                <com.Doctoor.app.widget.EditTextRichDrawable
+                    style="@style/Doctoor.App.Widget.TextInputEditText.Phone"
+                    android:hint="@string/phone_no"
+                    android:imeOptions="actionNext"
+                    android:inputType="phone"
+                    android:text="@={uploadPrescriptionSubmitVM.phone}"
+                    app:validPhone='@{"^((\\+92)|(0092))-{0,1}\\d{3}-{0,1}\\d{7}$|^\\d{11}$|^\\d{4}-\\d{7}$"}'
+                    app:validateEmpty="@{true}"
+                    app:validateMaxLength="@{15}"
+                    app:validateMinLength="@{11}"
+                    app:validateTypeAutoDismiss="@{true}" />
+
+            </com.Doctoor.app.widget.validatedtextinputlayout.ValidatedTextInputLayout>
+
+            <com.Doctoor.app.widget.validatedtextinputlayout.ValidatedTextInputLayout style="@style/Doctoor.App.Widget.TextInputLayout">
+
+                <com.Doctoor.app.widget.EditTextRichDrawable
+                    style="@style/Doctoor.App.Widget.TextInputEditText.Email"
+                    android:imeOptions="actionNext"
+                    android:text="@={uploadPrescriptionSubmitVM.email}"
+                    app:validateType='@{"email"}'
+                    app:validateTypeAutoDismiss="@{true}" />
+
+            </com.Doctoor.app.widget.validatedtextinputlayout.ValidatedTextInputLayout>
+
+            <FrameLayout
+                style="@style/Doctoor.App.Layout.LinearLayout.Vertical.WrapContent"
+                android:layout_height="@dimen/prescription_upload_image_height"
+                android:layout_marginTop="@dimen/margin">
+
+                <com.Doctoor.app.widget.RatioImageView
+                    android:id="@+id/blurPrescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:imageUri="@{uploadPrescriptionSubmitVM.uri}"
+                    app:isBlur="@{true}" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/prescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/padding"
+                    app:imageUri="@{uploadPrescriptionSubmitVM.uri}"
+                    app:isBlur="@{false}" />
+
+            </FrameLayout>
+
+
+            <com.Doctoor.app.widget.progressbutton.CircularProgressButton
+                android:id="@+id/submit"
+                style="@style/Doctoor.App.Widget.Button.Login.CircularProgressButton"
+                android:layout_marginTop="10dp"
+                android:onClick="@{()-> uploadPrescriptionSubmitVM.onSubmit()}"
+                android:text="@string/submit" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </ScrollView>
+</layout>

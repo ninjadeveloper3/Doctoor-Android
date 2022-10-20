@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="itemViewModel"
+            type="com.Doctoor.app.ui.modules.select_lab.SelectLabCategoryItemVM" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="@dimen/elevationHigh"
+        app:cardElevation="@dimen/elevationLow">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:background="?android:attr/selectableItemBackground"
+            android:orientation="vertical"
+            android:padding="@dimen/padding">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/drawable_xx_larger"
+                android:layout_height="@dimen/drawable_xx_larger"
+                app:imageUrl="@{itemViewModel.item.category_logo}"
+                app:srcCompat="@drawable/ic_online_lab_test" />
+
+            <com.Doctoor.app.widget.TextViewRichDrawable
+                style="@style/Doctoor.App.Widget.TextView.Bold"
+                android:layout_height="wrap_content"
+                android:text="@{itemViewModel.item.test_category_name}"
+                android:textSize="@dimen/text_secondary_medium" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/Doctoor.App.Widget.TextView.Light"
+                android:text="Tests"
+                android:textSize="@dimen/text_primary_medium" />
+
+            <include
+                layout="@layout/item_arrow_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

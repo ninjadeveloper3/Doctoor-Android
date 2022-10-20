@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/priceunit"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:background="#D8D6D7"
+    android:gravity="center"
+    android:padding="@dimen/padding_small"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        style="@style/Doctoor.App.Widget.TextView.PrivacyPolicy"
+        android:background="@color/transparent"
+        android:maxLines="1"
+        android:text="@string/price_unit"
+        android:textColor="@color/black"
+        app:autoSizeMaxTextSize="13sp"
+        app:autoSizeMinTextSize="5sp"
+        app:autoSizeStepGranularity="1sp"
+        app:autoSizeTextType="uniform" />
+
+
+</LinearLayout>

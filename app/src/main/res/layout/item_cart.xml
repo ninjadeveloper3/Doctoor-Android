@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="cartItemVM"
+            type="com.Doctoor.app.ui.modules.cart.CartItemVM" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        style="@style/Doctoor.App.Layout.CardView.MedicineDetails"
+        android:layout_height="wrap_content"
+        app:contentPadding="@dimen/padding_medium">
+
+        <LinearLayout style="@style/Doctoor.App.Layout.LinearLayout.Horizontal.match_parent">
+
+            <!--Medicine Details-->
+            <androidx.appcompat.widget.LinearLayoutCompat
+                style="@style/Doctoor.App.Layout.LinearLayout.Vertical.WrapContent"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:visibility="@{cartItemVM.isMedicine ? View.VISIBLE : View.GONE,default=gone}">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/medicine_details"
+                    style="@style/Doctoor.App.Layout.LinearLayout.Horizontal.wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical">
+
+                    <com.Doctoor.app.widget.SquareImageView
+                        android:layout_width="@dimen/drawable_xx_larger"
+                        android:layout_height="@dimen/drawable_xx_larger"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center"
+                        android:background="@drawable/img_rounded_grey"
+                        android:padding="@dimen/padding_small"
+                        android:src="@drawable/ic_online_pharmacy"
+                        app:circularImageUrl="@{cartItemVM.url}" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/Doctoor.App.Widget.TextView.Bold"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_small"
+                        android:ellipsize="end"
+                        android:singleLine="true"
+                        android:text="@{cartItemVM.title}"
+                        android:textSize="@dimen/text_primary_x_normal" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/Doctoor.App.Widget.TextView.Light"
+                        android:layout_height="fill_parent"
+                        android:layout_marginStart="@dimen/margin_smallest"
+                        android:layout_marginLeft="@dimen/margin_smallest"
+                        android:layout_toEndOf="@id/name"
+                        android:gravity="center"
+                        android:textColor="@color/textColorHintPrimary"
+                        android:textSize="@dimen/text_secondary_small"
+                        app:unit="@{cartItemVM.unit}" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <RelativeLayout
+                    style="@style/Doctoor.App.Layout.LinearLayout.Horizontal.wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/quantityTV"
+                        style="@style/Doctoor.App.Widget.TextView.Bold"
+                        android:layout_height="fill_parent"
+                        android:layout_alignBaseline="@id/quantityView"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="@dimen/margin_smaller"
+                        android:gravity="center"
+                        android:text="@string/quantity"
+                        android:textSize="@dimen/text_secondary_small" />
+
+                    <com.Doctoor.app.widget.QuantityView
+                        android:id="@+id/quantityView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@+id/quantityTV"
+                        android:background="@color/white"
+                        app:OnQuantityChangeListenerWithData="@{cartItemVM}"
+                        app:item="@{cartItemVM.item}"
+                        app:qv_addButtonBackground="@color/white"
+                        app:qv_addButtonTextColor="@color/pink"
+                        app:qv_minQuantity="1"
+                        app:qv_quantity="@{cartItemVM.orderQuantity}"
+                        app:qv_quantityBackground="@drawable/bg_rounded_white"
+                        app:qv_quantityDialog="false"
+                        app:qv_quantityPadding="10dp"
+                        app:qv_removeButtonBackground="@color/white"
+                        app:qv_removeButtonTextColor="@color/pink" />
+
+                </RelativeLayout>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <!--Test Details-->
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/test_details"
+                style="@style/Doctoor.App.Layout.LinearLayout.Vertical.WrapContent"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:visibility="@{cartItemVM.isLabTest ? View.VISIBLE : View.GONE,default=visible}">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/Doctoor.App.Widget.TextView.Bold"
+                    android:ellipsize="end"
+                    android:maxLength="12"
+                    android:singleLine="true"
+                    android:text="@{cartItemVM.title}"
+                    android:textSize="@dimen/text_primary_x_normal" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/Doctoor.App.Widget.TextView.Light"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text="@{cartItemVM.description}"
+                    android:textSize="@dimen/text_primary_x_normal" />
+
+                <RelativeLayout
+                    style="@style/Doctoor.App.Layout.LinearLayout.Horizontal.wrap_content"
+                    android:layout_height="50dp"
+                    android:gravity="center_vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/testQuantityTV"
+                        style="@style/Doctoor.App.Widget.TextView.Bold"
+                        android:layout_height="fill_parent"
+                        android:layout_alignBaseline="@id/testQuantityView"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="@dimen/margin_smaller"
+                        android:gravity="center"
+                        android:text="@string/quantity"
+                        android:textSize="@dimen/text_secondary_small" />
+
+                    <com.Doctoor.app.widget.QuantityView
+                        android:id="@+id/testQuantityView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@+id/testQuantityTV"
+                        android:background="@color/white"
+                        app:OnQuantityChangeListenerWithData="@{cartItemVM}"
+                        app:item="@{cartItemVM.item}"
+                        app:qv_addButtonBackground="@color/white"
+                        app:qv_addButtonTextColor="@color/pink"
+                        app:qv_minQuantity="1"
+                        app:qv_quantity="@{cartItemVM.orderQuantity}"
+                        app:qv_quantityBackground="@drawable/bg_rounded_white"
+                        app:qv_quantityDialog="false"
+                        app:qv_quantityPadding="10dp"
+                        app:qv_removeButtonBackground="@color/white"
+                        app:qv_removeButtonTextColor="@color/pink" />
+
+                </RelativeLayout>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <!--Equipment Details-->
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                style="@style/Doctoor.App.Layout.LinearLayout.Vertical.WrapContent"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:visibility="@{cartItemVM.isEquipment ? View.VISIBLE : View.GONE,default=gone}">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/equipment_details"
+                    style="@style/Doctoor.App.Layout.LinearLayout.Horizontal.wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical">
+
+                    <com.Doctoor.app.widget.SquareImageView
+                        android:layout_width="@dimen/drawable_xx_larger"
+                        android:layout_height="@dimen/drawable_xx_larger"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center"
+                        android:background="@drawable/img_rounded_grey"
+                        android:padding="@dimen/padding_small"
+                        app:circularImageUrl="@{cartItemVM.url}" />
+
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        style="@style/Doctoor.App.Layout.LinearLayout.Vertical.WrapContent"
+                        android:layout_marginStart="@dimen/margin_medium"
+                        android:layout_weight="1">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/Doctoor.App.Widget.TextView.Bold"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:singleLine="true"
+                            android:text="@{cartItemVM.title}"
+                            android:textSize="@dimen/text_primary_x_normal" />
+
+                        <com.Doctoor.app.widget.TextViewRichDrawable
+                            style="@style/Doctoor.App.Widget.TextView.Bold"
+                            android:layout_gravity="start"
+                            android:drawablePadding="@dimen/padding_smallest"
+                            android:text="@{cartItemVM.brand}"
+                            android:textAllCaps="true"
+                            android:textColor="@color/shakespeare" />
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    style="@style/Doctoor.App.Layout.LinearLayout.Vertical.WrapContent"
+                    android:layout_width="200dp"
+                    android:layout_height="50dp">
+
+                    <RelativeLayout
+                        style="@style/Doctoor.App.Layout.LinearLayout.Horizontal.wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/equipmentQuantityTV"
+                            style="@style/Doctoor.App.Widget.TextView.Bold"
+                            android:layout_height="fill_parent"
+                            android:layout_alignBaseline="@id/equipmentQuantityView"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginTop="@dimen/margin_smaller"
+                            android:gravity="center"
+                            android:text="@string/quantity"
+                            android:textSize="@dimen/text_secondary_small" />
+
+                        <com.Doctoor.app.widget.QuantityView
+                            android:id="@+id/equipmentQuantityView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_toEndOf="@+id/equipmentQuantityTV"
+                            android:background="@color/white"
+                            app:OnQuantityChangeListenerWithData="@{cartItemVM}"
+                            app:item="@{cartItemVM.item}"
+                            app:qv_addButtonBackground="@color/white"
+                            app:qv_addButtonTextColor="@color/pink"
+                            app:qv_minQuantity="1"
+                            app:qv_quantity="@{cartItemVM.orderQuantity}"
+                            app:qv_quantityBackground="@drawable/bg_rounded_white"
+                            app:qv_quantityDialog="false"
+                            app:qv_quantityPadding="10dp"
+                            app:qv_removeButtonBackground="@color/white"
+                            app:qv_removeButtonTextColor="@color/pink" />
+
+                    </RelativeLayout>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+            <View
+                android:layout_width="0.5dp"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/margin_small"
+                android:background="@color/grey" />
+
+            <RelativeLayout
+                style="@style/Doctoor.App.Layout.LinearLayout.Vertical.WrapContent"
+                android:layout_height="fill_parent"
+                android:layout_weight="2">
+
+                <com.Doctoor.app.widget.SquareImageView
+                    android:layout_width="17dp"
+                    android:layout_height="14dp"
+                    android:layout_alignParentEnd="true"
+                    android:background="?attr/actionBarItemBackground"
+                    android:contentDescription="@string/lab_icon"
+                    android:onClick="@{()-> cartItemVM.onCrossClick(cartItemVM.item)}"
+                    app:srcCompat="@drawable/ic_cross" />
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    style="@style/Doctoor.App.Layout.LinearLayout.Vertical.WrapContent"
+                    android:layout_width="wrap_content"
+                    android:layout_centerVertical="true">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/Doctoor.App.Widget.TextView.Bold"
+                        android:text="Price"
+                        android:textSize="@dimen/text_primary_medium" />
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/priceHolder"
+                        style="@style/Doctoor.App.Layout.LinearLayout.Horizontal.wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/Doctoor.App.Widget.TextView.Light"
+                            android:layout_gravity="center"
+                            android:text="@string/rupees"
+                            android:textAlignment="center" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/Doctoor.App.Widget.TextView.Bold"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="@dimen/margin_smaller"
+                            android:textAlignment="center"
+                            android:textColor="@color/pink"
+                            android:textSize="@dimen/text_primary_normal"
+                            app:itemPrice="@{cartItemVM.price}" />
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

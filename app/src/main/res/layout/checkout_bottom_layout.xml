@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        style="@style/Doctoor.App.Layout.LinearLayout.Horizontal.wrap_content"
+        android:background="@color/transparent"
+        android:layout_width="match_parent">
+
+    <FrameLayout
+            android:background="@color/design_default_color_primary"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/padding"
+            android:layout_weight="1">
+
+        <com.Doctoor.app.widget.TextViewRichDrawable
+                style="@style/Doctoor.App.Widget.TextView.LeftDrawable"
+                android:text="Checkout"
+                android:drawableStart="@drawable/ic_continue_shopping"
+                android:drawableLeft="@drawable/ic_continue_shopping"/>
+
+    </FrameLayout>
+
+    <FrameLayout
+            android:background="@color/dark_cyan"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/padding"
+            android:layout_weight="1">
+
+        <com.Doctoor.app.widget.TextViewRichDrawable
+                style="@style/Doctoor.App.Widget.TextView.LeftDrawable"
+                android:text="@string/continue_shopping"
+                android:drawableStart="@drawable/ic_continue_shopping"
+                android:drawableLeft="@drawable/ic_continue_shopping"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"/>
+
+    </FrameLayout>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

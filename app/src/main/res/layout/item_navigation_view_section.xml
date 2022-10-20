@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable name="navigationItemVM" type="com.Doctoor.app.ui.modules.main.NavigationItemVM"/>
+
+    </data>
+    <androidx.appcompat.widget.AppCompatTextView
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:textColor="@color/white"
+            android:text="Shop by categories"
+            android:background="@color/blue"
+            android:paddingStart="@dimen/padding"
+            android:paddingEnd="@dimen/padding"
+            android:paddingTop="@dimen/padding"
+            android:paddingBottom="@dimen/padding"
+            android:layout_height="wrap_content"
+            app:fontFamily="@font/mark_pro_bold"
+            android:textSize="@dimen/text_primary_medium"
+            android:fontFamily="@font/mark_pro_bold"/>
+</layout>

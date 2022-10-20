@@ -1,0 +1,459 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="medicineDetailsVM"
+            type="com.Doctoor.app.ui.modules.medicine.details.MedicineDetailsVM" />
+
+        <import type="android.view.View" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/light_sky_blue"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/noticeTv"
+            layout="@layout/prices_change"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true" />
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/shopping_layout"
+            android:layout_below="@+id/noticeTv">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                style="@style/Doctoor.App.Layout.LinearLayout.Vertical.WrapContent"
+                android:background="@color/transparent"
+                android:padding="@dimen/padding">
+
+
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/Doctoor.App.Layout.CardView.MedicineDetails"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="@dimen/margin_small"
+                    app:useHeight="true">
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        style="@style/Doctoor.App.Layout.LinearLayout.Vertical.WrapContent"
+                        android:gravity="center">
+
+                        <com.Doctoor.app.widget.AspectRatioImageView
+                            style="@style/Doctoor.App.Widget.AppLogo"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginBottom="5dp"
+                            android:src="@drawable/ic_online_pharmacy"
+                            app:aspectRatio=".6"
+                            app:imageUrl="@{medicineDetailsVM.product.medicineImage}" />
+
+                        <!--Divider-->
+
+                        <include layout="@layout/horizontal_divider" />
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            style="@style/Doctoor.App.Layout.LinearLayout.Horizontal.match_parent"
+                            android:layout_marginTop="@dimen/margin">
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                style="@style/Doctoor.App.Layout.LinearLayout.Vertical.WrapContent"
+                                android:layout_height="50dp"
+                                android:layout_weight="1">
+
+                                <androidx.appcompat.widget.LinearLayoutCompat
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center">
+
+                                    <androidx.appcompat.widget.AppCompatTextView
+                                        style="@style/Doctoor.App.Widget.TextView.Bold"
+                                        android:layout_height="wrap_content"
+                                        android:ellipsize="end"
+                                        android:maxLength="12"
+                                        android:singleLine="true"
+                                        android:text="@{medicineDetailsVM.product.medicineName}"
+                                        android:textSize="@dimen/text_secondary_medium" />
+
+                                    <androidx.appcompat.widget.AppCompatTextView
+                                        android:id="@+id/mass"
+                                        style="@style/Doctoor.App.Widget.TextView.Light"
+                                        android:layout_height="fill_parent"
+                                        android:layout_marginStart="@dimen/margin_smallest"
+                                        android:layout_marginLeft="@dimen/margin_smallest"
+                                        android:layout_toEndOf="@id/name"
+                                        android:gravity="center"
+                                        android:textSize="@dimen/text_secondary_small"
+                                        app:unit="@{medicineDetailsVM.product.unit}" />
+
+                                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                                <com.Doctoor.app.widget.TextViewRichDrawable
+                                    style="@style/Doctoor.App.Widget.TextView.LeftDrawable"
+                                    android:layout_gravity="start"
+                                    android:drawablePadding="@dimen/padding_smallest"
+                                    android:text="@{medicineDetailsVM.product.composition}"
+                                    android:textColor="@color/grey" />
+
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+
+                            <RelativeLayout
+                                style="@style/Doctoor.App.Layout.LinearLayout.Horizontal.wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/quantityTV"
+                                    style="@style/Doctoor.App.Widget.TextView.Bold"
+                                    android:layout_height="fill_parent"
+                                    android:layout_alignBaseline="@id/quantityView"
+                                    android:layout_centerVertical="true"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginTop="@dimen/margin_smaller"
+                                    android:gravity="center"
+                                    android:text="@string/quantity"
+                                    android:textSize="@dimen/text_secondary_small" />
+
+                                <com.Doctoor.app.widget.QuantityView
+                                    android:id="@+id/quantityView"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:layout_toEndOf="@+id/quantityTV"
+                                    android:background="@color/white"
+                                    app:OnQuantityChangeListener="@{medicineDetailsVM}"
+                                    app:qv_addButtonBackground="@color/white"
+                                    app:qv_addButtonTextColor="@color/pink"
+                                    app:qv_minQuantity="1"
+                                    app:qv_quantity="@{medicineDetailsVM.product.orderQuantity}"
+                                    app:qv_quantityBackground="@drawable/bg_rounded_white"
+                                    app:qv_quantityDialog="false"
+                                    app:qv_quantityPadding="10dp"
+                                    app:qv_removeButtonBackground="@color/white"
+                                    app:qv_removeButtonTextColor="@color/pink" />
+
+                            </RelativeLayout>
+
+                            <!--
+                            <include
+                                layout="@layout/layout_quantity"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                app:availableQuantity="@{medicineDetailsVM.product.availableQuantity}" />-->
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            style="@style/Doctoor.App.Layout.LinearLayout.Horizontal.match_parent"
+                            android:layout_marginTop="@dimen/margin"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_rounded_corner_grey"
+                            android:padding="@dimen/padding_small">
+
+                            <com.Doctoor.app.widget.TextViewRichDrawable
+                                style="@style/Doctoor.App.Widget.TextView.Bold"
+                                android:layout_width="match_parent"
+                                android:layout_weight="0.7"
+                                android:drawableStart="@drawable/ic_prescription"
+                                android:drawableLeft="@drawable/ic_prescription"
+                                android:drawablePadding="@dimen/padding_small"
+                                android:gravity="start|center"
+                                android:text="@{medicineDetailsVM.product.isPrescriptionReq==0? @string/prescription_not_required: @string/prescription_required}"
+                                app:compoundDrawableHeight="35dp"
+                                app:compoundDrawableWidth="35dp" />
+
+                            <View
+                                android:layout_width="0.5dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="@dimen/margin_small"
+                                android:layout_marginRight="@dimen/margin_small"
+                                android:background="@color/grey" />
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <com.Doctoor.app.widget.SquareImageView
+                                    android:layout_width="@dimen/drawable_largers"
+                                    android:layout_height="@dimen/drawable_largers"
+                                    android:layout_centerVertical="true"
+                                    android:contentDescription="@string/lab_icon"
+                                    app:srcCompat="@drawable/ic_price" />
+
+                                <androidx.appcompat.widget.LinearLayoutCompat
+                                    android:id="@+id/priceLKayout"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginStart="@dimen/margin"
+                                    android:orientation="vertical">
+
+                                    <androidx.appcompat.widget.AppCompatTextView
+                                        android:id="@+id/payableTitle"
+                                        style="@style/Doctoor.App.Widget.TextView.Bold"
+                                        android:text="@string/total_payable"
+                                        android:textSize="@dimen/text_secondary_smaller" />
+
+
+                                    <androidx.appcompat.widget.LinearLayoutCompat
+                                        style="@style/Doctoor.App.Layout.LinearLayout.Horizontal.wrap_content"
+                                        android:baselineAligned="@+id/payableTitle"
+                                        android:gravity="center">
+
+                                        <androidx.appcompat.widget.AppCompatTextView
+                                            style="@style/Doctoor.App.Widget.TextView.Bold"
+                                            android:layout_height="fill_parent"
+                                            android:layout_gravity="center"
+                                            android:text="@string/rupees"
+                                            android:textAlignment="center" />
+
+                                        <androidx.appcompat.widget.AppCompatTextView
+                                            style="@style/Doctoor.App.Widget.TextView.Bold"
+                                            android:layout_height="fill_parent"
+                                            android:layout_gravity="center"
+                                            android:textAlignment="center"
+                                            android:textColor="@color/pink"
+                                            app:itemPrice="@{medicineDetailsVM.totalPrice}" />
+
+                                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                            </RelativeLayout>
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    style="@style/Doctoor.App.Layout.LinearLayout.Horizontal.match_parent"
+                    android:layout_marginTop="@dimen/margin">
+
+                    <com.google.android.material.card.MaterialCardView
+                        style="@style/Doctoor.App.Layout.CardView.MedicineDetails"
+                        android:layout_height="fill_parent"
+                        android:layout_marginEnd="@dimen/margin_small"
+                        android:visibility="gone">
+
+                        <LinearLayout style="@style/Doctoor.App.Layout.LinearLayout.Vertical.WrapContent">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                style="@style/Doctoor.App.Widget.TextView.Light"
+                                android:text="@string/med_primary_use"
+                                android:textColor="@color/blue" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                style="@style/Doctoor.App.Widget.TextView.Light"
+                                android:text="@{medicineDetailsVM.product.primaryUse}" />
+
+                        </LinearLayout>
+
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        style="@style/Doctoor.App.Layout.CardView.MedicineDetails"
+                        android:layout_height="fill_parent"
+                        android:layout_marginStart="@dimen/margin_small"
+                        android:visibility="gone">
+
+                        <LinearLayout style="@style/Doctoor.App.Layout.LinearLayout.Vertical.WrapContent">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                style="@style/Doctoor.App.Widget.TextView.Light"
+                                android:text="@string/med_composition"
+                                android:textColor="@color/blue" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                style="@style/Doctoor.App.Widget.TextView.Light"
+                                android:text="@{medicineDetailsVM.product.composition}" />
+
+                        </LinearLayout>
+
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                <com.github.florent37.expansionpanel.ExpansionHeader
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin"
+                    android:visibility="@{medicineDetailsVM.showIndications ?View.VISIBLE:View.GONE,default=visible}"
+                    app:expansion_headerIndicator="@id/headerIndicator"
+                    app:expansion_layout="@id/expansionLayout"
+                    app:expansion_toggleOnClick="true">
+
+                    <com.google.android.material.card.MaterialCardView
+                        style="@style/Doctoor.App.Layout.CardView.MedicineDetails"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    style="@style/Doctoor.App.Widget.TextView.Bold"
+                                    android:layout_height="fill_parent"
+                                    android:layout_centerVertical="true"
+                                    android:text="Indications"
+                                    android:textSize="@dimen/text_primary_medium" />
+
+                                <ImageView
+                                    android:id="@+id/headerIndicator"
+                                    android:layout_width="36dp"
+                                    android:layout_height="36dp"
+                                    android:layout_alignParentRight="true"
+                                    android:adjustViewBounds="true"
+                                    android:contentDescription="@string/todo"
+                                    app:srcCompat="@drawable/ic_expension_header_indecator_pink" />
+
+                            </RelativeLayout>
+
+                            <com.github.florent37.expansionpanel.ExpansionLayout
+                                android:id="@+id/expansionLayout"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    style="@style/Doctoor.App.Widget.TextView.MedicineWarning"
+                                    android:layout_height="fill_parent"
+                                    android:paddingStart="0dp"
+                                    android:text="@{medicineDetailsVM.product.primaryUse}" />
+                            </com.github.florent37.expansionpanel.ExpansionLayout>
+                        </LinearLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                </com.github.florent37.expansionpanel.ExpansionHeader>
+
+                <!--Warning layout-->
+
+
+                <com.github.florent37.expansionpanel.ExpansionHeader
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin"
+                    android:visibility="@{medicineDetailsVM.showContradictions ?View.VISIBLE:View.GONE,default=visible}"
+                    app:expansion_headerIndicator="@id/warning_headerIndicator"
+                    app:expansion_layout="@id/warning_expansionLayout"
+                    app:expansion_toggleOnClick="true">
+
+                    <com.google.android.material.card.MaterialCardView
+                        style="@style/Doctoor.App.Layout.CardView.MedicineDetails"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    style="@style/Doctoor.App.Widget.TextView.Bold"
+                                    android:layout_height="fill_parent"
+                                    android:layout_centerVertical="true"
+                                    android:text="Contradiction"
+                                    android:textSize="@dimen/text_primary_medium" />
+
+                                <ImageView
+                                    android:id="@+id/warning_headerIndicator"
+                                    android:layout_width="36dp"
+                                    android:layout_height="36dp"
+                                    android:layout_alignParentEnd="true"
+                                    android:adjustViewBounds="true"
+                                    android:contentDescription="@string/todo"
+                                    app:srcCompat="@drawable/ic_expension_header_indecator_pink" />
+
+                            </RelativeLayout>
+
+                            <com.github.florent37.expansionpanel.ExpansionLayout
+                                android:id="@+id/warning_expansionLayout"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:orientation="vertical">
+
+                                    <com.Doctoor.app.widget.TextViewRichDrawable
+                                        style="@style/Doctoor.App.Widget.TextView.MedicineWarning"
+                                        android:paddingStart="0dp"
+                                        app:warnings="@{medicineDetailsVM.product.warnings}" />
+
+                                </LinearLayout>
+
+                            </com.github.florent37.expansionpanel.ExpansionLayout>
+                        </LinearLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                </com.github.florent37.expansionpanel.ExpansionHeader>
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </ScrollView>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/shopping_layout"
+            style="@style/Doctoor.App.Layout.LinearLayout.Horizontal.match_parent"
+            android:layout_alignParentBottom="true"
+            android:background="@color/transparent">
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/design_default_color_primary"
+                android:onClick="@{()-> medicineDetailsVM.onCartClick(medicineDetailsVM.product)}">
+
+
+                <com.Doctoor.app.widget.TextViewRichDrawable
+                    style="@style/Doctoor.App.Widget.TextView.CheckOut"
+                    android:onClick="@{()-> medicineDetailsVM.onCartClick(medicineDetailsVM.product)}"
+                    android:text="@{medicineDetailsVM.isInCart ? @string/delete_from_cart : @string/add_to_cart }" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/dark_cyan"
+                android:onClick="@{()-> medicineDetailsVM.continueShopping()}">
+
+                <com.Doctoor.app.widget.TextViewRichDrawable
+
+
+                    style="@style/Doctoor.App.Widget.TextView.ContinueShopping" />
+
+            </FrameLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </RelativeLayout>
+</layout>

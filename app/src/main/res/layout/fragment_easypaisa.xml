@@ -1,0 +1,109 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+                name="easypaisaPaymentVM"
+                type="com.Doctoor.app.ui.modules.easypaisa.EasypaisaPaymentVM" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <RelativeLayout
+            style="@style/Doctoor.App.Widget.RelativeLayout"
+            android:padding="16dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/easyPaisaLogo"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/margin"
+                android:layout_marginBottom="@dimen/margin"
+                android:src="@drawable/logo_easypaisa"
+                android:visibility="@{easypaisaPaymentVM.isCCPayment()?View.GONE:View.VISIBLE,default=visible}" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+                style="@style/Doctoor.App.Layout.LinearLayout.Vertical.WrapContent"
+                android:layout_centerInParent="true"
+                android:visibility="@{easypaisaPaymentVM.isCCPayment()?View.GONE:View.VISIBLE,default=visible}">
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/email_layout"
+                    style="@style/Doctoor.App.Widget.TextInputLayout">
+
+                <com.Doctoor.app.widget.EditTextRichDrawable
+                        android:id="@+id/email"
+                        style="@style/Doctoor.App.Widget.TextInputEditText.Email"
+                        android:drawableEnd="@drawable/ic_email_address"
+                        android:drawableRight="@drawable/ic_email_address"
+                        android:drawableTint="#26B15D"
+                        android:hint="@string/email_address"
+                        android:inputType="textEmailAddress"
+                        android:text="@={easypaisaPaymentVM.email}"
+                        app:validateEmpty="@{true}"
+                        app:validateType='@{"email"}'
+                        app:validateTypeAutoDismiss="@{true}" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/phone_layout"
+                    style="@style/Doctoor.App.Widget.TextInputLayout">
+
+                <com.Doctoor.app.widget.EditTextRichDrawable
+                        android:id="@+id/phone"
+                        style="@style/Doctoor.App.Widget.TextInputEditText.Phone"
+                        android:drawableEnd="@drawable/ic_phone"
+                        android:drawableRight="@drawable/ic_phone"
+                        android:drawableTint="#26B15D"
+                        android:hint="@string/phone_no"
+                        android:inputType="phone"
+                        android:text="@={easypaisaPaymentVM.phone}"
+                        app:validPhone='@{"^((\\+92)|(0092))-{0,1}\\d{3}-{0,1}\\d{7}$|^\\d{11}$|^\\d{4}-\\d{7}$"}'
+                        app:validateEmpty="@{true}"
+                        app:validateMaxLength="@{15}"
+                        app:validateMinLength="@{11}"
+                        app:validateTypeAutoDismiss="@{true}" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.Doctoor.app.widget.progressbutton.CircularProgressButton
+                    android:id="@+id/continueBtn"
+                    style="@style/Doctoor.App.Widget.Button.Login.CircularProgressButton"
+                    android:onClick="@{()->easypaisaPaymentVM.onEasyPaisaPayment()}"
+                    android:text="@string/proceed" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/cancelBtn"
+                    style="@style/Doctoor.App.Widget.Button.Login.CircularProgressButton"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:background="@drawable/btn_danger_rounded_selector"
+                    android:onClick="@{()->easypaisaPaymentVM.onCancelTransaction()}"
+                    android:text="@string/cancel_transaction" />
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <WebView
+                android:id="@+id/paymentWebView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:visibility="@{easypaisaPaymentVM.isCCPayment()?View.VISIBLE:View.GONE,default=gone}" />
+
+        <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:visibility="@{easypaisaPaymentVM.isProgressShow() ? View.VISIBLE : View.GONE,default=gone}" />
+
+    </RelativeLayout>
+
+</layout>

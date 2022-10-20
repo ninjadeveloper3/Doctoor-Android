@@ -1,0 +1,117 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+                name="landingFragmentVM"
+                type="com.Doctoor.app.ui.modules.landing.LandingFragmentVM" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/appCompatImageView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitStart"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/bg_landing" />
+
+        <View
+                android:id="@+id/view2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@color/transparent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+                android:id="@+id/view3"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view2" />
+
+
+        <View
+                android:id="@+id/marginSpacer"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginBottom="50dp"
+                app:layout_constraintBottom_toBottomOf="@+id/view2"
+                app:layout_constraintLeft_toLeftOf="@id/appCompatImageView"
+                app:layout_constraintRight_toRightOf="@id/appCompatImageView" />
+
+        <com.google.android.material.card.MaterialCardView
+                android:id="@+id/materialCardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_xx_large"
+                android:layout_marginEnd="@dimen/margin_xx_large"
+                app:cardCornerRadius="@dimen/padding"
+                app:cardElevation="@dimen/elevationMax"
+                app:contentPaddingBottom="@dimen/margin_xx_large"
+                app:contentPaddingTop="@dimen/margin_xx_large"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/marginSpacer">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_xx_large"
+                    android:layout_marginEnd="@dimen/margin_xx_large"
+                    android:orientation="vertical">
+
+                <com.Doctoor.app.widget.TextViewRichDrawable
+                        style="@style/Doctoor.App.Widget.TextView.Landing"
+                        android:drawableStart="@drawable/ic_login"
+                        android:onClick="@{()-> landingFragmentVM.onLogin()}"
+                        android:text="@string/sign_in" />
+
+                <com.Doctoor.app.widget.TextViewRichDrawable
+                        style="@style/Doctoor.App.Widget.TextView.Landing"
+                        android:layout_marginTop="@dimen/margin"
+                        android:drawableStart="@drawable/ic_sign_up"
+                        android:onClick="@{()-> landingFragmentVM.onSignup()}"
+                        android:text="@string/sign_up" />
+
+
+                <com.Doctoor.app.widget.TextViewRichDrawable
+                        style="@style/Doctoor.App.Widget.TextView.Landing"
+                        android:layout_marginTop="@dimen/margin"
+                        android:background="@drawable/bg_btn_login_normal_border_selector"
+                        android:drawableEnd="@null"
+                        android:gravity="center"
+                        android:onClick="@{()-> landingFragmentVM.onCorporateSignup()}"
+                        android:paddingTop="@dimen/padding_lager"
+                        android:paddingBottom="@dimen/padding_lager"
+                        android:text="@string/corporate_sign_up" />
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </com.google.android.material.card.MaterialCardView>
+
+        <include
+                layout="@layout/privacy_policy"
+                app:browserBaseViewModel="@{landingFragmentVM}" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
+
+
+
+

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="user"
+            type="com.Doctoor.app.model.response.UserResponse.User" />
+
+        <variable
+            name="mainActivityVM"
+            type="com.Doctoor.app.ui.modules.main.MainActivityVM" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bg_gray"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/margin"
+        android:paddingBottom="@dimen/margin"
+        tools:ignore="HardcodedText">
+
+        <com.Doctoor.app.widget.CircleImageView
+            android:id="@+id/imageView"
+            style="@style/Doctoor.App.CircularImage"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="@dimen/margin_medium"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:loadAvatar='@{user!=null ? (user.avatar!=null?user.avatar:" "):" "}'
+            app:srcCompat="@drawable/ic_user_profile" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:layout_marginEnd="@dimen/margin_medium"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/userName"
+                style="@style/Doctoor.App.Widget.TextView.FullName.Bold"
+                android:text='@{user!=null ?user.full_name:""}' />
+
+            <com.Doctoor.app.widget.TextViewRichDrawable
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableEnd="@drawable/ic_arrow_right_blue"
+                android:drawableRight="@drawable/ic_arrow_right_blue"
+                android:fontFamily="@font/mark_pro_medium"
+                android:includeFontPadding="false"
+                android:onClick="@{()-> mainActivityVM.onLogin()}"
+                android:text='@{user!=null ?@string/sign_out:@string/or_sign_in}'
+                android:textColor="@color/blue"
+                app:compoundDrawableHeight="18dp"
+                app:compoundDrawableWidth="18dp"
+                app:fontFamily="@font/mark_pro_medium" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+

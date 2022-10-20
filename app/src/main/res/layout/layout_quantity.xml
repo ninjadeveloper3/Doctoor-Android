@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="availableQuantity"
+            type="java.lang.Integer" />
+    </data>
+
+    <RelativeLayout
+        style="@style/Doctoor.App.Layout.LinearLayout.Horizontal.wrap_content"
+        android:layout_height="50dp"
+        android:gravity="center_vertical">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:text="@string/quantity"
+            android:textSize="@dimen/text_secondary_small"
+            android:layout_gravity="center_vertical"
+            android:gravity="center"
+            android:id="@+id/quantityTV"
+            android:layout_marginTop="@dimen/margin_smaller"
+            android:layout_alignBaseline="@id/quantityView"
+            style="@style/Doctoor.App.Widget.TextView.Bold"
+            android:layout_height="fill_parent"/>
+
+        <com.Doctoor.app.widget.QuantityView
+            android:id="@+id/quantityView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            app:qv_quantity="1"
+            app:qv_addButtonBackground="@color/white"
+            app:qv_removeButtonBackground="@color/white"
+            app:qv_quantityBackground="@drawable/bg_rounded_white"
+            app:qv_removeButtonTextColor="@color/pink"
+            app:qv_addButtonTextColor="@color/pink"
+            app:qv_quantityDialog="false"
+            app:qv_maxQuantity="10"
+            app:qv_minQuantity="1"
+            app:qv_quantityPadding="10dp"
+            android:layout_toEndOf="@+id/quantityTV"
+            android:layout_centerVertical="true" />
+
+    </RelativeLayout>
+</layout>

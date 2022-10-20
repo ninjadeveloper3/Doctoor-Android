@@ -1,0 +1,154 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+
+        <import type="com.Doctoor.app.data.source.Status" />
+
+        <variable
+                name="loginFragmentVM"
+                type="com.Doctoor.app.ui.modules.login.LoginFragmentVM" />
+    </data>
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            android:orientation="vertical">
+
+        <ScrollView
+                android:id="@+id/mainLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingBottom="@dimen/padding">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/linearLayoutCompat"
+                        style="@style/Doctoor.App.Layout.LinearLayout.Vertical.MatchParent"
+                        android:paddingStart="@dimen/padding"
+                        android:paddingEnd="@dimen/padding">
+
+                    <com.Doctoor.app.widget.AspectRatioImageView
+                            style="@style/Doctoor.App.Widget.AppLogo"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="@dimen/margin_larger" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/phone_layout"
+                            style="@style/Doctoor.App.Widget.TextInputLayout">
+
+                        <com.Doctoor.app.widget.EditTextRichDrawable
+                                android:id="@+id/phone"
+                                style="@style/Doctoor.App.Widget.TextInputEditText.Phone"
+                                android:hint="@string/phone_no"
+                                android:inputType="phone"
+                                android:text="@={loginFragmentVM.phone}"
+                                app:validPhone='@{"^((\\+92)|(0092))-{0,1}\\d{3}-{0,1}\\d{7}$|^\\d{11}$|^\\d{4}-\\d{7}$"}'
+                                app:validateEmpty="@{true}"
+                                app:validateMaxLength="@{15}"
+                                app:validateMinLength="@{11}"
+                                app:validateTypeAutoDismiss="@{true}" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/password_layout"
+                            style="@style/Doctoor.App.Widget.TextInputLayout"
+                            android:layout_below="@+id/phone_layout">
+
+                        <com.Doctoor.app.widget.EditTextRichDrawable
+                                android:id="@+id/password"
+                                style="@style/Doctoor.App.Widget.TextInputEditText.Password"
+                                android:imeOptions="actionDone"
+                                android:text="@={loginFragmentVM.password}"
+                                app:isHidden="@{true}"
+                                app:validateEmpty="@{true}"
+                                app:validateMaxLength="@{15}"
+                                app:validateMinLength="@{6}" />
+
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.Doctoor.app.widget.progressbutton.CircularProgressButton
+                            android:id="@+id/login"
+                            style="@style/Doctoor.App.Widget.Button.Login.CircularProgressButton"
+                            android:onClick="@{()-> loginFragmentVM.onLogin()}"
+                            android:text="@string/sign_in" />
+
+                    <RelativeLayout
+                            style="@style/Doctoor.App.Layout.LinearLayout.Horizontal.match_parent"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="@dimen/activity_layout_margin"
+                            android:paddingStart="@dimen/padding"
+                            android:paddingEnd="@dimen/padding">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                                style="@style/Doctoor.App.Widget.TextView.ForgotPassword"
+                                android:layout_alignParentStart="true"
+                                android:onClick="@{()-> loginFragmentVM.onForgotPassword()}" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                                style="@style/Doctoor.App.Widget.TextView.ForgotPassword"
+                                android:layout_alignParentEnd="true"
+                                android:onClick="@{()-> loginFragmentVM.onSignup()}"
+                                android:text="@string/register_now" />
+                    </RelativeLayout>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <com.Doctoor.app.widget.LineThroughTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:lt_lineColor="@color/grey"
+                        app:lt_text="@string/or_text"
+                        app:lt_textPadding="@dimen/padding_medium"
+                        app:lt_textSize="@dimen/text_primary_normal" />
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                        style="@style/Doctoor.App.Layout.LinearLayout.Horizontal.wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/margin">
+
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/margin_small"
+                            android:onClick="@{()-> loginFragmentVM.onFbLogin()}"
+                            android:src="@drawable/ic_facebook"
+                            app:backgroundTint="#1a72d6"
+                            app:elevation="0dp"
+                            app:fabCustomSize="56dp"
+                            app:maxImageSize="40dp"
+                            app:srcCompat="@drawable/ic_facebook" />
+
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/margin_small"
+                            android:onClick="@{()->loginFragmentVM.onGoogleLogin()}"
+                            android:src="@drawable/ic_google_plus"
+                            app:backgroundTint="#DE0044"
+                            app:elevation="0dp"
+                            app:fabCustomSize="56dp"
+                            app:maxImageSize="40dp"
+                            app:srcCompat="@drawable/ic_google_plus" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </ScrollView>
+
+        <include
+                layout="@layout/privacy_policy"
+                app:browserBaseViewModel="@{loginFragmentVM}" />
+
+    </RelativeLayout>
+</layout>

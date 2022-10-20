@@ -1,0 +1,276 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+                name="homeFragmentVM"
+                type="com.Doctoor.app.ui.modules.dashboard.HomeFragmentVM" />
+
+    </data>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/refreshLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_behavior="@string/scroll_behavior">
+
+        <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/light_sky_blue"
+                    android:orientation="vertical">
+
+                <com.Doctoor.app.widget.slider.SliderView
+                        android:id="@+id/imageSlider"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:layout_marginBottom="@dimen/margin_small"
+
+                        android:adjustViewBounds="true"
+                        app:sliderAdapter="@{homeFragmentVM.sliderAdapter}"
+                        app:sliderAnimationDuration="3000"
+                        app:sliderAutoCycleDirection="back_and_forth"
+                        app:sliderAutoCycleEnabled="true"
+                        app:sliderCircularHandlerEnabled="true"
+                        app:sliderIndicatorAnimationDuration="3000"
+                        app:sliderIndicatorGravity="center_horizontal|bottom"
+                        app:sliderIndicatorMargin="15dp"
+                        app:sliderIndicatorOrientation="horizontal"
+                        app:sliderIndicatorPadding="3dp"
+                        app:sliderIndicatorRadius="2dp"
+                        app:sliderIndicatorSelectedColor="@color/md_purple_800"
+                        app:sliderIndicatorUnselectedColor="@color/grey_100"
+                        app:sliderScrollTimeInSec="5"
+                        app:sliderStartAutoCycle="true" />
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/linearLayoutCompat2"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                    <androidx.appcompat.widget.LinearLayoutCompat style="@style/Doctoor.App.Layout.LinearLayout.Horizontal.match_parent">
+
+                        <com.google.android.material.card.MaterialCardView
+                                style="@style/Doctoor.App.Layout.CardView.Home"
+                                android:layout_width="0dp"
+                                android:layout_marginEnd="@dimen/margin_small"
+                                android:layout_weight="1"
+                                android:background="?android:attr/selectableItemBackground"
+                                android:onClick="@{()-> homeFragmentVM.gotoLabTest()}"
+                                app:cardBackgroundColor="@android:color/white">
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:layout_width="match_parent"
+                                android:layout_height="172dp"
+                                android:layout_gravity="center_vertical"
+                                android:background="?selectableItemBackground"
+                                android:orientation="vertical"
+                                android:padding="@dimen/padding">
+
+                                <com.Doctoor.app.widget.TextViewRichDrawable
+                                    style="@style/Doctoor.App.Widget.TextView.Light"
+                                    android:drawableTop="@drawable/ic_online_lab_test"
+                                    android:drawablePadding="@dimen/padding_small"
+                                    android:text="@string/online"
+                                    app:compoundDrawableHeight="@dimen/drawable_xx_larger"
+                                    app:compoundDrawableWidth="@dimen/drawable_xx_larger" />
+
+                                <com.Doctoor.app.widget.TextViewRichDrawable
+                                    style="@style/Doctoor.App.Widget.TextView.Bold"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/lab_tests"
+                                    android:textSize="@dimen/text_secondary_medium" />
+
+                                <include layout="@layout/item_arrow_right" />
+
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <com.google.android.material.card.MaterialCardView
+                                style="@style/Doctoor.App.Layout.CardView.Home"
+                                android:layout_width="0dp"
+                                android:layout_marginStart="@dimen/margin_small"
+                                android:layout_weight="1"
+                                android:onClick="@{()-> homeFragmentVM.gotoMedicineCategory()}"
+                                android:stateListAnimator="@animator/lift_on_touch">
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:background="?android:attr/selectableItemBackground"
+                                    android:orientation="vertical"
+                                    android:padding="@dimen/padding">
+
+                                <com.Doctoor.app.widget.TextViewRichDrawable
+                                        style="@style/Doctoor.App.Widget.TextView.Light"
+                                        android:drawableTop="@drawable/ic_pharmacy"
+                                        android:drawablePadding="@dimen/padding_small"
+                                        android:text="@string/online"
+                                        app:compoundDrawableHeight="@dimen/drawable_xx_larger"
+                                        app:compoundDrawableWidth="@dimen/drawable_xx_larger" />
+
+                                <com.Doctoor.app.widget.TextViewRichDrawable
+                                        style="@style/Doctoor.App.Widget.TextView.Bold"
+                                        android:layout_height="wrap_content"
+                                        android:text="@string/pharmacy"
+                                        android:textSize="@dimen/text_secondary_medium" />
+
+                                <include layout="@layout/item_arrow_right" />
+
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <com.google.android.material.card.MaterialCardView
+                            style="@style/Doctoor.App.Layout.CardView.Home"
+                            android:layout_width="match_parent"
+                            android:layout_marginTop="@dimen/margin_small"
+                            android:onClick="@{()-> homeFragmentVM.onService()}">
+
+                        <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:background="?android:attr/selectableItemBackground"
+                                android:orientation="horizontal"
+                                android:padding="@dimen/padding">
+
+                            <com.Doctoor.app.widget.SquareImageView
+                                    android:layout_width="60dp"
+                                    android:layout_height="60dp"
+                                    android:layout_gravity="center_vertical"
+                                    android:contentDescription="@string/lab_icon"
+                                    app:srcCompat="@drawable/ic_app_icon" />
+
+                            <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginStart="@dimen/margin_small"
+                                    android:layout_marginEnd="@dimen/margin_small"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                        style="@style/Doctoor.App.Widget.TextView.Light"
+                                        android:text="Home Medical"
+                                        android:textSize="@dimen/text_secondary_medium" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                        style="@style/Doctoor.App.Widget.TextView.Bold"
+                                        android:text="@string/service"
+                                        android:textSize="@dimen/text_secondary_medium" />
+
+                            </LinearLayout>
+
+                            <include
+                                    layout="@layout/item_arrow_right"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="@dimen/drawable_largers"
+                                    android:layout_gravity="center_vertical" />
+
+
+                        </LinearLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                            style="@style/Doctoor.App.Layout.CardView.Home"
+                            android:layout_width="match_parent"
+                            android:layout_marginTop="@dimen/margin_small"
+                            android:background="?android:attr/selectableItemBackground"
+                            android:onClick="@{(view)-> homeFragmentVM.onPrescription(view)}">
+
+                        <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:background="?android:attr/selectableItemBackground"
+                                android:orientation="horizontal"
+                                android:padding="@dimen/padding">
+
+                            <com.Doctoor.app.widget.SquareImageView
+                                    android:layout_width="60dp"
+                                    android:layout_height="60dp"
+                                    android:layout_gravity="center_vertical"
+                                    android:contentDescription="@string/lab_icon"
+                                    app:srcCompat="@drawable/ic_upload_prescription" />
+
+                            <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginStart="@dimen/margin_small"
+                                    android:layout_marginEnd="@dimen/margin_small"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                        style="@style/Doctoor.App.Widget.TextView.Light"
+                                        android:text="@string/upload"
+                                        android:textSize="@dimen/text_secondary_medium" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                        style="@style/Doctoor.App.Widget.TextView.Bold"
+                                        android:text="@string/prescription"
+                                        android:textSize="@dimen/text_secondary_medium" />
+
+                            </LinearLayout>
+
+                            <include
+                                    layout="@layout/item_arrow_right"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+
+                                    android:layout_gravity="center_vertical" />
+
+
+                        </LinearLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/linearLayoutCompat3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginTop="@dimen/margin_small"
+                        android:background="@color/white"
+                        android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/Doctoor.App.Widget.TextView.Bold"
+                            android:padding="@dimen/padding"
+                            android:text="@string/in_demand"
+                            android:textSize="@dimen/text_secondary_medium" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recyclerView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:paddingBottom="@dimen/padding"
+                            app:adapter="@{homeFragmentVM.adapter}"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                            tools:listitem="@layout/item_home" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </ScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</layout>

@@ -1,0 +1,185 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+                name="serviceTypeFragmentVM"
+                type="com.Doctoor.app.ui.modules.service_type.ServiceTypeVM" />
+
+    </data>
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                android:orientation="vertical">
+
+            <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="0dp"
+                    app:cardElevation="@dimen/elevationMedium">
+
+                <com.Doctoor.app.widget.TextViewRichDrawable
+                        style="@style/Doctoor.App.Widget.TextView.Light"
+                        android:layout_width="match_parent"
+                        android:background="?android:attr/selectableItemBackground"
+                        android:drawableStart="@drawable/ic_prescription"
+                        android:drawableLeft="@drawable/ic_prescription"
+                        android:drawablePadding="@dimen/padding_small"
+                        android:gravity="start|center"
+                        android:onClick="@{()-> serviceTypeFragmentVM.onPrescription()}"
+                        android:padding="@dimen/padding"
+                        android:paddingStart="@dimen/padding_xx_large"
+                        android:paddingEnd="@dimen/padding_xx_large"
+                        android:shadowRadius="20"
+                        android:text="@string/upload_prescription_bold"
+                        app:compoundDrawableHeight="@dimen/drawable_larger"
+                        app:compoundDrawableWidth="@dimen/drawable_larger" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                    style="@style/Doctoor.App.Layout.LinearLayout.Vertical.MatchParent"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:onClick="@{()-> serviceTypeFragmentVM.gotoMedicalServices()}"
+                    android:padding="@dimen/padding_medium">
+
+
+                <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="@dimen/drawable_xxxx_large"
+                        android:layout_height="@dimen/drawable_xxxx_large"
+                        android:layout_gravity="center"
+                        android:background="@drawable/img_rounded_white"
+                        android:contentDescription="@string/lab_icon"
+                        android:onClick="@{()-> serviceTypeFragmentVM.gotoMedicalServices()}"
+                        app:srcCompat="@drawable/ic_medics_services" />
+
+                <com.Doctoor.app.widget.TextViewRichDrawable
+                        style="@style/Doctoor.App.Widget.TextView.Bold"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/margin"
+                        android:onClick="@{()-> serviceTypeFragmentVM.gotoMedicalServices()}"
+                        android:text="@string/service_type_heading_medical"
+                        android:textSize="@dimen/text_secondary_large"
+                        android:textStyle="bold" />
+
+                <com.Doctoor.app.widget.TextViewRichDrawable
+                        style="@style/Doctoor.App.Widget.TextView.Bold"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:onClick="@{()-> serviceTypeFragmentVM.gotoMedicalServices()}"
+                        android:text="@string/services_provider"
+                        android:textSize="@dimen/text_primary_medium" />
+
+                <include layout="@layout/item_arrow_right" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginStart="@dimen/margin"
+                    android:layout_marginEnd="@dimen/margin"
+                    android:background="@color/grey" />
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                    style="@style/Doctoor.App.Layout.LinearLayout.Vertical.MatchParent"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:onClick="@{()-> serviceTypeFragmentVM.gotoSelectEquipment()}"
+                    android:padding="@dimen/padding_medium">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="@dimen/drawable_xxxx_large"
+                        android:layout_height="@dimen/drawable_xxxx_large"
+                        android:layout_gravity="center"
+                        android:background="@drawable/img_rounded_white"
+                        android:contentDescription="@string/lab_icon"
+                        android:onClick="@{()-> serviceTypeFragmentVM.gotoSelectEquipment()}"
+                        app:srcCompat="@drawable/ic_medical_equipment" />
+
+
+                <com.Doctoor.app.widget.TextViewRichDrawable
+                        style="@style/Doctoor.App.Widget.TextView.Bold"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/margin"
+                        android:onClick="@{()-> serviceTypeFragmentVM.gotoSelectEquipment()}"
+                        android:text="@string/service_type_heading_medical"
+                        android:textSize="@dimen/text_secondary_large"
+                        android:textStyle="bold" />
+
+                <com.Doctoor.app.widget.TextViewRichDrawable
+                        style="@style/Doctoor.App.Widget.TextView.Bold"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:onClick="@{()-> serviceTypeFragmentVM.gotoSelectEquipment()}"
+                        android:text="@string/medical_equipment"
+                        android:textSize="@dimen/text_primary_medium" />
+
+                <include layout="@layout/item_arrow_right" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginStart="@dimen/margin"
+                    android:layout_marginEnd="@dimen/margin"
+                    android:background="@color/grey" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                    style="@style/Doctoor.App.Layout.LinearLayout.Vertical.MatchParent"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:onClick="@{()-> serviceTypeFragmentVM.gotoRentalEquipments()}"
+
+                    android:padding="@dimen/padding_medium">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="@dimen/drawable_xxxx_large"
+                        android:layout_height="@dimen/drawable_xxxx_large"
+                        android:layout_gravity="center"
+                        android:background="@drawable/img_rounded_white"
+                        android:contentDescription="@string/lab_icon"
+                        android:onClick="@{()-> serviceTypeFragmentVM.gotoRentalEquipments()}"
+                        app:srcCompat="@drawable/ic_medical_equipment" />
+
+
+                <com.Doctoor.app.widget.TextViewRichDrawable
+                        style="@style/Doctoor.App.Widget.TextView.Bold"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/margin"
+                        android:onClick="@{()-> serviceTypeFragmentVM.gotoRentalEquipments()}"
+                        android:text="@string/service_type_heading_medical"
+                        android:textSize="@dimen/text_secondary_large"
+                        android:textStyle="bold" />
+
+                <com.Doctoor.app.widget.TextViewRichDrawable
+                        style="@style/Doctoor.App.Widget.TextView.Bold"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:onClick="@{()-> serviceTypeFragmentVM.gotoRentalEquipments()}"
+                        android:text="@string/medical_equipment_rental"
+                        android:textSize="@dimen/text_primary_medium" />
+
+                <include layout="@layout/item_arrow_right" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </ScrollView>
+
+</layout>

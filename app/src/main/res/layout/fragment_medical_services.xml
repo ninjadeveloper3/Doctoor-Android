@@ -1,0 +1,91 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+                name="medicalServicesFragmentVM"
+                type="com.Doctoor.app.ui.modules.service_type.MedicalServicesFragmentVM" />
+
+        <import type="android.view.View" />
+
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+            style="@style/Doctoor.App.Layout.LinearLayout.Vertical.match_parent"
+            android:padding="@dimen/padding">
+
+
+        <!--<androidx.appcompat.widget.LinearLayoutCompat
+            style="@style/Doctoor.App.Layout.LinearLayout.Vertical.WrapContent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/Doctoor.App.Widget.TextView.Bold"
+                android:text="Select Service"
+                android:layout_marginTop="@dimen/margin"
+                android:textSize="@dimen/text_primary_normal" />
+
+            <Spinner
+                style="@style/Doctoor.App.Widget.Spinner.Simple"
+                android:id="@+id/services_spinner"
+                android:entries="@{medicalServicesFragmentVM.serviceNames}"
+                android:selectedItemPosition="@{medicalServicesFragmentVM.position}"
+                android:onItemSelected="@{(medicalServicesFragmentVM::onServiceSelected)}"/>
+
+            <include layout="@layout/horizontal_divider" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>-->
+
+        <com.Doctoor.app.widget.MaterialSpinner
+                android:id="@+id/servicesSpinner"
+                style="@style/Doctoor.App.Widget.Spinner.Simple"
+                android:entries="@array/services_array"
+                android:onItemSelected="@{(medicalServicesFragmentVM::onServiceSelected)}"
+                app:ms_alignLabels="true"
+                app:ms_arrowColor="@color/black"
+                app:ms_arrowSize="16dp"
+                app:ms_enableFloatingLabel="true"
+                app:ms_errorColor="#C02524"
+                app:ms_floatingLabelColor="@color/black"
+                app:ms_floatingLabelText="Select Service"
+                app:ms_hint="Select Service"
+                app:ms_hintColor="@color/textColorHintPrimary"
+                app:ms_hintTextSize="@dimen/text_primary_normal"
+                app:ms_multiline="false"
+                app:ms_thickness="0.5dp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+                style="@style/Doctoor.App.Widget.TextView.Bold"
+                android:layout_marginTop="@dimen/margin"
+                android:text="@string/add_comment"
+                android:textSize="@dimen/text_primary_normal" />
+
+        <com.Doctoor.app.widget.EditTextRichDrawable
+                style="@style/Doctoor.App.Widget.TextInputEditText.Login"
+                android:layout_marginTop="@dimen/margin"
+                android:background="@drawable/bg_description_box"
+                android:gravity="start"
+                android:imeOptions="actionDone"
+                android:lines="6"
+                android:maxLength="500"
+                android:text="@={medicalServicesFragmentVM.comment}"
+                android:textAlignment="textStart"
+                app:validateMinLength="@{20}" />
+
+        <com.Doctoor.app.widget.progressbutton.CircularProgressButton
+                android:id="@+id/submit"
+                style="@style/Doctoor.App.Widget.Button.Login.CircularProgressButton"
+                android:onClick="@{(view)-> medicalServicesFragmentVM.onSubmit(view)}"
+                android:text="@string/submit" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+                style="@style/Doctoor.App.Widget.TextView.Light"
+                android:layout_marginTop="@dimen/margin"
+                android:gravity="center"
+                android:text="By placing your order. Our Customer Service Representative will call you shortly to customize the service for you."
+                android:textAlignment="center"
+                android:textSize="@dimen/text_primary_x_normal" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

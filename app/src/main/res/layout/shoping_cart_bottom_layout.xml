@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        style="@style/Doctoor.App.Layout.LinearLayout.Horizontal.match_parent"
+        android:background="@color/transparent">
+
+    <com.Doctoor.app.widget.TextViewRichDrawable
+            android:padding="@dimen/padding"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:background="@color/design_default_color_primary"
+            style="@style/Doctoor.App.Widget.TextView.LeftDrawable"
+            android:text="@string/add_to_cart"
+            android:drawableStart="@drawable/ic_add_to_cart"
+            android:drawableLeft="@drawable/ic_add_to_cart"/>
+
+    <com.Doctoor.app.widget.TextViewRichDrawable
+            style="@style/Doctoor.App.Widget.TextView.LeftDrawable"
+            android:text="@string/continue_shopping"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:background="@color/dark_cyan"
+            android:padding="@dimen/padding"
+            android:drawableStart="@drawable/ic_continue_shopping"
+            android:drawableLeft="@drawable/ic_continue_shopping"/>
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>

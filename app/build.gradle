@@ -1,0 +1,184 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        maven { url 'https://maven.fabric.io/public' }
+        maven { url 'https://plugins.gradle.org/m2/' }
+        maven { url 'https://maven.google.com' }
+    }
+    dependencies {
+        classpath 'io.fabric.tools:gradle:1.31.2'
+        classpath 'gradle.plugin.com.onesignal:onesignal-gradle-plugin:0.12.6'
+    }
+}
+apply plugin: 'com.onesignal.androidsdk.onesignal-gradle-plugin'
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'io.fabric'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+    dataBinding {
+        enabled = true
+    }
+    defaultConfig {
+        applicationId "com.Doctoor.app"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 3
+        versionName "1.2"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        manifestPlaceholders = [
+                onesignal_app_id               : "${onesignal_app_id}",
+                // Project number pulled from dashboard, local value is ignored.
+                onesignal_google_project_number: 'REMOTE'
+        ]
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    androidExtensions {
+        experimental = true
+    }
+    signingConfigs {
+        release {
+            storeFile file("${android_releasekey_storefile}")
+            keyAlias "${android_releasekey_keyAlias}"
+            keyPassword "${android_releasekey_keyPassword}"
+            storePassword "${android_releasekey_storePassword}"
+        }
+        debug {
+            storeFile file("${android_debugkey_storefile}")
+            keyAlias "${android_debugkey_keyAlias}"
+            keyPassword "${android_debugkey_keyPassword}"
+            storePassword "${android_debugkey_storePassword}"
+        }
+    }
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+            debuggable false
+            minifyEnabled false
+            buildConfigField("String", "SERVER", "\"${server}\"")
+            buildConfigField("String", "EASY_PAISA_SERVER", "\"${easypaisa_server}\"")
+            buildConfigField("String", "BASE_URL", "\"${api_endpoint}\"")
+            buildConfigField("String", "API_VERSION", "\"${api_vesion}\"")
+            buildConfigField("String", "BASE_IMAGES_URL", "\"${base_image_url}\"")
+            buildConfigField("String", "BASE_PROFILE_URL", "\"${base_profile_url}\"")
+            buildConfigField("String", "BASE_CMS_URL", "\"${base_cms_url}\"")
+            buildConfigField("String", "DB_NAME", "\"${db_name}\"")
+            buildConfigField("String", "CREDENTIALS", "\"${credentials}\"")
+            buildConfigField("int", "DB_VERION", "${db_version}")
+            buildConfigField("int", "STORE_ID", "${easyPaisaStoreID}")
+            buildConfigField("int", "ACCOUNT_NUMBER", "${account_number}")
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            //multiDexEnabled true
+            minifyEnabled false
+            debuggable true
+            signingConfig signingConfigs.debug
+            buildConfigField("String", "SERVER", "\"${server}\"")
+            buildConfigField("String", "EASY_PAISA_SERVER", "\"${easypaisa_server}\"")
+            buildConfigField("String", "BASE_URL", "\"${api_endpoint}\"")
+            buildConfigField("String", "API_VERSION", "\"${api_vesion}\"")
+            buildConfigField("String", "BASE_IMAGES_URL", "\"${base_image_url}\"")
+            buildConfigField("String", "BASE_PROFILE_URL", "\"${base_profile_url}\"")
+            buildConfigField("String", "BASE_CMS_URL", "\"${base_cms_url}\"")
+            buildConfigField("String", "DB_NAME", "\"${db_name}\"")
+            buildConfigField("String", "CREDENTIALS", "\"${credentials}\"")
+            buildConfigField("int", "DB_VERION", "${db_version}")
+            buildConfigField("int", "STORE_ID", "${easyPaisaStoreID}")
+            buildConfigField("int", "ACCOUNT_NUMBER", "${account_number}")
+
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        applicationVariants.all { variant ->
+            variant.outputs.all {
+                outputFileName = "${variant.name}-${variant.versionName}.apk"
+                String apkName = "mediQ-"
+                if (variant.buildType.name == "release") {
+                    apkName += outputFileName
+                } else if (variant.buildType.name == "debug") {
+                    apkName += outputFileName
+                }
+                outputFileName = apkName
+//                variant.outputs[0].outputFile = new File(outputFileName, apkName)
+            }
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${kotlin_version}"
+    implementation "org.jetbrains.kotlin:kotlin-reflect:${kotlin_version}"
+    implementation androidx.appCompat
+    implementation androidx.appCompatV13
+    implementation androidx.cardView
+    implementation androidx.material
+    implementation androidx.constraintLayout
+    implementation archLib.extensions
+    implementation archLib.lifecycle_common
+    implementation archLib.liveData
+    implementation libraries.gson
+    kapt archLib.lifecyclecompiler
+    kapt archLib.commonJava8
+    implementation dagger.dagger
+    kapt dagger.compiler
+    kapt dagger.processor
+    implementation dagger.support
+    implementation dagger.android
+    implementation playServices.location
+    implementation playServices.map
+    implementation playServices.gcm
+    implementation playServices.GoogleAccountLogin
+    implementation libraries.glide
+    implementation libraries.rxAndroid
+    implementation libraries.rxJava
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    kapt "com.android.databinding:compiler:3.1.4"
+    kapt libraries.glideCompiler
+    implementation 'com.google.firebase:firebase-auth:19.2.0'
+    implementation retrofit.okHttp
+    implementation retrofit.okHttpLogger
+    implementation retrofit.retrofit
+    implementation retrofit.retrofitAdapter
+    implementation retrofit.retrofitConverter
+
+    implementation oneSignal.messaging
+    implementation 'com.google.gms:google-services:4.0.0'
+
+    implementation room.runtime
+    kapt room.compiler
+
+    implementation 'androidx.core:core-ktx:1.1.0'
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation('com.crashlytics.sdk.android:crashlytics:2.10.1@aar') {
+        transitive = true;
+    }
+//    implementation 'lt.neworld:spanner:1.0.0'
+    implementation 'net.yslibrary.keyboardvisibilityevent:keyboardvisibilityevent:2.3.0'
+    implementation "androidx.exifinterface:exifinterface:1.0.0"
+    implementation 'com.googlecode.libphonenumber:libphonenumber:8.4.1'
+    implementation 'com.github.florent37:inline-activity-result-kotlin:1.0.1'
+    //implementation 'it.sephiroth.android.library.bottomnavigation:bottom-navigation:3.0.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+//    implementation 'com.github.ganfra:material-spinner:2.0.0'
+    implementation 'com.github.florent37:expansionpanel:1.2.2'
+    /*Facebook sdk*/
+    implementation 'com.facebook.android:facebook-login:5.15.3'
+    implementation 'co.metalab.asyncawait:asyncawait:1.0.0'
+    implementation 'android.arch.work:work-runtime:1.0.1'
+    implementation 'com.github.GrenderG:Toasty:1.4.2'
+    implementation 'com.gdacciaro:iosdialog:1.0.3'
+
+}
+apply plugin: 'com.google.gms.google-services'
+googleServices.disableVersionCheck = true

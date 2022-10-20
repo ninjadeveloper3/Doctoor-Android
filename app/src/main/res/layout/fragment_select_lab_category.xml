@@ -1,0 +1,39 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="selectLabCategoryFragmentVM"
+            type="com.Doctoor.app.ui.modules.select_lab.SelectLabCategoryFragmentVM" />
+
+    </data>
+
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/tabanim_appbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:theme="@style/ThemeOverlay.AppCompat.Light">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/Doctoor.App.Widget.TextInputEditText.SearchView"
+                android:hint="@string/search_for_lab_tests"
+                app:layout_scrollFlags="scroll|enterAlways"
+                android:onClick="@{()->selectLabCategoryFragmentVM.onSearch()}"/>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+        <include
+            layout="@layout/refresh_recycler_view_grid"
+            app:adapter="@{selectLabCategoryFragmentVM}" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

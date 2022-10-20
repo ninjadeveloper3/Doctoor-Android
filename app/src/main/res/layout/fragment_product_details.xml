@@ -1,0 +1,237 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="productDetailsVM"
+            type="com.Doctoor.app.ui.modules.product_details.ProductDetailsVM" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/light_sky_blue"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/shopping_layout"
+            android:layout_alignParentTop="true">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                style="@style/Doctoor.App.Layout.LinearLayout.Vertical.WrapContent"
+                android:background="@color/transparent"
+                android:padding="@dimen/padding">
+
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/Doctoor.App.Layout.CardView.MedicineDetails"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="@dimen/margin_small"
+                    app:useHeight="true">
+
+                    <androidx.appcompat.widget.LinearLayoutCompat style="@style/Doctoor.App.Layout.LinearLayout.Vertical.WrapContent">
+
+                        <com.Doctoor.app.widget.AspectRatioImageView
+                            style="@style/Doctoor.App.Widget.AppLogo"
+                            android:layout_gravity="center_horizontal"
+                            app:aspectRatio=".6"
+                            app:imageUrl="@{productDetailsVM.product.image}" />
+
+                        <!--Divider-->
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:layout_marginTop="@dimen/margin"
+                            android:background="@color/grey" />
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            style="@style/Doctoor.App.Layout.LinearLayout.Horizontal.match_parent"
+                            android:layout_marginTop="@dimen/margin"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_rounded_corner_grey"
+                            android:padding="@dimen/padding_small">
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                style="@style/Doctoor.App.Layout.LinearLayout.Vertical.WrapContent"
+                                android:layout_width="match_parent"
+                                android:layout_weight="1"
+                                android:background="@color/transparent">
+
+                                <androidx.appcompat.widget.LinearLayoutCompat
+                                    style="@style/Doctoor.App.Layout.LinearLayout.Vertical.WrapContent"
+                                    android:background="@color/transparent">
+
+                                    <androidx.appcompat.widget.AppCompatTextView
+                                        style="@style/Doctoor.App.Widget.TextView.Bold"
+                                        android:layout_height="wrap_content"
+                                        android:ellipsize="end"
+                                        android:singleLine="true"
+                                        android:text="@{productDetailsVM.product.equipment_name}"
+                                        android:textSize="@dimen/text_primary_x_normal" />
+
+                                    <androidx.appcompat.widget.AppCompatTextView
+                                        style="@style/Doctoor.App.Widget.TextView.LeftDrawable"
+                                        android:layout_gravity="start"
+                                        android:text="@{productDetailsVM.product.brand}"
+                                        android:textAllCaps="true"
+                                        android:textColor="@color/shakespeare" />
+
+                                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                                <RelativeLayout
+                                    style="@style/Doctoor.App.Layout.LinearLayout.Horizontal.wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center_vertical">
+
+                                    <androidx.appcompat.widget.AppCompatTextView
+                                        android:id="@+id/quantityTV"
+                                        style="@style/Doctoor.App.Widget.TextView.Bold"
+                                        android:layout_height="fill_parent"
+                                        android:layout_alignBaseline="@id/quantityView"
+                                        android:layout_centerVertical="true"
+                                        android:layout_gravity="center_vertical"
+                                        android:layout_marginTop="@dimen/margin_smaller"
+                                        android:gravity="center"
+                                        android:text="@string/quantity"
+                                        android:textSize="@dimen/text_secondary_small" />
+
+                                    <com.Doctoor.app.widget.QuantityView
+                                        android:id="@+id/quantityView"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerVertical="true"
+                                        android:layout_toEndOf="@+id/quantityTV"
+                                        android:background="@color/transparent"
+                                        app:OnQuantityChangeListener="@{productDetailsVM}"
+                                        app:qv_addButtonBackground="@color/transparent"
+                                        app:qv_addButtonTextColor="@color/pink"
+                                        app:qv_minQuantity="1"
+                                        app:qv_quantity="@{productDetailsVM.product.orderQuantity}"
+                                        app:qv_quantityBackground="@drawable/bg_rounded_white"
+                                        app:qv_quantityDialog="false"
+                                        app:qv_quantityPadding="10dp"
+                                        app:qv_removeButtonBackground="@color/transparent"
+                                        app:qv_removeButtonTextColor="@color/pink" />
+
+                                </RelativeLayout>
+
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+
+                            <View
+                                android:layout_width="0.5dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="@dimen/margin_small"
+                                android:background="@color/grey" />
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1.7"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <com.Doctoor.app.widget.SquareImageView
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_alignParentStart="true"
+                                    android:layout_centerVertical="true"
+                                    android:layout_gravity="center|center_horizontal"
+                                    android:contentDescription="@string/lab_icon"
+                                    app:srcCompat="@drawable/ic_price" />
+
+                                <androidx.appcompat.widget.LinearLayoutCompat
+                                    style="@style/Doctoor.App.Layout.LinearLayout.Horizontal.wrap_content"
+                                    android:gravity="center">
+
+                                    <androidx.appcompat.widget.AppCompatTextView
+                                        style="@style/Doctoor.App.Widget.TextView.Bold"
+                                        android:layout_gravity="center"
+                                        android:text="@string/rupees"
+                                        android:textAlignment="center" />
+
+                                    <androidx.appcompat.widget.AppCompatTextView
+                                        style="@style/Doctoor.App.Widget.TextView.Bold"
+                                        android:layout_gravity="center"
+                                        android:layout_marginStart="@dimen/margin_smallest"
+                                        android:textAlignment="center"
+                                        android:textColor="@color/pink"
+                                        android:textSize="@dimen/text_secondary_medium"
+                                        app:itemPrice="@{productDetailsVM.totalPrice}" />
+                                    <!--
+                                                                        <androidx.appcompat.widget.AppCompatTextView
+                                                                                style="@style/Doctoor.App.Widget.TextView.Bold"
+                                                                                android:layout_marginStart="@dimen/margin_smallest"
+                                                                                android:text="/hr"
+                                                                                android:textSize="@dimen/text_secondary_small" />-->
+
+                                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/Doctoor.App.Widget.TextView.Bold"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="@dimen/margin_small"
+                            android:layout_marginBottom="@dimen/margin_small"
+                            android:text="@string/about_this_product"
+                            android:textSize="@dimen/text_secondary_large" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/Doctoor.App.Widget.TextView.Light"
+                            android:layout_gravity="center"
+                            android:text="@{productDetailsVM.product.description}"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/text_primary_x_normal" />
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </ScrollView>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/shopping_layout"
+            style="@style/Doctoor.App.Layout.LinearLayout.Horizontal.match_parent"
+            android:layout_alignParentBottom="true"
+            android:background="@color/transparent">
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/design_default_color_primary"
+                android:onClick="@{()-> productDetailsVM.onCartClick(productDetailsVM.product)}">
+
+
+                <com.Doctoor.app.widget.TextViewRichDrawable
+                    style="@style/Doctoor.App.Widget.TextView.CheckOut"
+                    android:onClick="@{()-> productDetailsVM.onCartClick(productDetailsVM.product)}"
+                    android:text="@{productDetailsVM.isInCart ? @string/delete_from_cart : @string/add_to_cart }" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/dark_cyan"
+                android:onClick="@{()-> productDetailsVM.continueShopping()}">
+
+                <com.Doctoor.app.widget.TextViewRichDrawable
+
+
+                    style="@style/Doctoor.App.Widget.TextView.ContinueShopping" />
+
+            </FrameLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </RelativeLayout>
+</layout>

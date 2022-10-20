@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+                name="rentalHistoryItemVM"
+                type="com.Doctoor.app.ui.modules.myorder.rental_history.RentalHistoryItemVM" />
+
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="@dimen/elevationMedium"
+            app:cardElevation="@dimen/elevationLow">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:orderStatusTopLine="@{rentalHistoryItemVM.item.status}"
+                android:orientation="vertical">
+
+            <include
+                    layout="@layout/status_view"
+                    app:status="@{rentalHistoryItemVM.item.status}" />
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/margin_small"
+                    android:orientation="horizontal">
+
+                <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginEnd="@dimen/margin_small"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                            style="@style/Doctoor.App.Layout.LinearLayout.Horizontal.wrap_content"
+                            android:layout_marginStart="@dimen/margin_medium"
+                            android:layout_marginTop="@dimen/margin_smaller">
+
+                        <com.Doctoor.app.widget.TextViewRichDrawable
+                                style="@style/Doctoor.App.Widget.TextView.Date"
+                                android:layout_marginEnd="@dimen/margin_smaller"
+                                app:date="@{rentalHistoryItemVM.item.createdAt}" />
+
+                        <com.Doctoor.app.widget.TextViewRichDrawable
+                                style="@style/Doctoor.App.Widget.TextView.Date"
+                                android:layout_marginStart="@dimen/margin_smaller"
+                                android:drawableStart="@drawable/ic_time"
+                                android:drawableLeft="@drawable/ic_time"
+                                android:drawablePadding="@dimen/padding_smallest"
+                                app:time="@{rentalHistoryItemVM.item.createdAt}" />
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                </LinearLayout>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/Doctoor.App.Widget.TextView.Bold"
+                            android:layout_gravity="center_vertical"
+                            android:text="@string/re_order" />
+
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginStart="@dimen/margin_small"
+                            android:background="@color/blue"
+                            android:contentDescription="@string/lab_icon"
+                            android:onClick="@{()-> rentalHistoryItemVM.onReorderClick()}"
+                            android:src="@drawable/ic_reorder"
+                            app:elevation="@dimen/no_padding"
+                            app:fabCustomSize="30dp"
+                            app:fabSize="mini" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+            </LinearLayout>
+
+            <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:layout_marginBottom="@dimen/margin_small"
+                    android:background="@drawable/dotted_line"
+                    android:layerType="software" />
+
+            <include
+                    layout="@layout/order_history_bottom_view"
+                    app:amount="@{rentalHistoryItemVM.item.totalAmount}"
+                    app:orderNumber="@{rentalHistoryItemVM.item.orderNumber}"
+                    app:paymentType="@{rentalHistoryItemVM.paymentType}" />
+
+        </LinearLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

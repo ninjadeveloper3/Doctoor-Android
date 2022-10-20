@@ -1,0 +1,120 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+                name="aboutUsVM"
+                type="com.Doctoor.app.ui.modules.about_us.AboutUsVM" />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+            style="@style/Doctoor.App.Layout.LinearLayout.Vertical.MatchParent"
+            android:background="@color/light_sky_blue"
+            android:padding="@dimen/padding">
+
+        <com.google.android.material.card.MaterialCardView
+                style="@style/Doctoor.App.Layout.CardView.Home"
+                android:layout_width="match_parent"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="@dimen/margin_small"
+                android:layout_marginEnd="0dp"
+                android:onClick="@{()-> aboutUsVM.onTerms()}"
+                app:cardElevation="2dp"
+                app:contentPadding="@dimen/padding_medium">
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal">
+
+                <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="@dimen/margin"
+                        android:layout_marginEnd="@dimen/margin"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                    <com.Doctoor.app.widget.TextViewRichDrawable
+                            style="@style/Doctoor.App.Widget.TextView.Bold"
+                            android:text="@string/terms_amp_conditios"
+                            android:textSize="@dimen/text_primary_normal"
+                            android:textStyle="bold" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/Doctoor.App.Widget.TextView.Light"
+                            android:text="By accessing and using the Doctoor Platform, you agree to be bound by these Terms"
+                            android:textSize="@dimen/text_primary_x_normal" />
+
+                </LinearLayout>
+
+                <include
+                        layout="@layout/item_arrow_right"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_gravity="center_vertical" />
+
+
+            </LinearLayout>
+
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+                style="@style/Doctoor.App.Layout.CardView.Home"
+                android:layout_width="match_parent"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="@dimen/margin_small"
+                android:layout_marginEnd="0dp"
+                android:onClick="@{()-> aboutUsVM.onPrivacy()}"
+                app:cardElevation="2dp"
+                app:contentPadding="@dimen/padding_medium">
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal">
+
+                <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="@dimen/margin"
+                        android:layout_marginEnd="@dimen/margin"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                    <com.Doctoor.app.widget.TextViewRichDrawable
+                            style="@style/Doctoor.App.Widget.TextView.Bold"
+                            android:text="@string/privacy_policy"
+                            android:textSize="@dimen/text_primary_normal"
+                            android:textStyle="bold" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/Doctoor.App.Widget.TextView.Light"
+                            android:text="We are excited and thankful that you are entrusting us with your personal data"
+                            android:textSize="@dimen/text_primary_x_normal" />
+
+                </LinearLayout>
+
+                <include
+                        layout="@layout/item_arrow_right"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_gravity="center_vertical" />
+
+
+            </LinearLayout>
+
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

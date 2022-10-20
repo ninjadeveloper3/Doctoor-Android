@@ -1,0 +1,221 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="cartFragmentVM"
+            type="com.Doctoor.app.ui.modules.cart.CartFragmentVM" />
+
+        <variable
+            name="baseViewModel"
+            type="com.Doctoor.app.base.BaseViewModel.Companion" />
+
+        <import type="android.view.View" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/light_sky_blue">
+
+        <!--<include
+            layout="@layout/refresh_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:adapter="@{cartFragmentVM.adapter}"
+            android:layout_above="@id/paymentLayout"
+            android:layout_alignParentTop="true" />-->
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/cartRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/paymentLayout"
+            android:layout_alignParentTop="true"
+            app:adapter="@{cartFragmentVM.adapter}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/paymentLayout"
+            style="@style/Doctoor.App.Layout.LinearLayout.Vertical.WrapContent"
+            android:layout_alignParentBottom="true"
+            android:background="@color/white">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/couponLayout"
+                style="@style/Doctoor.App.Layout.LinearLayout.Horizontal.match_parent"
+                android:background="@color/white"
+                android:padding="@dimen/padding">
+
+                <com.Doctoor.app.widget.EditTextRichDrawable
+                    style="@style/Doctoor.App.Widget.TextInputEditText.Coupon"
+                    android:layout_weight="1"
+                    android:hint="@string/coupon_code"
+                    android:inputType="number"
+                    android:maxLength="6"
+                    android:text="@={cartFragmentVM.couponCode}"
+                    app:validateEmpty="@{true}"
+                    app:validateMaxLength="@{6}"
+                    app:validateMinLength="@{6}"
+                    app:validateTypeAutoDismiss="@{true}" />
+
+                <com.Doctoor.app.widget.progressbutton.CircularProgressButton
+                    android:id="@+id/apply"
+                    style="@style/Doctoor.App.Widget.Button.Login"
+                    android:layout_marginStart="@dimen/margin_small"
+                    android:layout_weight="3"
+                    android:background="@drawable/indego_rounded"
+                    android:onClick="@{(view)-> cartFragmentVM.onApply(view)}"
+                    android:paddingLeft="@dimen/padding_small"
+                    android:paddingRight="@dimen/padding_small"
+                    android:text="@{baseViewModel.discountPercentage > 0 ? @string/applied : @string/apply,default=@string/apply }"
+                    android:textSize="@dimen/text_primary_normal" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_below="@+id/couponLayout"
+                android:background="@color/grey" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/subTotalLayout"
+                style="@style/Doctoor.App.Layout.LinearLayout.Vertical.WrapContent"
+                android:layout_gravity="end"
+                android:layout_margin="@dimen/margin">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    style="@style/Doctoor.App.Layout.LinearLayout.Horizontal.wrap_content"
+                    android:layout_gravity="end">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/Doctoor.App.Widget.TextView.Light"
+                        android:text="@string/cancel_order"
+                        android:textColor="@color/md_grey_A100"
+                        android:textSize="@dimen/text_primary_normal" />
+
+                    <com.Doctoor.app.widget.SquareImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginStart="@dimen/margin_small"
+                        android:background="@drawable/grey_rounded_100"
+                        android:onClick="@{()-> cartFragmentVM.onEmptyCart()}"
+                        android:padding="@dimen/padding_small"
+                        app:srcCompat="@drawable/ic_cancel_order" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:id="@+id/representativeFab"
+                        style="@style/Doctoor.App.FloatingActionButton"
+                        android:layout_alignParentEnd="true" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/total_price_text"
+                        style="@style/Doctoor.App.Widget.TextView.Bold"
+                        android:layout_alignParentTop="true"
+                        android:text="@string/total_price"
+                        android:textSize="@dimen/text_secondary_medium" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/rs"
+                        style="@style/Doctoor.App.Widget.TextView.Light"
+                        android:layout_below="@id/total_price_text"
+                        android:layout_alignBaseline="@id/total_price"
+                        android:text="Rs."
+                        android:textSize="@dimen/text_secondary_large" />
+
+                    <com.Doctoor.app.widget.RialTextView
+                        android:id="@+id/total_price"
+                        style="@style/Doctoor.App.Widget.TextView.Bold"
+                        android:layout_below="@id/total_price_text"
+                        android:layout_marginStart="@dimen/margin_smaller"
+                        android:layout_toEndOf="@+id/rs"
+                        android:textColor="@color/design_default_color_primary"
+                        android:textSize="@dimen/text_secondary_medium" />
+
+                    <com.Doctoor.app.widget.RialTextView
+                        android:id="@+id/discounted_price"
+                        style="@style/Doctoor.App.Widget.TextView.Bold"
+                        android:layout_below="@id/total_price_text"
+                        android:layout_marginStart="@dimen/margin_smaller"
+                        android:layout_toEndOf="@+id/total_price"
+                        android:textColor="@color/design_default_color_primary"
+                        android:textSize="@dimen/text_secondary_medium"
+                        android:visibility="gone" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/includes"
+                        style="@style/Doctoor.App.Widget.TextView.Light"
+                        android:layout_below="@id/total_price"
+                        android:text="@string/total_price_includes_gst"
+                        android:textSize="@dimen/text_secondary_small" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/gst"
+                        style="@style/Doctoor.App.Widget.TextView.Bold"
+                        android:layout_below="@id/total_price"
+                        android:layout_marginStart="@dimen/margin_smaller"
+                        android:layout_toEndOf="@id/includes"
+                        android:text="GST"
+                        android:textSize="@dimen/text_secondary_small" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/deliveryCharges"
+                        style="@style/Doctoor.App.Widget.TextView.Light"
+                        android:layout_below="@id/gst"
+                        android:width="300dp"
+                        android:text="@string/delivery_charges_message"
+                        android:textSize="@dimen/text_secondary_small"
+                        android:visibility="@{cartFragmentVM.showDeliveryCharges ? View.VISIBLE :View.GONE , default=gone}" />
+
+                </RelativeLayout>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/shoppingLayout"
+                style="@style/Doctoor.App.Layout.LinearLayout.Horizontal.match_parent"
+                android:layout_alignParentBottom="true"
+                android:background="@color/transparent">
+
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/design_default_color_primary"
+                    android:onClick="@{(view)-> cartFragmentVM.checkOut(view)}">
+
+
+                    <com.Doctoor.app.widget.TextViewRichDrawable
+                        style="@style/Doctoor.App.Widget.TextView.CheckOut"
+                        android:text="@string/checkout" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/dark_cyan"
+                    android:onClick="@{()-> cartFragmentVM.continueShopping()}">
+
+                    <com.Doctoor.app.widget.TextViewRichDrawable
+
+                        style="@style/Doctoor.App.Widget.TextView.ContinueShopping" />
+
+                </FrameLayout>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    </RelativeLayout>
+</layout>

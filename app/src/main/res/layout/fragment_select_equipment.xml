@@ -1,0 +1,45 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="selectEquipmentVM"
+            type="com.Doctoor.app.ui.modules.select_equipment.SelectEquipmentVM" />
+
+    </data>
+
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout style="@style/Doctoor.App.Layout.LinearLayout.Vertical.match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/tabanim_appbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:theme="@style/ThemeOverlay.AppCompat.Light">
+
+            <com.Doctoor.app.widget.EditTextRichDrawable
+                style="@style/Doctoor.App.Widget.TextInputEditText.SearchView"
+                android:id="@+id/equipmentSearchView"
+                android:drawableRight="@{selectEquipmentVM.searchQuery.length()>0 ? @drawable/ic_clear : @drawable/ic_search}"
+                android:drawableEnd="@{selectEquipmentVM.searchQuery.length()>0 ? @drawable/ic_clear : @drawable/ic_search}"
+                android:hint="@string/search_for_medical_equipment"
+                app:layout_scrollFlags="scroll|enterAlways"
+                app:compoundDrawableHeight="@dimen/drawable_larger"
+                app:compoundDrawableWidth="@dimen/drawable_larger"
+                android:onTextChanged="@{selectEquipmentVM.onTextChanged}"
+                app:onSearchSubmit="@{selectEquipmentVM.onSearchSubmit}"
+                android:imeOptions="actionSearch"
+                android:singleLine="true"
+                android:text="@={selectEquipmentVM.searchQuery}" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <include
+            layout="@layout/refresh_recycler_view_grid"
+            app:adapter="@{selectEquipmentVM}" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

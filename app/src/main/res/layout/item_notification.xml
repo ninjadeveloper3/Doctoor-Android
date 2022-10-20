@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+                name="notificationItemVM"
+                type="com.Doctoor.app.ui.modules.notification.NotificationItemVM" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="@dimen/elevationMedium"
+            app:cardElevation="@dimen/elevationMedium"
+            app:contentPadding="@dimen/padding_medium">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+            <com.Doctoor.app.widget.SquareImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/lab_test_rounded"
+                    android:contentDescription="@string/lab_icon"
+                    android:padding="@dimen/padding_small"
+                    app:notificationType="@{notificationItemVM.item.noteType}" />
+
+            <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/margin_medium"
+                    android:layout_marginEnd="@dimen/no_padding"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/Doctoor.App.Widget.TextView.Bold"
+                        android:text="@{notificationItemVM.title}" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/Doctoor.App.Widget.TextView.SubHeading"
+                        android:text="@{notificationItemVM.description}" />
+
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                        style="@style/Doctoor.App.Layout.LinearLayout.Horizontal.match_parent"
+                        android:layout_marginTop="@dimen/margin_smallest">
+
+                    <com.Doctoor.app.widget.TextViewRichDrawable
+                            style="@style/Doctoor.App.Widget.TextView.Date"
+                            android:layout_marginEnd="@dimen/margin_smaller"
+                            android:drawablePadding="@dimen/padding_smallest"
+                            app:date="@{notificationItemVM.item.createdAt}" />
+
+                    <com.Doctoor.app.widget.TextViewRichDrawable
+                            style="@style/Doctoor.App.Widget.TextView.Date"
+                            android:layout_marginStart="@dimen/margin_smallest"
+                            android:drawableStart="@drawable/ic_time"
+                            android:drawableLeft="@drawable/ic_time"
+                            android:drawablePadding="@dimen/padding_smallest"
+                            app:time="@{notificationItemVM.item.createdAt}" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+</layout>

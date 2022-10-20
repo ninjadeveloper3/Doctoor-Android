@@ -1,0 +1,80 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+                name="codeVerificationFragmentVM"
+                type="com.Doctoor.app.ui.modules.code_verification.CodeVerificationVM" />
+
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+        <include layout="@layout/toolbar_blue" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat style="@style/Doctoor.App.Layout.LinearLayout.ForgotPassword">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/Doctoor.App.Widget.TextView.LargeWhite.Bold"
+                    android:text="@string/enter_code_verification" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/Doctoor.App.Widget.TextView.LargeWhite"
+                    android:layout_marginTop="@dimen/margin"
+                    android:lineSpacingExtra="@dimen/line_height"
+                    android:text="@string/verification_code_description"
+                    android:textColor="@color/light_grey"
+                    android:textSize="@dimen/text_primary_small" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+                style="@style/Doctoor.App.Layout.LinearLayout.Vertical.MatchParent"
+                android:padding="@dimen/padding">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/Doctoor.App.Widget.TextView.Resend"
+                    android:layout_marginTop="@dimen/margin_large"
+                    android:enabled="@{codeVerificationFragmentVM.canResend}"
+                    android:foreground="?attr/selectableItemBackgroundBorderless"
+                    android:onClick="@{()-> codeVerificationFragmentVM.onResend()}"
+                    android:text="@{codeVerificationFragmentVM.timerString}" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/code_layout"
+                    style="@style/Doctoor.App.Widget.TextInputLayout"
+                    android:layout_marginTop="@dimen/margin_large">
+
+                <com.Doctoor.app.widget.EditTextRichDrawable
+                        style="@style/Doctoor.App.Widget.TextInputEditText.Code"
+                        android:drawableEnd="@drawable/ic_verification_code"
+                        android:drawableRight="@drawable/ic_verification_code"
+                        android:hint="@string/code_verification"
+                        android:imeOptions="actionDone"
+                        android:maxLength="6"
+                        android:text="@={codeVerificationFragmentVM.code}"
+                        app:compoundDrawableHeight="@dimen/drawable_x_large"
+                        app:compoundDrawableWidth="@dimen/drawable_x_large"
+                        app:validateEmpty="@{true}"
+                        app:validateMaxLength="@{6}"
+                        app:validateMinLength="@{6}"
+                        app:validateTypeAutoDismiss="@{true}" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.Doctoor.app.widget.progressbutton.CircularProgressButton
+                    android:id="@+id/submit"
+                    style="@style/Doctoor.App.Widget.Button.Login.CircularProgressButton"
+                    android:onClick="@{()-> codeVerificationFragmentVM.onSubmit()}"
+                    android:text="@string/submit" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</layout>

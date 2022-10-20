@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      app:bbn_itemColorActive="#DF2890"
+      app:bbn_itemColorInactive="#432F76"
+      app:bbn_badgeColor="#FFCC0000"
+      app:bbn_rippleColor="#99FFFFFF">
+
+    <item
+            android:id="@+id/home"
+            android:color="@android:color/transparent"
+            android:icon="@drawable/ic_home"
+            android:title="@string/home" />
+    <item
+            android:id="@+id/notification"
+            android:color="@android:color/transparent"
+            android:icon="@drawable/ic_notification"
+            android:title="@string/notifications" />
+    <item
+            android:id="@+id/myOrder"
+            android:color="@android:color/transparent"
+            android:icon="@drawable/ic_my_orders"
+            android:title="@string/my_orders" />
+    <item
+            android:id="@+id/profile"
+            android:color="@android:color/transparent"
+            android:icon="@drawable/ic_profile"
+            android:title="@string/profile" />
+
+</menu>

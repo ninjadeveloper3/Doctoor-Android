@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+                name="selectLabItemVM"
+                type="com.Doctoor.app.ui.modules.select_lab.SelectLabItemVM" />
+
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+            style="@style/Doctoor.App.Layout.CardView.Home"
+            android:layout_width="match_parent"
+            app:contentPadding="@dimen/no_padding">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="?android:attr/selectableItemBackground"
+                android:orientation="horizontal"
+                android:padding="@dimen/padding">
+
+            <com.Doctoor.app.widget.SquareImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_vertical"
+                    android:contentDescription="@string/lab_icon"
+                    app:imageUrl="@{selectLabItemVM.item.logo}"
+                    app:srcCompat="@drawable/ic_chughtai_lab" />
+
+            <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/margin_small"
+                    android:layout_marginEnd="@dimen/margin_small"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/Doctoor.App.Widget.TextView.Light"
+                        android:text="@{selectLabItemVM.item.labName}"
+                        android:textSize="@dimen/text_secondary_medium" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/Doctoor.App.Widget.TextView.Bold"
+                        android:layout_height="wrap_content"
+                        android:text="Test"
+                        android:textSize="@dimen/text_secondary_medium"
+                        android:visibility="gone" />
+
+            </LinearLayout>
+
+            <include
+                    layout="@layout/item_arrow_right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical" />
+
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>

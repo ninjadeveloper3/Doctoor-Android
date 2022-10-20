@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="selectEquipmentItemVM"
+            type="com.Doctoor.app.ui.modules.select_equipment.SelectEquipmentItemVM" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        style="@style/Doctoor.App.Layout.CardView.MedicineDetails"
+        android:layout_height="wrap_content"
+        app:contentPadding="@dimen/no_padding">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?android:attr/selectableItemBackground"
+            android:padding="@dimen/padding">
+
+            <com.Doctoor.app.widget.SquareImageView
+                android:id="@+id/medicine_name"
+                android:layout_width="@dimen/drawable_xxx_large"
+                android:layout_height="@dimen/drawable_xxx_large"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                android:layout_marginEnd="@dimen/margin_medium"
+                android:background="@drawable/img_rounded_grey"
+                android:padding="@dimen/padding_small"
+                app:circularImageUrl="@{selectEquipmentItemVM.item.image}" />
+
+
+            <com.Doctoor.app.widget.SquareImageView
+                android:id="@+id/cart"
+                android:layout_width="@dimen/drawable_larger"
+                android:layout_height="@dimen/drawable_larger"
+                android:layout_alignParentEnd="true"
+                android:contentDescription="@string/lab_icon"
+                android:onClick="@{()-> selectEquipmentItemVM.onCartClick(selectEquipmentItemVM.item)}"
+                app:isInCart="@{selectEquipmentItemVM.isInCart}" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/name"
+                style="@style/Doctoor.App.Widget.TextView.Bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/medicine_name"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="30dp"
+                android:layout_marginEnd="30dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@{selectEquipmentItemVM.item.equipment_name}"
+                android:textSize="@dimen/text_primary_x_normal" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/name"
+                android:layout_centerHorizontal="true">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/Doctoor.App.Widget.TextView.Light"
+                    android:layout_gravity="center"
+                    android:text="@string/rupees"
+                    android:textAlignment="center" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/Doctoor.App.Widget.TextView.Bold"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/margin_smaller"
+                    android:textAlignment="center"
+                    android:textColor="@color/pink"
+                    android:textSize="@dimen/text_secondary_medium"
+                    app:itemPrice="@{selectEquipmentItemVM.item.price}" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_below="@+id/price"
+                android:layout_marginTop="@dimen/margin_small"
+                android:layout_marginBottom="@dimen/margin_small"
+                android:background="@color/grey" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/divider"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/Doctoor.App.Widget.TextView.Bold"
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:text="Brand: "
+                    android:textAlignment="textStart" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/Doctoor.App.Widget.TextView.LeftDrawable"
+                    android:layout_width="match_parent"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text="@{selectEquipmentItemVM.item.brand}"
+                    android:textAlignment="textEnd"
+                    android:textAllCaps="true"
+                    android:textColor="@color/shakespeare"
+                    android:textSize="@dimen/text_secondary_small" />
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

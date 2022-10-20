@@ -1,0 +1,68 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+                name="rentalEquipmentsVM"
+                type="com.Doctoor.app.ui.modules.select_equipment.rental_equipments.RentalEquipmentsVM" />
+
+        <import type="android.view.View" />
+
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+            style="@style/Doctoor.App.Layout.LinearLayout.Vertical.match_parent"
+            android:padding="@dimen/padding">
+
+        <com.Doctoor.app.widget.MaterialSpinner
+                android:id="@+id/equipmentSpinner"
+                style="@style/Doctoor.App.Widget.Spinner.Simple"
+                android:onItemSelected="@{(rentalEquipmentsVM::onServiceSelected)}"
+                app:ms_alignLabels="true"
+                app:ms_arrowColor="@color/black"
+                app:ms_arrowSize="16dp"
+                app:ms_enableFloatingLabel="true"
+                app:ms_errorColor="#C02524"
+                app:ms_floatingLabelColor="@color/black"
+                app:ms_floatingLabelText="Select Equipment For Rental"
+                app:ms_hint="Select Equipment For Rental"
+                app:ms_hintColor="@color/textColorHintPrimary"
+                app:ms_hintTextSize="@dimen/text_primary_normal"
+                app:ms_multiline="false"
+                app:ms_thickness="0.5dp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+                style="@style/Doctoor.App.Widget.TextView.Bold"
+                android:layout_marginTop="@dimen/margin"
+                android:text="@string/add_comment"
+                android:textSize="@dimen/text_primary_normal" />
+
+        <com.Doctoor.app.widget.EditTextRichDrawable
+                style="@style/Doctoor.App.Widget.TextInputEditText.Login"
+                android:layout_marginTop="@dimen/margin"
+                android:background="@drawable/bg_description_box"
+                android:gravity="start"
+                android:imeOptions="actionDone"
+                android:lines="6"
+                android:maxLength="500"
+                android:text="@={rentalEquipmentsVM.comment}"
+                android:textAlignment="textStart"
+                app:validateMinLength="@{20}" />
+
+        <com.Doctoor.app.widget.progressbutton.CircularProgressButton
+                android:id="@+id/rentalSubmit"
+                style="@style/Doctoor.App.Widget.Button.Login.CircularProgressButton"
+                android:onClick="@{(v)-> rentalEquipmentsVM.onSubmit(v)}"
+                android:text="@string/submit" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+                style="@style/Doctoor.App.Widget.TextView.Light"
+                android:layout_marginTop="@dimen/margin"
+                android:gravity="center"
+                android:text="By placing your order. Our Customer Service Representative will call you shortly to customize the service for you."
+                android:textAlignment="center"
+                android:textSize="@dimen/text_primary_x_normal" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

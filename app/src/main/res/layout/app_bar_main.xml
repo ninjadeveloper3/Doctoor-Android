@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.modules.main.MainActivity">
+
+    <!--<androidx.appcompat.widget.Toolbar-->
+            <!--android:id="@+id/toolbar"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="?attr/actionBarSize"-->
+            <!--android:background="@color/blue"-->
+            <!--android:minHeight="?attr/actionBarSize"-->
+            <!--android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"-->
+            <!--app:popupTheme="@style/ThemeOverlay.AppCompat.Light"-->
+            <!--app:title=""-->
+            <!--tools:title="">-->
+        <!--<androidx.appcompat.widget.AppCompatTextView-->
+                <!--android:id="@+id/toolbarTitle"-->
+                <!--android:text="Home Medics"-->
+                <!--style="@style/Widget.App.TextView.ToolBar"/>-->
+    <!--</androidx.appcompat.widget.Toolbar>-->
+
+
+    <include layout="@layout/content_main"
+             android:layout_above="@+id/bottomNavigation"
+             android:layout_below="@+id/toolbar"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/bottomNavigation"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="@dimen/fab_margin"
+            android:backgroundTint="@color/toolbar_color"
+            app:srcCompat="@drawable/ic_help"/>
+
+    <com.Doctoor.app.widget.bottomnavigation.BottomNavigation
+            android:id="@+id/bottomNavigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            app:bbn_entries="@menu/bottom_navigation_bar"
+            app:bbn_scrollEnabled="true"
+            android:background="@color/white"
+            app:bbn_badgeProvider="@string/bbn_badgeProvider"
+            app:layout_behavior="@string/bbn_phone_view_behavior"/>
+
+</RelativeLayout>

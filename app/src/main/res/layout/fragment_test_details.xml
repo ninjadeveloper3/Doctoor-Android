@@ -1,0 +1,257 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="testDetailsVM"
+            type="com.Doctoor.app.ui.modules.test_details.TestDetailsVM" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/light_sky_blue"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/noticeTv"
+            layout="@layout/prior_notice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true" />
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            style="@style/Doctoor.App.Layout.LinearLayout.Vertical.WrapContent"
+            android:layout_below="@id/noticeTv"
+            android:background="@color/transparent"
+            android:padding="@dimen/padding">
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Doctoor.App.Layout.CardView.Home"
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/margin_small"
+                app:cardElevation="@dimen/elevationMedium"
+                app:useHeight="true">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    style="@style/Doctoor.App.Layout.LinearLayout.Vertical.WrapContent"
+                    android:gravity="center"
+                    android:padding="@dimen/padding">
+
+                    <com.Doctoor.app.widget.SquareImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:background="@drawable/lab_test_rounded"
+                        android:contentDescription="@string/lab_icon"
+                        android:padding="@dimen/padding_small"
+                        app:imageUrl="@{testDetailsVM.test.logo}"
+                        app:srcCompat="@drawable/ic_lab_test" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/Doctoor.App.Widget.TextView.Bold"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="@{testDetailsVM.test.test_name}"
+                        android:textSize="@dimen/text_primary_x_normal" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/Doctoor.App.Widget.TextView.Light"
+                        android:layout_gravity="center"
+                        android:text="@{testDetailsVM.test.description}"
+                        android:textAlignment="center"
+                        android:textSize="@dimen/text_primary_x_normal" />
+
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        style="@style/Doctoor.App.Layout.LinearLayout.Horizontal.match_parent"
+                        android:layout_marginTop="@dimen/margin"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_rounded_corner_grey"
+                        android:padding="@dimen/padding_small">
+
+                        <RelativeLayout
+                            style="@style/Doctoor.App.Layout.LinearLayout.Horizontal.wrap_content"
+                            android:layout_width="wrap_content"
+                            android:layout_height="50dp"
+                            android:gravity="center_vertical">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/quantityTV"
+                                style="@style/Doctoor.App.Widget.TextView.Bold"
+                                android:layout_height="fill_parent"
+                                android:layout_alignBaseline="@id/quantityView"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginTop="@dimen/margin_smaller"
+                                android:gravity="center"
+                                android:text="@string/quantity"
+                                android:textSize="@dimen/text_secondary_small" />
+
+                            <com.Doctoor.app.widget.QuantityView
+                                android:id="@+id/quantityView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_toEndOf="@+id/quantityTV"
+                                android:background="@color/transparent"
+                                app:OnQuantityChangeListener="@{testDetailsVM}"
+                                app:qv_addButtonBackground="@color/transparent"
+                                app:qv_addButtonTextColor="@color/pink"
+                                app:qv_minQuantity="1"
+                                app:qv_quantity="@{testDetailsVM.test.orderQuantity}"
+                                app:qv_quantityBackground="@drawable/bg_rounded_white"
+                                app:qv_quantityDialog="false"
+                                app:qv_quantityPadding="10dp"
+                                app:qv_removeButtonBackground="@color/transparent"
+                                app:qv_removeButtonTextColor="@color/pink" />
+
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="0.5dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="@dimen/margin_small"
+                            android:layout_marginRight="@dimen/margin_small"
+                            android:background="@color/grey" />
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <com.Doctoor.app.widget.SquareImageView
+                                android:layout_width="@dimen/drawable_largers"
+                                android:layout_height="@dimen/drawable_largers"
+                                android:layout_centerVertical="true"
+                                android:contentDescription="@string/lab_icon"
+                                app:srcCompat="@drawable/ic_price" />
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:id="@+id/priceLayout"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginStart="@dimen/margin_small"
+                                android:orientation="vertical">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/payableTitle"
+                                    style="@style/Doctoor.App.Widget.TextView.Bold"
+                                    android:text="@string/total_payable"
+                                    android:textSize="@dimen/text_secondary_smaller" />
+
+
+                                <androidx.appcompat.widget.LinearLayoutCompat
+                                    style="@style/Doctoor.App.Layout.LinearLayout.Horizontal.wrap_content"
+                                    android:baselineAligned="@+id/payableTitle"
+                                    android:gravity="center">
+
+                                    <androidx.appcompat.widget.AppCompatTextView
+                                        style="@style/Doctoor.App.Widget.TextView.Bold"
+                                        android:layout_height="fill_parent"
+                                        android:layout_gravity="center"
+                                        android:text="@string/rupees"
+                                        android:textAlignment="center" />
+
+                                    <androidx.appcompat.widget.AppCompatTextView
+                                        style="@style/Doctoor.App.Widget.TextView.Bold"
+                                        android:layout_height="fill_parent"
+                                        android:layout_gravity="center"
+                                        android:textAlignment="center"
+                                        android:textColor="@color/pink"
+                                        app:itemPrice="@{testDetailsVM.totalPrice}" />
+
+                                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Doctoor.App.Layout.CardView.Home"
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/margin_small"
+                app:contentPadding="@dimen/padding">
+
+                <LinearLayout style="@style/Doctoor.App.Layout.LinearLayout.Horizontal.match_parent">
+
+                    <com.Doctoor.app.widget.SquareImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center_vertical"
+                        android:contentDescription="@string/lab_icon"
+                        app:srcCompat="@drawable/ic_home_sample" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="@dimen/margin"
+                        android:layout_marginEnd="@dimen/margin"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/Doctoor.App.Widget.TextView.Light"
+                            android:text="@string/home"
+                            android:textSize="@dimen/text_secondary_normal" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/Doctoor.App.Widget.TextView.Bold"
+                            android:text="@string/sample_collection"
+                            android:textSize="@dimen/text_secondary_normal" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/shopping_layout"
+            style="@style/Doctoor.App.Layout.LinearLayout.Horizontal.match_parent"
+            android:layout_alignParentBottom="true"
+            android:background="@color/transparent">
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/design_default_color_primary"
+                android:onClick="@{()-> testDetailsVM.onCartClick(testDetailsVM.test)}">
+
+
+                <com.Doctoor.app.widget.TextViewRichDrawable
+                    style="@style/Doctoor.App.Widget.TextView.CheckOut"
+                    android:onClick="@{()-> testDetailsVM.onCartClick(testDetailsVM.test)}"
+                    android:text="@{testDetailsVM.isInCart ? @string/delete_from_cart : @string/add_to_cart }" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/dark_cyan"
+                android:onClick="@{()-> testDetailsVM.continueShopping()}">
+
+                <com.Doctoor.app.widget.TextViewRichDrawable style="@style/Doctoor.App.Widget.TextView.ContinueShopping" />
+
+            </FrameLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </RelativeLayout>
+
+</layout>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+                name="status"
+                type="Integer" />
+    </data>
+
+    <androidx.appcompat.widget.AppCompatTextView
+            style="@style/Doctoor.App.Widget.TextView.Light"
+            android:layout_gravity="end"
+            android:background="@color/md_green"
+            android:paddingStart="@dimen/padding_smaller"
+            android:paddingTop="@dimen/padding_smaller"
+            android:paddingEnd="@dimen/padding_smaller"
+            android:paddingBottom="@dimen/padding_smaller"
+            android:textColor="@color/black"
+            app:orderStatus="@{status}"
+            tools:text="Paid"
+            android:textSize="@dimen/text_secondary_small"/>
+</layout>

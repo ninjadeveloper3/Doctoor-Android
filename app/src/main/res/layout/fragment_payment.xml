@@ -1,0 +1,464 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+                name="paymentFragmentVM"
+                type="com.Doctoor.app.ui.modules.checkout.payment.PaymentFragmentVM" />
+
+        <import type="android.view.View" />
+
+        <import type="com.Doctoor.app.utils.Constants" />
+    </data>
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/light_sky_blue">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@android:id/content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                    style="@style/Doctoor.App.Layout.LinearLayout.Horizontal.match_parent"
+                    android:background="@color/md_grey_A400"
+                    android:gravity="center">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                        style="@style/Doctoor.App.Layout.LinearLayout.Vertical.WrapContent"
+                        android:layout_width="wrap_content"
+                        android:layout_margin="@dimen/margin_small"
+                        android:background="@color/transparent"
+                        android:gravity="center">
+
+                    <com.Doctoor.app.widget.SquareImageView
+                            style="@style/Doctoor.App.CircularImageBorder.Checkout"
+                            app:srcCompat="@drawable/ic_shipping_address_selected" />
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/Doctoor.App.Widget.TextView.Bold"
+                            android:layout_gravity="center"
+                            android:text="Shipping"
+                            android:textSize="@dimen/text_secondary_normal" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                        style="@style/Doctoor.App.Layout.LinearLayout.Vertical.WrapContent"
+                        android:layout_width="wrap_content"
+                        android:layout_margin="@dimen/margin_small"
+                        android:background="@color/transparent"
+                        android:gravity="center">
+
+                    <com.Doctoor.app.widget.SquareImageView
+                            style="@style/Doctoor.App.CircularImageBorder.Checkout"
+                            app:srcCompat="@drawable/ic_billing_address_selected" />
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/Doctoor.App.Widget.TextView.Bold"
+                            android:layout_gravity="center"
+                            android:text="Billing"
+                            android:textSize="@dimen/text_secondary_normal" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                        style="@style/Doctoor.App.Layout.LinearLayout.Vertical.WrapContent"
+                        android:layout_width="wrap_content"
+                        android:layout_margin="@dimen/margin_small"
+                        android:background="@color/transparent"
+                        android:gravity="center">
+
+                    <com.Doctoor.app.widget.SquareImageView
+                            style="@style/Doctoor.App.CircularImageBorder.Checkout"
+                            app:srcCompat="@drawable/ic_payment_selected" />
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/Doctoor.App.Widget.TextView.Bold"
+                            android:layout_gravity="center"
+                            android:text="Payment"
+                            android:textSize="@dimen/text_secondary_normal" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                    style="@style/Doctoor.App.Layout.LinearLayout.Vertical.match_parent"
+                    android:background="@color/light_sky_blue"
+                    android:visibility="@{paymentFragmentVM.isExceeded ? View.GONE : View.VISIBLE,default=visible}">
+
+                <com.google.android.material.card.MaterialCardView
+                        style="@style/Doctoor.App.Layout.CardView.Home"
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="@dimen/margin_larger"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:onClick="@{()-> paymentFragmentVM.onPayment(Constants.JAZZ_CASH_PAYMENT_METHOD)}"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardElevation="5dp">
+
+                    <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="?android:attr/selectableItemBackground"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/padding">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_gravity="center_vertical"
+                                android:contentDescription="@string/lab_icon"
+                                android:src="@drawable/ic_jazz_cash"
+                                app:srcCompat="@drawable/ic_jazz_cash" />
+
+                        <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="@dimen/margin_small"
+                                android:layout_marginEnd="@dimen/margin_small"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                    style="@style/Doctoor.App.Widget.TextView.Light"
+                                    android:text="Mobile Wallet"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/text_secondary_medium" />
+
+                        </LinearLayout>
+
+                        <include layout="@layout/item_arrow_right" />
+
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                        style="@style/Doctoor.App.Layout.CardView.Home"
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="@dimen/margin_small"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardBackgroundColor="@color/white">
+
+                    <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="?android:attr/selectableItemBackground"
+                            android:onClick="@{()-> paymentFragmentVM.onEasyPaisaPayment()}"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/padding">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_gravity="center_vertical"
+                                android:scaleType="centerInside"
+                                android:src="@drawable/logo_easypaisa"
+                                app:srcCompat="@drawable/logo_easypaisa" />
+
+                        <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="@dimen/margin_small"
+                                android:layout_marginEnd="@dimen/margin_small"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                    style="@style/Doctoor.App.Widget.TextView.Light"
+                                    android:text="Mobile Wallet"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/text_secondary_medium" />
+
+                        </LinearLayout>
+
+                        <include layout="@layout/item_arrow_right" />
+
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                        style="@style/Doctoor.App.Layout.CardView.Home"
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="@dimen/margin_small"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:visibility="gone"
+                        app:cardBackgroundColor="@color/white">
+
+                    <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="?android:attr/selectableItemBackground"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/padding">
+
+                        <com.Doctoor.app.widget.SquareImageView
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_gravity="center_vertical"
+                                android:contentDescription="@string/lab_icon"
+                                android:src="@drawable/ic_jazz_cash"
+                                app:srcCompat="@drawable/ic_jazz_cash" />
+
+                        <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="@dimen/margin_small"
+                                android:layout_marginEnd="@dimen/margin_small"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                    style="@style/Doctoor.App.Widget.TextView.Light"
+                                    android:text="Voucher Payment"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/text_secondary_medium" />
+
+                            <com.Doctoor.app.widget.TextViewRichDrawable
+                                    style="@style/Doctoor.App.Widget.TextView.Bold"
+                                    android:text="Payment"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/text_secondary_medium" />
+
+                        </LinearLayout>
+
+                        <include layout="@layout/item_arrow_right" />
+
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                        style="@style/Doctoor.App.Layout.CardView.Home"
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="@dimen/margin_small"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:onClick="@{()-> paymentFragmentVM.onPayment(Constants.JAZ_CASH_CC_METHOD)}"
+                        app:cardBackgroundColor="@color/white">
+
+                    <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="?android:attr/selectableItemBackground"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/padding">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_gravity="center_vertical"
+                                android:contentDescription="@string/lab_icon"
+                                android:src="@drawable/ic_jazz_cash"
+                                app:srcCompat="@drawable/ic_jazz_cash" />
+
+                        <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="@dimen/margin_small"
+                                android:layout_marginEnd="@dimen/margin_small"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                    style="@style/Doctoor.App.Widget.TextView.Light"
+                                    android:text="Credit/Debit Card"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/text_secondary_medium" />
+
+                        </LinearLayout>
+
+                        <include layout="@layout/item_arrow_right" />
+
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                        style="@style/Doctoor.App.Layout.CardView.Home"
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="@dimen/margin_small"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:onClick="@{()-> paymentFragmentVM.onPayment(Constants.EASY_PAISA_CC_METHOD)}"
+                        app:cardBackgroundColor="@color/white">
+
+                    <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="?android:attr/selectableItemBackground"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/padding">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_gravity="center_vertical"
+                                android:scaleType="centerInside"
+                                android:src="@drawable/logo_easypaisa"
+                                app:srcCompat="@drawable/logo_easypaisa" />
+
+                        <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="@dimen/margin_small"
+                                android:layout_marginEnd="@dimen/margin_small"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                    style="@style/Doctoor.App.Widget.TextView.Light"
+                                    android:text="Credit/Debit Card"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/text_secondary_medium" />
+
+                        </LinearLayout>
+
+                        <include layout="@layout/item_arrow_right" />
+
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                        style="@style/Doctoor.App.Layout.CardView.Home"
+                        android:layout_width="match_parent"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:onClick="@{()-> paymentFragmentVM.onPayment(Constants.COD_PAYMENT_METHOD)}"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardElevation="5dp">
+
+                    <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="?android:attr/selectableItemBackground"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/padding">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_gravity="center_vertical"
+                                android:contentDescription="@string/lab_icon"
+                                android:src="@drawable/cash_on_delivery"
+                                app:srcCompat="@drawable/cash_on_delivery" />
+
+                        <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="@dimen/margin_small"
+                                android:layout_marginEnd="@dimen/margin_small"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                    style="@style/Doctoor.App.Widget.TextView.Light"
+                                    android:text="Cash on Delivery"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/text_secondary_medium" />
+
+                        </LinearLayout>
+
+                        <include layout="@layout/item_arrow_right" />
+
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/Doctoor.App.Widget.TextView.Bold"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="@dimen/margin"
+                        android:background="@color/transparent"
+                        android:text="Any Master or Visa Card is accepted"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_secondary_medium" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                    style="@style/Doctoor.App.Layout.LinearLayout.Vertical.match_parent"
+                    android:background="@color/light_sky_blue"
+                    android:visibility="@{paymentFragmentVM.isExceeded ? View.VISIBLE : View.GONE,default=gone}">
+
+                <com.google.android.material.card.MaterialCardView
+                        style="@style/Doctoor.App.Layout.CardView.Home"
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="@dimen/margin_larger"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:onClick="@{()-> paymentFragmentVM.onPayment(Constants.COD_PAYMENT_METHOD)}"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardElevation="5dp">
+
+                    <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="?android:attr/selectableItemBackground"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/padding">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_gravity="center_vertical"
+                                android:contentDescription="@string/lab_icon"
+                                android:src="@drawable/cash_on_delivery"
+                                app:srcCompat="@drawable/cash_on_delivery" />
+
+                        <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="@dimen/margin_small"
+                                android:layout_marginEnd="@dimen/margin_small"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                    style="@style/Doctoor.App.Widget.TextView.Light"
+                                    android:text="Cash on Delivery"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/text_secondary_medium" />
+
+                        </LinearLayout>
+
+                        <include layout="@layout/item_arrow_right" />
+
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </ScrollView>
+</layout>

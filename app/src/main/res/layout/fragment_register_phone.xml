@@ -1,0 +1,101 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="registerPhoneFragmentVM"
+            type="com.Doctoor.app.ui.modules.register_phone.RegisterPhoneFragmentVM" />
+
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/toolbar_blue" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat style="@style/Doctoor.App.Layout.LinearLayout.ForgotPassword">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/Doctoor.App.Widget.TextView.LargeWhite.Bold"
+                android:text="Register phone" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/Doctoor.App.Widget.TextView.LargeWhite"
+                android:layout_marginTop="@dimen/margin"
+                android:text="@string/forgot_password_desc"
+                android:textColor="@color/light_grey"
+                android:textSize="@dimen/text_primary_small" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/linearLayoutCompat3"
+            style="@style/Doctoor.App.Layout.LinearLayout.Vertical.MatchParent"
+            android:padding="@dimen/padding">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/phone_layout"
+                style="@style/Doctoor.App.Widget.TextInputLayout">
+
+                <com.Doctoor.app.widget.EditTextRichDrawable
+                    android:id="@+id/phone"
+                    style="@style/Doctoor.App.Widget.TextInputEditText.Phone"
+                    android:hint="@string/enter_phone"
+                    android:inputType="phone"
+                    app:validateMaxLength="@{15}"
+                    app:validateMinLength="@{11}"
+                    app:validPhone='@{"^((\\+92)|(0092))-{0,1}\\d{3}-{0,1}\\d{7}$|^\\d{11}$|^\\d{4}-\\d{7}$"}'
+                    app:validateEmpty="@{true}"
+                    app:validateTypeAutoDismiss="@{true}"
+                    app:libIZO_setClearIconVisible="false"
+                    android:imeOptions="actionDone"
+                    android:text="@={registerPhoneFragmentVM.phone}" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/Doctoor.App.Widget.TextView.Label"
+                android:layout_marginTop="@dimen/margin_large"
+                android:text="@string/whats_ur_gender" />
+
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginTop="@dimen/margin"
+                android:background="@drawable/bg_rounded_corner_transparent"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatRadioButton
+                    style="@style/Doctoor.App.Widget.RadioButton.Gender"
+                    android:background="@drawable/bg_radio_btn_gender_male"
+                    android:button="@drawable/ic_male"
+                    android:checked="@{registerPhoneFragmentVM.gender.equals(@string/male)}"
+                    android:onClick="@{() -> registerPhoneFragmentVM.setGender(@string/male)}"
+                    android:text="@string/male" />
+
+                <androidx.appcompat.widget.AppCompatRadioButton
+                    style="@style/Doctoor.App.Widget.RadioButton.Gender"
+                    android:background="@drawable/bg_radio_btn_gender_female"
+                    android:button="@drawable/ic_female"
+                    android:checked="@{registerPhoneFragmentVM.gender.equals(@string/female)}"
+                    android:onClick="@{() -> registerPhoneFragmentVM.setGender(@string/female)}"
+                    android:text="@string/female" />
+
+            </RadioGroup>
+
+
+            <com.Doctoor.app.widget.progressbutton.CircularProgressButton
+                android:id="@+id/submit"
+                style="@style/Doctoor.App.Widget.Button.Login.CircularProgressButton"
+                android:onClick="@{()-> registerPhoneFragmentVM.onSubmit()}"
+                android:text="@string/submit" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

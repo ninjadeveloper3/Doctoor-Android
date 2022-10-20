@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="navigationItemVM"
+            type="com.Doctoor.app.ui.modules.main.NavigationItemVM" />
+
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackground"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/padding"
+        android:paddingTop="@dimen/padding_medium"
+        android:paddingEnd="@dimen/padding"
+        android:paddingBottom="@dimen/padding_medium">
+
+        <com.Doctoor.app.widget.SquareImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            app:navViewimageUrl="@{navigationItemVM.item.image}"
+            app:srcCompat="@{navigationItemVM.item.iconRes,default=@drawable/ic_online_lab_test}" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/Doctoor.App.Widget.TextView.Bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/margin"
+            android:maxLines="1"
+            android:text="@{navigationItemVM.item.categoryName}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_primary_medium" />
+
+    </LinearLayout>
+</layout>

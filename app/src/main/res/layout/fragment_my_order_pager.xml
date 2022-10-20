@@ -1,0 +1,25 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable name="myOrderPagerFragmentVM"
+                  type="com.Doctoor.app.ui.modules.myorder.MyOrderPagerFragmentVM"/>
+    </data>
+    <androidx.appcompat.widget.LinearLayoutCompat
+            android:background="@color/light_sky_blue"
+            style="@style/Doctoor.App.Layout.LinearLayout.Vertical"
+
+            android:layout_height="match_parent">
+        <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabs"
+                app:setupWithViewPager="@{pager}"
+                style="@style/Doctoor.App.Widget.TabLayout"
+        />
+
+        <androidx.viewpager.widget.ViewPager
+                android:id="@+id/pager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:adapter="@{myOrderPagerFragmentVM.adapter}"
+        />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

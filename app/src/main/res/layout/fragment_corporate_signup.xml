@@ -1,0 +1,68 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable name="corporateSignupFragmentVM"
+                  type="com.Doctoor.app.ui.modules.corporate_signup.CorporateSignupVM"/>
+
+    </data>
+    <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+                android:paddingTop="@dimen/padding"
+                style="@style/Doctoor.App.Layout.LinearLayout.ForgotPassword"
+                android:background="@color/white"
+                android:elevation="2dp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:text="@string/corporate_signup"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="@dimen/margin"
+                    style="@style/Doctoor.App.Widget.TextView.LargeWhite"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:text="@string/corporate_description"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_primary_normal"
+                    android:layout_marginTop="@dimen/margin"
+                    android:fontFamily="@font/mark_pro_book"
+                    style="@style/Doctoor.App.Widget.TextView.LargeWhite"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_marginTop="@dimen/margin"
+                android:padding="@dimen/padding"
+                style="@style/Doctoor.App.Layout.LinearLayout.Vertical.WrapContent">
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Doctoor.App.Widget.TextInputLayout"
+                    android:id="@+id/corporate_layout"
+            >
+
+                <com.Doctoor.app.widget.EditTextRichDrawable
+                        style="@style/Doctoor.App.Widget.TextInputEditText.CorporationCode"
+                        android:hint="@string/corporation_code"
+                        app:compoundDrawableHeight="@dimen/drawable_larger"
+                        app:compoundDrawableWidth="@dimen/drawable_larger"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.Doctoor.app.widget.progressbutton.CircularProgressButton
+                    android:id="@+id/submit"
+                    style="@style/Doctoor.App.Widget.Button.Login.CircularProgressButton"
+                    android:text="@string/proceed"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+        <View android:layout_width="wrap_content" android:layout_height="0dp"
+              android:layout_weight="1"/>
+        <include
+                layout="@layout/privacy_policy"
+                app:browserBaseViewModel="@{corporateSignupFragmentVM}" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+                name="homeSliderVM"
+                type="com.Doctoor.app.ui.modules.dashboard.HomeSliderVM" />
+
+    </data>
+
+    <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_auto_image_slider"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/main_banner" />
+</layout>
+

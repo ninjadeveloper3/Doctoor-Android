@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_number": "488159661810",
+    "firebase_url": "https://home-medics-1562215174704.firebaseio.com",
+    "project_id": "home-medics-1562215174704",
+    "storage_bucket": "home-medics-1562215174704.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:488159661810:android:2be711bce0601839",
+        "android_client_info": {
+          "package_name": "com.Doctoor.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "488159661810-j588ec358dd2f62n3sc7o7p6dmhncugm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.Doctoor.app",
+            "certificate_hash": "91a6a258781510aa6e750f424663491abb9eb53d"
+          }
+        },
+        {
+          "client_id": "488159661810-cvi3kliah23998bfoicrl3ms48mhqre7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.Doctoor.app",
+            "certificate_hash": "c0d8a569581733e367ab48b420f29948ac3623f7"
+          }
+        },
+        {
+          "client_id": "488159661810-sumsag99cneqmthcfqvoai7pras6evg0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_u0vm2repwSfEOuJws3vUC1mVHKucTCU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "488159661810-sumsag99cneqmthcfqvoai7pras6evg0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="labReportsItemVM"
+            type="com.Doctoor.app.ui.modules.lab_reports.LabReportsItemVM" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        app:contentPadding="@dimen/padding_medium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/elevationMedium"
+        app:cardElevation="@dimen/elevationMedium">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="@dimen/margin_small"
+                android:layout_gravity="center_vertical"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:text="@{labReportsItemVM.item.test.test_name}"
+                    style="@style/Doctoor.App.Widget.TextView.Bold" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/Doctoor.App.Widget.TextView.SubHeading"
+                    android:layout_height="wrap_content"
+                    android:text="@{labReportsItemVM.item.test.description}" />
+
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_marginTop="@dimen/margin_smaller"
+                    style="@style/Doctoor.App.Layout.LinearLayout.Horizontal.match_parent">
+
+                    <com.Doctoor.app.widget.TextViewRichDrawable
+                        app:date="@{labReportsItemVM.item.createdAt}"
+                        android:layout_marginEnd="@dimen/margin_smaller"
+                        style="@style/Doctoor.App.Widget.TextView.Date" />
+
+                    <com.Doctoor.app.widget.TextViewRichDrawable
+                        app:time="@{labReportsItemVM.item.createdAt}"
+                        android:layout_marginStart="@dimen/margin_smaller"
+                        android:drawableStart="@drawable/ic_time"
+                        android:drawableLeft="@drawable/ic_time"
+                        style="@style/Doctoor.App.Widget.TextView.Date" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+            </LinearLayout>
+
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fabSize="mini"
+                app:fabCustomSize="40dp"
+                app:elevation="@dimen/no_padding"
+                android:background="@color/blue"
+                android:src="@drawable/ic_download_report"
+                android:contentDescription="@string/lab_icon"
+                android:layout_gravity="center_vertical"
+                android:onClick="@{()-> labReportsItemVM.onDownload(labReportsItemVM.item)}" />
+
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

@@ -1,0 +1,187 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+                name="medicineCategoryFragmentVM"
+                type="com.Doctoor.app.ui.modules.medicine.category.MedicineCategoryFragmentVM" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/light_sky_blue">
+
+        <com.google.android.material.appbar.AppBarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:theme="@style/ThemeOverlay.AppCompat.Light">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/Doctoor.App.Widget.TextInputEditText.SearchView"
+                    android:hint="@string/search_for_medicines"
+                    android:onClick="@{()->medicineCategoryFragmentVM.onSearch()}"
+                    app:layout_scrollFlags="scroll|enterAlways" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:id="@+id/refreshLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+
+                android:orientation="vertical"
+                app:layout_behavior="@string/scroll_behavior">
+
+            <androidx.core.widget.NestedScrollView
+                    android:id="@+id/nestedScrollView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:overScrollMode="never"
+                    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+
+                        android:orientation="vertical">
+
+                    <com.google.android.material.card.MaterialCardView
+                            style="@style/Doctoor.App.Layout.CardView.Home"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="?android:attr/selectableItemBackground"
+                            android:onClick="@{(view)-> medicineCategoryFragmentVM.onPrescription(view)}"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/padding">
+
+                        <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:background="?android:attr/selectableItemBackground"
+                                android:orientation="horizontal"
+                                android:padding="@dimen/padding">
+
+                            <com.Doctoor.app.widget.SquareImageView
+                                    android:layout_width="60dp"
+                                    android:layout_height="60dp"
+                                    android:layout_gravity="center_vertical"
+                                    android:contentDescription="@string/lab_icon"
+                                    app:srcCompat="@drawable/ic_upload_prescription" />
+
+                            <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginStart="@dimen/margin"
+                                    android:layout_marginEnd="@dimen/margin"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                        style="@style/Doctoor.App.Widget.TextView.Light"
+                                        android:text="@string/upload" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                        style="@style/Doctoor.App.Widget.TextView.Bold"
+                                        android:text="@string/prescription"
+                                        android:textSize="@dimen/text_secondary_medium" />
+
+                            </LinearLayout>
+
+                            <include
+                                    layout="@layout/item_arrow_right"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+
+                                    android:layout_gravity="center_vertical" />
+
+                        </LinearLayout>
+
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.Doctoor.app.widget.MultiStateView
+                            android:id="@+id/multiStateView"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            app:msv_animateViewChanges="true"
+                            app:msv_emptyView="@layout/empty_view_no_results"
+                            app:msv_errorView="@layout/error_view"
+                            app:msv_loadingView="@layout/loading_view"
+                            app:msv_viewState="loading">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/recyclerView"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+
+                                app:adapter="@{medicineCategoryFragmentVM.adapter}"
+                                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                                app:spanCount="2"
+                                tools:listitem="@layout/item_medicines_category" />
+                    </com.Doctoor.app.widget.MultiStateView>
+
+
+                    <com.google.android.material.card.MaterialCardView
+                            style="@style/Doctoor.App.Layout.CardView.Home"
+                            android:layout_width="match_parent"
+                            android:layout_marginTop="@dimen/no_padding"
+                            android:onClick="@{()-> medicineCategoryFragmentVM.onOtherCategories()}"
+                            app:contentPadding="@dimen/no_padding">
+
+                        <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:background="?android:attr/selectableItemBackground"
+                                android:orientation="horizontal"
+                                android:padding="@dimen/padding">
+
+                            <com.Doctoor.app.widget.SquareImageView
+                                    android:layout_width="60dp"
+                                    android:layout_height="60dp"
+                                    android:layout_gravity="center_vertical"
+                                    android:contentDescription="@string/lab_icon"
+                                    app:srcCompat="@drawable/ic_others_miscellaneous"
+                                    android:padding="7dp"/>
+
+                            <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginStart="@dimen/margin"
+                                    android:layout_marginEnd="@dimen/margin"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                        style="@style/Doctoor.App.Widget.TextView.Bold"
+                                        android:text="Miscellaneous"
+                                        android:textSize="@dimen/text_secondary_medium" />
+
+                            </LinearLayout>
+
+                            <include
+                                    layout="@layout/item_arrow_right"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical" />
+                        </LinearLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+            </androidx.core.widget.NestedScrollView>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

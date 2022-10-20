@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<font-family xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:app="http://schemas.android.com/apk/res-auto">
+	<!-- regular -->
+	<font
+			android:font="@font/mark_pro_ragular"
+			android:fontStyle="normal"
+			android:fontWeight="400"
+
+			app:font="@font/mark_pro_ragular"
+			app:fontStyle="normal"
+			app:fontWeight="400" />
+	
+	<!-- Light -->
+	<font
+			android:font="@font/mark_pro_light"
+			android:fontStyle="normal"
+			android:fontWeight="400"
+			
+			app:font="@font/mark_pro_light"
+			app:fontStyle="normal"
+			app:fontWeight="400" />
+	<!-- Medium -->
+	<font
+			android:font="@font/mark_pro_medium"
+			android:fontStyle="normal"
+			android:fontWeight="600"
+
+			app:font="@font/mark_pro_medium"
+			app:fontStyle="normal"
+			app:fontWeight="600" />
+	<!-- Bold -->
+	<font
+			android:font="@font/mark_pro_bold"
+			android:fontStyle="normal"
+			android:fontWeight="600"
+
+			app:font="@font/mark_pro_bold"
+			app:fontStyle="normal"
+			app:fontWeight="600" />
+	<!-- Bold -->
+	<font
+			android:font="@font/mark_pro_book"
+			android:fontStyle="normal"
+			android:fontWeight="600"
+
+			app:font="@font/mark_pro_book"
+			app:fontStyle="normal"
+			app:fontWeight="600" />
+
+	<font
+			android:font="@font/open_sence_light"
+			android:fontStyle="normal"
+			android:fontWeight="400"
+
+			app:font="@font/open_sence_light"
+			app:fontStyle="normal"
+			app:fontWeight="400" />
+
+</font-family>

@@ -1,0 +1,164 @@
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.Doctoor.app.ui.modules.upload_prescription.UploadPrescriptionFragment">
+
+    <data>
+
+        <variable
+            name="uploadPrescriptionVM"
+            type="com.Doctoor.app.ui.modules.upload_prescription.UploadPrescriptionVM" />
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+            android:scrollbars="none">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            style="@style/Doctoor.App.Layout.LinearLayout.Vertical.WrapContent"
+            android:background="@color/light_sky_blue">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/materialCardView"
+                app:contentPaddingTop="@dimen/margin_xx_large"
+                app:contentPaddingBottom="@dimen/margin_xx_large"
+                android:layout_marginStart="@dimen/padding"
+                android:layout_marginEnd="@dimen/padding"
+                app:cardCornerRadius="@dimen/padding"
+                android:layout_marginTop="40dp">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    style="@style/Doctoor.App.Layout.LinearLayout.Vertical.WrapContent"
+                    android:layout_gravity="center">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:text="@string/how_upload_text"
+                        android:textSize="@dimen/text_secondary_medium"
+                        style="@style/Doctoor.App.Widget.TextView.Bold"
+                        android:layout_gravity="center" />
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        style="@style/Doctoor.App.Layout.LinearLayout.Horizontal.match_parent"
+                        android:gravity="center">
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            style="@style/Doctoor.App.Layout.LinearLayout.Vertical.WrapContent"
+                            android:layout_width="wrap_content"
+                            android:gravity="center"
+                            android:layout_margin="@dimen/margin_small">
+
+                            <com.Doctoor.app.widget.SquareImageView
+                                style="@style/Doctoor.App.CircularImageBorder"
+                                app:srcCompat="@drawable/ic_whatsapp"
+                                android:onClick="@{()-> uploadPrescriptionVM.openWhatsApp()}" />
+
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:text="@string/whatsapp"
+                                style="@style/Doctoor.App.Widget.TextView.Bold"
+                                android:layout_gravity="center" />
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            style="@style/Doctoor.App.Layout.LinearLayout.Vertical.WrapContent"
+                            android:layout_width="wrap_content"
+                            android:gravity="center"
+                            android:layout_margin="@dimen/margin_small">
+
+                            <com.Doctoor.app.widget.SquareImageView
+                                style="@style/Doctoor.App.CircularImageBorder"
+                                app:srcCompat="@drawable/ic_camera_upload"
+                                android:onClick="@{()-> uploadPrescriptionVM.onCameraClick()}" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:text="@string/camera"
+                                style="@style/Doctoor.App.Widget.TextView.Bold"
+                                android:layout_gravity="center" />
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            style="@style/Doctoor.App.Layout.LinearLayout.Vertical.WrapContent"
+                            android:layout_width="wrap_content"
+                            android:gravity="center"
+                            android:layout_margin="@dimen/margin_small">
+
+                            <com.Doctoor.app.widget.SquareImageView
+                                style="@style/Doctoor.App.CircularImageBorder"
+                                app:srcCompat="@drawable/ic_upload_image"
+                                android:onClick="@{()-> uploadPrescriptionVM.onGalleryClick()}" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:text="@string/gallery"
+                                style="@style/Doctoor.App.Widget.TextView.Bold"
+                                android:layout_gravity="center" />
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                style="@style/Doctoor.App.Layout.LinearLayout.Vertical.WrapContent"
+                android:background="@color/toolbar_color"
+                android:paddingTop="@dimen/padding_x2_large"
+                android:paddingBottom="@dimen/padding_x2_large"
+                android:paddingStart="@dimen/padding"
+                android:paddingEnd="@dimen/padding"
+                android:layout_marginTop="-30dp">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:text="@string/the_prescription"
+                    style="@style/Doctoor.App.Widget.TextView.LargeWhite.Bold"
+                    android:layout_gravity="start"
+                    android:textStyle="bold" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:text="@string/uploading_guide"
+                    style="@style/Doctoor.App.Widget.TextView.LargeWhite"
+                    android:layout_gravity="start"
+                    android:textSize="@dimen/text_primary_medium" />
+
+                <com.Doctoor.app.widget.TextViewRichDrawable
+                    android:text="@string/prescription_instruction_1"
+                    android:gravity="center|top"
+                    style="@style/Doctoor.App.Widget.TextView.LeftPinkCircle" />
+
+                <com.Doctoor.app.widget.TextViewRichDrawable
+                    android:text="@string/prescription_instruction_2"
+                    style="@style/Doctoor.App.Widget.TextView.LeftPinkCircle" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                style="@style/Doctoor.App.Layout.LinearLayout.Vertical.WrapContent"
+                android:layout_height="@dimen/prescription_upload_image_height"
+                android:background="@drawable/blurr_view"
+                android:padding="@dimen/padding">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/prescriptionImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitCenter"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/prescription_placeholder" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </ScrollView>
+
+</layout>

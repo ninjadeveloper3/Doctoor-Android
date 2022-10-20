@@ -1,0 +1,113 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+                name="completeOrderFragmentVM"
+                type="com.Doctoor.app.ui.modules.checkout.complete_order.CompleteOrderFragmentVM" />
+
+        <import type="android.view.View" />
+
+    </data>
+
+    <RelativeLayout
+            android:id="@android:id/content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            android:orientation="vertical">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/stepsLayout"
+                style="@style/Doctoor.App.Layout.LinearLayout.Horizontal.match_parent"
+                android:layout_alignParentTop="true"
+                android:background="@color/md_grey_A400"
+                android:gravity="center">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                    style="@style/Doctoor.App.Layout.LinearLayout.Vertical.WrapContent"
+                    android:layout_width="wrap_content"
+                    android:layout_margin="@dimen/margin_small"
+                    android:background="@color/transparent"
+                    android:gravity="center">
+
+                <com.Doctoor.app.widget.SquareImageView
+                        style="@style/Doctoor.App.CircularImageBorder.Checkout"
+                        app:srcCompat="@drawable/ic_shipping_address_selected" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/Doctoor.App.Widget.TextView.Bold"
+                        android:layout_gravity="center"
+                        android:text="Shipping"
+                        android:textSize="@dimen/text_secondary_normal" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                    style="@style/Doctoor.App.Layout.LinearLayout.Vertical.WrapContent"
+                    android:layout_width="wrap_content"
+                    android:layout_margin="@dimen/margin_small"
+                    android:background="@color/transparent"
+                    android:gravity="center">
+
+                <com.Doctoor.app.widget.SquareImageView
+                        style="@style/Doctoor.App.CircularImageBorder.Checkout"
+                        app:srcCompat="@drawable/ic_billing_address_selected" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/Doctoor.App.Widget.TextView.Bold"
+                        android:layout_gravity="center"
+                        android:text="Billing"
+                        android:textSize="@dimen/text_secondary_normal" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                    style="@style/Doctoor.App.Layout.LinearLayout.Vertical.WrapContent"
+                    android:layout_width="wrap_content"
+                    android:layout_margin="@dimen/margin_small"
+                    android:background="@color/transparent"
+                    android:gravity="center">
+
+                <com.Doctoor.app.widget.SquareImageView
+                        style="@style/Doctoor.App.CircularImageBorder.Checkout"
+                        app:srcCompat="@drawable/ic_payment_selected" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/Doctoor.App.Widget.TextView.Bold"
+                        android:layout_gravity="center"
+                        android:text="Payment"
+                        android:textSize="@dimen/text_secondary_normal" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <com.Doctoor.app.widget.progressbutton.CircularProgressButton
+                android:id="@+id/completeOrder"
+                style="@style/Doctoor.App.Widget.Button.Login.CircularProgressButton"
+                android:layout_below="@id/stepsLayout"
+                android:onClick="@{()-> completeOrderFragmentVM.onOrder()}"
+                android:text="Complete Order"
+            android:layout_centerHorizontal="true"/>
+
+        <WebView
+                android:id="@+id/paymentWebView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/completeOrder"
+                android:layout_marginTop="@dimen/margin_medium" />
+
+        <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:visibility="@{completeOrderFragmentVM.isProgressShow() ? View.VISIBLE : View.GONE,default=gone}" />
+    </RelativeLayout>
+
+</layout>

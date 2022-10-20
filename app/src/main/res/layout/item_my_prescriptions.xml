@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+                name="myPrescriptionsItemVM"
+                type="com.Doctoor.app.ui.modules.my_prescriptions.MyPrescriptionsItemVM" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="@dimen/elevationMedium"
+            app:cardElevation="@dimen/elevationMedium"
+            app:contentPadding="@dimen/padding_medium">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+
+            <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="@dimen/margin_small"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/Doctoor.App.Widget.TextView.Bold"
+                        android:text="@{myPrescriptionsItemVM.item.name}"
+                        android:textSize="@dimen/text_secondary_normal"
+                        />
+
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                        style="@style/Doctoor.App.Layout.LinearLayout.Horizontal.match_parent"
+                        android:layout_marginTop="@dimen/margin_smaller">
+
+                    <com.Doctoor.app.widget.TextViewRichDrawable
+                            style="@style/Doctoor.App.Widget.TextView.Date"
+                            android:layout_marginEnd="@dimen/margin_smaller"
+                            app:date="@{myPrescriptionsItemVM.date}" />
+
+                    <com.Doctoor.app.widget.TextViewRichDrawable
+                            style="@style/Doctoor.App.Widget.TextView.Date"
+                            android:layout_marginStart="@dimen/margin_smaller"
+                            android:drawableStart="@drawable/ic_time"
+                            android:drawableLeft="@drawable/ic_time"
+                            app:time="@{myPrescriptionsItemVM.date}" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+            </LinearLayout>
+
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:background="@color/blue"
+                    android:contentDescription="@string/lab_icon"
+                    android:onClick="@{()-> myPrescriptionsItemVM.onDownload(myPrescriptionsItemVM.item)}"
+                    android:src="@drawable/ic_download_report"
+                    app:elevation="@dimen/no_padding"
+                    app:fabCustomSize="40dp"
+                    app:fabSize="mini"
+                    app:maxImageSize="20dp" />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

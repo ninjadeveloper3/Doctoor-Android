@@ -1,0 +1,387 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <string name="facebook_app_id">442244316614908</string>
+    <string name="fb_login_protocol_scheme">fb442244316614908</string>
+    <string name="representative_number">0518773333</string>
+
+
+    <string name="app_name">mediQ</string>
+    <string name="slogan">Healthcare at your door step</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">mediQ</string>
+    <string name="menu_lab_reports">My Lab reports</string>
+    <string name="menu_my_order">My Orders</string>
+    <string name="menu_faqs">FAQ\'s</string>
+    <string name="menu_contact">Contact us</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
+
+    <string name="format_google_map_intent_uri" formatted="true" translatable="false">geo:%s?q=%s(%s)</string>
+    <string name="close">Close</string>
+
+    <string name="error_subtitle_default">Something went wrong. Please try again.</string>
+    <string name="no_network_connection">No Network Connection</string>
+    <string name="error_no_network">Your device needs to be online to use mediQ. Please check your network
+        connection and try again.
+    </string>
+    <string name="error_title_default">Oops!</string>
+    <string name="confirm_new_password">Confirm New Password</string>
+    <string name="save">Save</string>
+    <string name="clear">Clear</string>
+    <string name="edit">Edit</string>
+    <string name="submit">Submit</string>
+
+    <string name="forgot_password">
+        <u>Forgot Password</u>
+    </string>
+    <string name="login_checkbox_text">Remember me</string>
+    <string name="login">Login</string>
+    <string name="login_signup_txt">Don\'t have an account? Please</string>
+    <string name="register_now">
+        <u>Sign up</u>
+    </string>
+
+    <string name="password">Password</string>
+    <string name="corporate_sign_up">Corporate Sign up</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="log_in">Log in</string>
+    <string name="sign_up">Sign up</string>
+    <string name="or_text">or</string>
+    <string name="full_name">Full Name</string>
+    <string name="user_name">username</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="email_address">Email address</string>
+    <string name="skip">
+        <u>Skip</u>
+    </string>
+
+    <string name="price_unit">*The prices are per unit/tablet/capsule</string>
+    <string name="price_change">*The prices are subject to change without prior notice</string>
+    <string name="privacy_policy_text">By continuing you agree to our</string>
+    <string name="terms"><u>Terms</u></string>
+    <string name="policy"><u>Privacy Policy.</u></string>
+    <string name="already_have">If you\'re already a user then</string>
+
+
+    <string name="invalid_email_msg">Please enter a valid email address</string>
+    <string name="invalid_password_msg">Please enter correct password</string>
+    <string name="password_len_msg">Password is too short</string>
+    <string name="password_not_match">Password does not match</string>
+    <string name="invalid_phone_no_msg">Please enter a valid phone number</string>
+    <string name="invalid_promo_code_msg">Please enter a valid promo code</string>
+    <string name="invalid_first_name_msg">Please enter correct first name</string>
+    <string name="invalid_last_name_msg">Please enter correct last name</string>
+    <string name="invalid_task_title_msg">Please enter title</string>
+    <string name="invalid_verify_code_msg">Please enter a valid verification code that has been send to you as a text
+        message.
+    </string>
+    <string name="empty_phone_no_msg">Please enter phone number</string>
+    <string name="empty_postcode_msg">Please enter postcode</string>
+    <string name="retry">Retry</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="gender">Gender</string>
+    <string name="change_password">Change password</string>
+    <string name="old_password">Old password</string>
+    <string name="new_password">New Password</string>
+    <string name="email">e-mail</string>
+    <string name="email_caps">Email</string>
+    <string name="first_name">First name</string>
+    <string name="last_name">Last name</string>
+    <string name="mobile_number">Mobile number</string>
+    <string name="promo_code">Promo code (optional)</string>
+    <string name="search">Search</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="profile">Profile</string>
+    <string name="error">Error</string>
+    <string name="no_data">No data available</string>
+    <string name="messages">Messages</string>
+    <string name="term_conditions">Term &amp; Conditions</string>
+    <string name="faqs">FAQs</string>
+    <string name="feedback">Feedback</string>
+    <string name="rate_us">Rate Us</string>
+    <string name="logout">Logout</string>
+    <string name="name">Name</string>
+    <string name="phone">Phone</string>
+    <string name="address">Address</string>
+    <string name="notifications">Notifications</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="title">Title</string>
+    <string name="message">Message</string>
+
+    <string name="home">Home</string>
+    <string name="notification">Notification</string>
+    <string name="my_orders">My Orders</string>
+
+    <!-- value for the phone mode menu -->
+    <string name="bbn_phone_view_behavior" translatable="false" tools:ignore="UnusedResources">
+        com.Doctoor.app.widget.bottomnavigation.BottomBehavior
+    </string>
+
+    <!-- behavior for the tablet mode menu -->
+    <string name="bbn_tablet_view_behavior" translatable="false" tools:ignore="UnusedResources">
+        com.Doctoor.app.widget.bottomnavigation.TabletBehavior
+    </string>
+
+    <!-- this is the default value -->
+    <string name="bbn_default_view_behavior" translatable="false" tools:ignore="UnusedResources">
+        com.Doctoor.app.widget.bottomnavigation.BottomBehavior
+    </string>
+
+    <!-- default badge provider -->
+    <string name="bbn_badgeProvider" translatable="false" tools:ignore="UnusedResources">
+        com.Doctoor.app.widget.bottomnavigation.BadgeProvider
+    </string>
+
+    <!-- default floating action button behavior -->
+    <string name="bbn_fab_default_behavior" translatable="false" tools:ignore="UnusedResources">
+        com.Doctoor.app.widget.bottomnavigation.FloatingActionButtonBehavior
+    </string>
+
+    <string name="online">Online</string>
+    <string name="lab_icon">lab_icon</string>
+    <string name="lab_tests">Lab Test</string>
+    <string name="pharmacy">Pharmacy</string>
+    <string name="home_medical">mediQ</string>
+    <string name="home_medical_service">Medical Service</string>
+    <string name="service">Services</string>
+    <string name="desc_forward_arrow">forward arrow</string>
+    <string name="title_upload_presc">Upload Prescription</string>
+    <string name="create_account">Create an account</string>
+    <string name="sign_in">Sign in</string>
+    <string name="or_sign_in">Sign in</string>
+    <string name="sign_out">Sign out</string>
+    <string name="phone_no">+923001234567</string>
+    <string name="desc_facebook">Phone No.</string>
+    <string name="desc_google">Phone No.</string>
+    <string name="date_of_birth">Date of birth</string>
+    <string name="whats_ur_gender">What\'s your gender?</string>
+
+    <string name="default_required_validation_message">This field is required.</string>
+    <string name="default_required_length_message_min_max">The input must have length between %1$d
+        and %2$d.
+    </string>
+    <string name="default_required_length_message_min">The input length must be greater than
+        or equal to %1$d characters.
+    </string>
+    <string name="default_required_length_message_max">The input length must be less than or
+        equal to %1$d characters.
+    </string>
+    <string name="default_regex_validation_message">The field value does not match the
+        required format.
+    </string>
+    <string name="forgot_password_desc">It is a long established fact that a reader will be\ndistracted by the readable
+        content of a page when looking at it\'s layout.
+    </string>
+    <string name="name_validation_error">Name is not valid</string>
+    <string name="enter_phone">Enter your phone number</string>
+    <string name="code_verification">Verification code</string>
+    <string name="enter_code_verification">Enter Verification Code</string>
+    <string name="resend">Resend 01:00</string>
+    <string name="enter_new_password">Enter New Password</string>
+    <string name="dummy_dob">01/05/1195</string>
+    <string name="popular_items">Popular Items</string>
+    <string name="proceed">Proceed</string>
+    <string name="corporation_code">Corporation Code</string>
+    <string name="corporate_signup">Corporate sign up</string>
+    <string name="change_city">Change City</string>
+    <string name="keep_location">Keep Lahore</string>
+    <string name="select_city_location_desc">Your location is automatically set to Islamabad. This will impact any search that you perform</string>
+    <string name="get_started">Get Started</string>
+    <string name="password_forgot">Forgot Password</string>
+    <string name="upload">Upload</string>
+    <string name="prescription">Prescription</string>
+    <string name="chughtai">Chughtai</string>
+    <string name="lab">Lab</string>
+    <string name="excel">Excel</string>
+    <string-array name="city_array">
+        <item>Lahore</item>
+        <item>Karachi</item>
+        <item>Islamabad</item>
+    </string-array>
+
+    <string-array name="province_array">
+        <item>Punjab</item>
+    </string-array>
+    <string name="dob">DOB</string>
+    <string name="city">City</string>
+    <string name="mobile_no">Mobile No.</string>
+    <string name="upload_prescription_bold">Upload
+        <b><b>Prescription</b></b>
+    </string>
+    <string name="service_type_heading_medical">Home Medical Services</string>
+    <string name="services_provider">Service Provider</string>
+    <string name="medical_equipment">Medical Equipment Purchase</string>
+    <string name="medical_equipment_rental">Medical Equipment Rental</string>
+    <string name="_equipment">Equipment</string>
+
+    <string name="edit_icon">Edit icon</string>
+
+    <string name="prescription_instruction_1">Do not crop out any part of the prescription image</string>
+    <string name="prescription_instruction_2">Avoid uploading a blurred or unclear image of the prescription</string>
+    <string name="prescription_instruction_3">Do not crop out any part of the prescription image</string>
+    <string name="prescription_instruction_4">Do not crop out any part of the prescription image</string>
+    <string name="the_prescription">The Prescription</string>
+    <string name="uploading_guide">Uploading Guide</string>
+    <string name="gallery">Gallery</string>
+    <string name="camera">Camera</string>
+    <string name="whatsapp">WhatsApp</string>
+    <string name="how_upload_text">How do you want to upload?</string>
+    <string name="terms_amp_conditios">Terms &amp; Conditions</string>
+    <string name="about_us_dummy">It\'s a long established fact that a reader will be distracted.</string>
+    <string name="please_fill_in_the_following_details">Please fill in \nthe following details</string>
+    <string name="re_order">Re-order</string>
+    <string name="search_for_medical_services">Search for medical services</string>
+    <string name="in_demand">In-Demand</string>
+    <string name="blood_glucose_random">blood glucose random</string>
+    <string name="rupees">Rs.</string>
+    <string name="five_hundred">500</string>
+    <string name="add_to_cart">Add to cart</string>
+    <string name="delete_from_cart">Remove from cart</string>
+    <string name="continue_shopping">Continue shopping</string>
+    <string name="cont">Continue</string>
+    <string name="sample_collection">Sample Collection</string>
+    <string name="dummy_tablet">
+        <b>Panadol</b>
+        (CF)
+    </string>
+    <string name="company_name">Norvatis</string>
+    <string name="quantity">Quantity</string>
+    <string name="prescription_not_required">Prescription not required</string>
+    <string name="prescription_required">Prescription required</string>
+    <string name="total_payable">Total Payable</string>
+    <string name="med_primary_use">Primary Use</string>
+    <string name="med_composition">Composition</string>
+    <string name="med_primary_use_desc">Fever and pain congestion and alergy</string>
+    <string name="med_composition_desc">Paracetamol pseudoephedrine chlorpheniramine</string>
+    <string name="todo">TODO</string>
+    <string name="how_to_take_medicine">How to take medicine</string>
+    <string name="warnings">Warnings</string>
+    <string name="content">content</string>
+    <string name="qv_add">+</string>
+    <string name="qv_remove">-</string>
+    <string name="meidcine_warning_dummy">Please avoid consuming alcohol when taking this medicine.</string>
+    <string name="dummy_medicine">Alcohol:</string>
+    <string name="select_lab">Select Test</string>
+    <string name="dummy_product">Stethoscope</string>
+    <string name="about_this_product">About this product</string>
+    <string name="coupon_code">Coupon Code</string>
+    <string name="apply">Apply</string>
+    <string name="applied">Applied</string>
+    <string name="cancel_order">Cancel Order</string>
+    <string name="total_price">Total Price</string>
+    <string name="dummy_price">1000.00</string>
+    <string name="total_price_includes_gst">Total price includes</string>
+    <string name="attendant">(attendant)</string>
+    <string name="select_category">Select Category</string>
+    <string name="select_services">Select Services</string>
+    <string name="services_type">Services Type</string>
+    <string name="dummy_time">10:00 – 16:00</string>
+    <string name="cost">Cost:</string>
+    <string name="dummy_select_medicine">Deslavid</string>
+    <string name="availability">Availability</string>
+    <string name="about_doctor">About Doctor</string>
+    <string name="cart">Cart</string>
+    <string name="other">Other</string>
+    <string name="categories">Categories</string>
+    <string name="select_equipments">Select Equipment</string>
+    <string name="popular_equipments">Popular Equipments</string>
+    <string name="rental_equipments">Rental Equipments</string>
+    <string name="select_medicines">Select Medicines</string>
+    <string name="search_for_medicines">Search for medicines</string>
+    <string name="my_lab_reports">My Lab reports</string>
+    <string name="my_prescriptions">My Prescriptions</string>
+    <string name="about_us">About Us</string>
+    <string name="other_categories">Other Categories</string>
+    <string name="confirm_selection">Confirm Selection</string>
+    <string name="select_test">Select Test</string>
+    <string name="test_details">Test Details</string>
+    <string name="lab_reports">Lab Reports</string>
+    <string name="upload_prescription">Upload Prescription</string>
+    <string name="is_billing_address_same">Billing address is the same as shipping address</string>
+    <string name="checkout">Checkout</string>
+    <string name="proceed_to_payment">Proceed to Payment</string>
+    <string name="details">Details</string>
+    <string name="medicine_details">Medicine Details</string>
+    <string name="search_for_lab_tests">Search for lab tests</string>
+    <string name="select_city">Select City</string>
+    <string name="select_a_city">Select A City</string>
+    <string name="corporate_description">It is a long established fact that a reader will be\ndistracted by the readable content of a page when\nlooking at its layout.</string>
+    <string name="johan">Johan</string>
+    <string name="search_for_medical_equipment">Search for medical equipment</string>
+    <string name="sign_in_underline"><u>Sign in</u></string>
+
+    <!--Validation Messages-->
+    <string name="error_message_date_validation">Invalid data format</string>
+    <string name="error_message_regex_validation">Invalid format</string>
+    <string name="error_message_email_validation">Invalid email format</string>
+    <string name="error_message_username_validation">Name may contains only alphabets</string>
+    <string name="error_message_cpf_validation">Invalid CPF format</string>
+    <string name="error_message_url_validation">Invalid url format</string>
+    <string name="error_message_credit_card_validation">Invalid credit card format</string>
+    <string name="error_message_empty_validation">This field can\'t be empty</string>
+    <string name="error_message_not_equal_password">Passwords are not the same</string>
+    <string name="permission_status_granted">Permission Granted</string>
+    <string name="permission_status_denied">Permission Denied</string>
+    <string name="permission_status_blocked">Permission set to ask never</string>
+    <string name="error_message_postal_address">Postal address is not valid</string>
+    <string name="error_message_dropdown">Option required</string>
+    <!--    Validation Messages end-->
+    <string name="scroll_behavior" translatable="false">@string/appbar_scrolling_view_behavior</string>
+    <string name="no_scroll_behavior" translatable="false"></string>
+    <string name="countries">eyJJTSI6IklzbGUgb2YgTWFuIiwiSFIiOiJDcm9hdGlhIiwiR1ciOiJHdWluZWEtQmlzc2F1IiwiSU4iOiJJbmRpYSIsIktFIjoiS2VueWEiLCJMQSI6Ikxhb3MiLCJJTyI6IkJyaXRpc2ggSW5kaWFuIE9jZWFuIFRlcnJpdG9yeSIsIkhUIjoiSGFpdGkiLCJMQiI6IkxlYmFub24iLCJHWSI6Ikd1eWFuYSIsIktHIjoiS3lyZ3l6c3RhbiIsIkhVIjoiSHVuZ2FyeSIsIkxDIjoiU2FpbnQgTHVjaWEiLCJJUSI6IklyYXEiLCJLSCI6IkNhbWJvZGlhIiwiSk0iOiJKYW1haWNhIiwiSVIiOiJJcmFuIiwiS0kiOiJLaXJpYmF0aSIsIklTIjoiSWNlbGFuZCIsIk1BIjoiTW9yb2NjbyIsIkpPIjoiSm9yZGFuIiwiSVQiOiJJdGFseSIsIkpQIjoiSmFwYW4iLCJNQyI6Ik1vbmFjbyIsIktNIjoiQ29tb3JvcyIsIk1EIjoiTW9sZG92YSIsIkxJIjoiTGllY2h0ZW5zdGVpbiIsIktOIjoiU2FpbnQgS2l0dHMgJiBOZXZpcyIsIk1FIjoiTW9udGVuZWdybyIsIk5BIjoiTmFtaWJpYSIsIk1GIjoiU2FpbnQgTWFydGluIChGcmVuY2gpIiwiTEsiOiJTcmkgTGFua2EiLCJLUCI6Ik5vcnRoIEtvcmVhIiwiTUciOiJNYWRhZ2FzY2FyIiwiTkMiOiJOZXcgQ2FsZWRvbmlhIiwiTUgiOiJNYXJzaGFsbCBJc2xhbmRzIiwiS1IiOiJTb3V0aCBLb3JlYSIsIk5FIjoiTmlnZXIiLCJORiI6Ik5vcmZvbGsgSXNsYW5kIiwiTUsiOiJNYWNlZG9uaWEiLCJORyI6Ik5pZ2VyaWEiLCJNTCI6Ik1hbGkiLCJNTSI6Ik15YW5tYXIgKEJ1cm1hKSIsIkxSIjoiTGliZXJpYSIsIk5JIjoiTmljYXJhZ3VhIiwiS1ciOiJLdXdhaXQiLCJNTiI6Ik1vbmdvbGlhIiwiTFMiOiJMZXNvdGhvIiwiUEEiOiJQYW5hbWEiLCJNTyI6Ik1hY2F1IiwiTFQiOiJMaXRodWFuaWEiLCJLWSI6IkNheW1hbiBJc2xhbmRzIiwiTVAiOiJOb3J0aGVybiBNYXJpYW5hIElzbGFuZHMiLCJMVSI6Ikx1eGVtYm91cmciLCJOTCI6Ik5ldGhlcmxhbmRzIiwiS1oiOiJLYXpha2hzdGFuIiwiTVEiOiJNYXJ0aW5pcXVlIiwiTFYiOiJMYXR2aWEiLCJNUiI6Ik1hdXJpdGFuaWEiLCJQRSI6IlBlcnUiLCJNUyI6Ik1vbnRzZXJyYXQiLCJRQSI6IlFhdGFyIiwiTk8iOiJOb3J3YXkiLCJQRiI6IlRhaGl0aSAoRnJlbmNoIFBvbGluZXNpYSkiLCJNVCI6Ik1hbHRhIiwiTFkiOiJMaWJ5YSIsIk5QIjoiTmVwYWwiLCJQRyI6IlBhcHVhIE5ldyBHdWluZWEiLCJNVSI6Ik1hdXJpdGl1cyIsIlBIIjoiUGhpbGlwcGluZXMiLCJNViI6Ik1hbGRpdmVzIiwiT00iOiJPbWFuIiwiTlIiOiJOYXVydSIsIk1XIjoiTWFsYXdpIiwiTVgiOiJNZXhpY28iLCJQSyI6IlBha2lzdGFuIiwiTVkiOiJNYWxheXNpYSIsIk5VIjoiTml1ZSIsIlBMIjoiUG9sYW5kIiwiTVoiOiJNb3phbWJpcXVlIiwiUE0iOiJTYWludCBQaWVycmUgYW5kIE1pcXVlbG9uIiwiUE4iOiJQaXRjYWlybiIsIlJFIjoiUmV1bmlvbiIsIlNBIjoiU2F1ZGkgQXJhYmlhIiwiU0IiOiJTb2xvbW9uIElzbGFuZHMiLCJOWiI6Ik5ldyBaZWFsYW5kIiwiU0MiOiJTZXljaGVsbGVzIiwiU0QiOiJTdWRhbiIsIlBSIjoiUHVlcnRvIFJpY28iLCJTRSI6IlN3ZWRlbiIsIlBTIjoiUGFsZXN0aW5pYW4gVGVycml0b3J5LCBPY2N1cGllZCIsIlBUIjoiUG9ydHVnYWwiLCJTRyI6IlNpbmdhcG9yZSIsIlRDIjoiVHVya3MgYW5kIENhaWNvcyBJc2xhbmRzIiwiU0giOiJTYWludCBIZWxlbmEiLCJURCI6IkNoYWQiLCJTSSI6IlNsb3ZlbmlhIiwiUFciOiJQYWxhdSIsIlNKIjoiU3ZhbGJhcmQgYW5kIEphbiBNYXllbiBJc2xhbmRzIiwiVUEiOiJVa3JhaW5lIiwiUk8iOiJSb21hbmlhIiwiVEYiOiJGcmVuY2ggU291dGhlcm4gVGVycml0b3JpZXMiLCJTSyI6IlNsb3ZhayBSZXB1YmxpYyIsIlBZIjoiUGFyYWd1YXkiLCJURyI6IlRvZ28iLCJTTCI6IlNpZXJyYSBMZW9uZSIsIlRIIjoiVGhhaWxhbmQiLCJTTSI6IlNhbiBNYXJpbm8iLCJTTiI6IlNlbmVnYWwiLCJSUyI6IlNlcmJpYSAoWXVnb3NsYXZpYSkiLCJUSiI6IlRhamlraXN0YW4iLCJWQSI6IlZhdGljYW4gQ2l0eSIsIlNPIjoiU29tYWxpYSIsIlRLIjoiVG9rZWxhdSIsIlVHIjoiVWdhbmRhIiwiUlUiOiJSdXNzaWFuIEZlZGVyYXRpb24iLCJUTCI6IkVhc3QgVGltb3IiLCJWQyI6IlNhaW50IFZpbmNlbnQgJiB0aGUgR3JlbmFkaW5lcyIsIlRNIjoiVHVya21lbmlzdGFuIiwiU1IiOiJTdXJpbmFtZSIsIlJXIjoiUndhbmRhIiwiVE4iOiJUdW5pc2lhIiwiVkUiOiJWZW5lenVlbGEiLCJUTyI6IlRvbmdhIiwiU1QiOiJTYW8gVG9tZSAmIFByaW5jaXBlIiwiVkciOiJCcml0aXNoIFZpcmdpbiBJc2xhbmRzIiwiU1YiOiJFbCBTYWx2YWRvciIsIlVNIjoiVW5pdGVkIFN0YXRlcyBNaW5vciBPdXRseWluZyBJc2xhbmRzIiwiVFIiOiJUdXJrZXkiLCJWSSI6IlZpcmdpbiBJc2xhbmRzIChVUykiLCJXRiI6IldhbGxpcyBhbmQgRnV0dW5hIiwiVFQiOiJUcmluaWRhZCAmIFRvYmFnbyIsIlNZIjoiU3lyaWEiLCJTWiI6IlN3YXppbGFuZCIsIlRWIjoiVHV2YWx1IiwiVFciOiJUYWl3YW4iLCJWTiI6IlZpZXQgTmFtIiwiVVMiOiJVbml0ZWQgU3RhdGVzIChVU0EpIiwiVFoiOiJUYW56YW5pYSIsIllFIjoiWWVtZW4iLCJaQSI6IlNvdXRoIEFmcmljYSIsIlhLIjoiS29zb3ZvIiwiVVkiOiJVcnVndWF5IiwiVlUiOiJWYW51YXR1IiwiVVoiOiJVemJla2lzdGFuIiwiV1MiOiJTYW1vYSIsIlpNIjoiWmFtYmlhIiwiQUMiOiJBc2NlbnNpb24gSXNsYW5kIiwiQUQiOiJBbmRvcnJhIiwiWVQiOiJNYXlvdHRlIiwiQUUiOiJVbml0ZWQgQXJhYiBFbWlyYXRlcyIsIllVIjoiU2VyYmlhIGFuZCBNb250ZW5lZ3JvIiwiQkEiOiJCb3NuaWEgJiBIZXJ6ZWdvdmluYSIsIkFGIjoiQWZnaGFuaXN0YW4iLCJCQiI6IkJhcmJhZG9zIiwiQUciOiJBbnRpZ3VhICYgQmFyYnVkYSIsIkJEIjoiQmFuZ2xhZGVzaCIsIkFJIjoiQW5ndWlsbGEiLCJCRSI6IkJlbGdpdW0iLCJDQSI6IkNhbmFkYSIsIkJGIjoiQnVya2luYSBGYXNvIiwiQkciOiJCdWxnYXJpYSIsIlpXIjoiWmltYmFid2UiLCJBTCI6IkFsYmFuaWEiLCJDQyI6IkNvY29zIChLZWVsaW5nKSBJc2xhbmRzIiwiQkgiOiJCYWhyYWluIiwiQU0iOiJBcm1lbmlhIiwiQ0QiOiJDb25nbywgRGVtb2NyYXRpYyBSZXB1YmxpYyIsIkJJIjoiQnVydW5kaSIsIkFOIjoiTmV0aGVybGFuZHMgQW50aWxsZXMiLCJCSiI6IkJlbmluIiwiQU8iOiJBbmdvbGEiLCJDRiI6IkNlbnRyYWwgQWZyaWNhbiBSZXB1YmxpYyIsIkNHIjoiQ29uZ28iLCJBUSI6IkFudGFyY3RpY2EiLCJDSCI6IlN3aXR6ZXJsYW5kIiwiQk0iOiJCZXJtdWRhIiwiQVIiOiJBcmdlbnRpbmEiLCJDSSI6IkNvdGUgRCdJdm9pcmUgKEl2b3J5IENvYXN0KSIsIkJOIjoiQnJ1bmVpIERhcnVzc2FsYW0iLCJERSI6Ikdlcm1hbnkiLCJBUyI6IkFtZXJpY2FuIFNhbW9hIiwiQk8iOiJCb2xpdmlhIiwiQVQiOiJBdXN0cmlhIiwiQ0siOiJDb29rIElzbGFuZHMiLCJBVSI6IkF1c3RyYWxpYSIsIkNMIjoiQ2hpbGUiLCJFQyI6IkVjdWFkb3IiLCJDTSI6IkNhbWVyb29uIiwiQlIiOiJCcmF6aWwiLCJBVyI6IkFydWJhIiwiQ04iOiJDaGluYSIsIkVFIjoiRXN0b25pYSIsIkJTIjoiQmFoYW1hcyIsIkRKIjoiRGppYm91dGkiLCJBWCI6IkFsYW5kIElzbGFuZHMiLCJDTyI6IkNvbG9tYmlhIiwiQlQiOiJCaHV0YW4iLCJESyI6IkRlbm1hcmsiLCJFRyI6IkVneXB0IiwiQVoiOiJBemVyYmFpamFuIiwiRUgiOiJXZXN0ZXJuIFNhaGFyYSIsIkJWIjoiQm91dmV0IElzbGFuZCIsIkRNIjoiRG9taW5pY2EiLCJDUiI6IkNvc3RhIFJpY2EiLCJCVyI6IkJvdHN3YW5hIiwiR0EiOiJHYWJvbiIsIkRPIjoiRG9taW5pY2FuIFJlcHVibGljIiwiQlkiOiJCZWxhcnVzIiwiR0IiOiJVbml0ZWQgS2luZ2RvbSIsIkNVIjoiQ3ViYSIsIkJaIjoiQmVsaXplIiwiQ1YiOiJDYXBlIFZlcmRlIiwiR0QiOiJHcmVuYWRhIiwiRkkiOiJGaW5sYW5kIiwiR0UiOiJHZW9yZ2lhIiwiRkoiOiJGaWppIiwiQ1giOiJDaHJpc3RtYXMgSXNsYW5kIiwiR0YiOiJGcmVuY2ggR3VpYW5hIiwiRksiOiJGYWxrbGFuZCBJc2xhbmRzIChNYWx2aW5hcykiLCJDWSI6IkN5cHJ1cyIsIkdHIjoiR3Vlcm5zZXkiLCJDWiI6IkN6ZWNoIFJlcHVibGljIiwiR0giOiJHaGFuYSIsIkZNIjoiTWljcm9uZXNpYSIsIkVSIjoiRXJpdHJlYSIsIkdJIjoiR2licmFsdGFyIiwiRVMiOiJTcGFpbiIsIkZPIjoiRmFyb2UgSXNsYW5kcyIsIkVUIjoiRXRoaW9waWEiLCJHTCI6IkdyZWVubGFuZCIsIkRaIjoiQWxnZXJpYSIsIkdNIjoiR2FtYmlhIiwiSUQiOiJJbmRvbmVzaWEiLCJGUiI6IkZyYW5jZSIsIkdOIjoiR3VpbmVhIiwiSUUiOiJJcmVsYW5kIiwiSEsiOiJIb25nIEtvbmciLCJHUCI6Ikd1YWRlbG91cGUiLCJHUSI6IkVxdWF0b3JpYWwgR3VpbmVhIiwiSE0iOiJIZWFyZCBhbmQgTWNEb25hbGQgSXNsYW5kcyIsIkdSIjoiR3JlZWNlIiwiSE4iOiJIb25kdXJhcyIsIkpFIjoiSmVyc2V5IiwiR1MiOiJTb3V0aCBHZW9yZ2lhIGFuZCBTb3V0aCBTYW5kd2ljaCIsIkZYIjoiRnJhbmNlLCBNZXRyb3BvbGl0YW4iLCJHVCI6Ikd1YXRlbWFsYSIsIkdVIjoiR3VhbSIsIklMIjoiSXNyYWVsIn0=</string>
+    <string name="please_choose_from_the_following_tests">Please choose from the following tests</string>
+
+    <string name="error_view_text">No results found\ntap to retry</string>
+    <string name="empty_view_text">No results found</string>
+    <string name="brand">Brand:</string>
+    <string name="shop_by_categories">Shop by categories</string>
+    <string name="stomach_ache">Stomach ache</string>
+    <string name="fever">Fever</string>
+
+    <string-array name="services_array">
+        <item>Doctor</item>
+        <item>Nurse</item>
+        <item>Midwife</item>
+    </string-array>
+
+    <string name="title_choose_image_provider">Choose</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="title_gallery">Gallery</string>
+    <string name="title_camera">Camera</string>
+
+    <string name="image_picker_provider_authority_suffix">.provider</string>
+
+    <string name="message_gallery_permission_denied">Read External Storage permissions is needed to select Image. Please turn on requested permissions from Settings > Permissions.</string>
+    <string name="message_camera_permission_denied">Camera and External Storage permissions are needed to capture image. Turning off any permission won\'t allow application run smoothly. Please turn on all requested permissions from Settings > Permissions.</string>
+    <string name="permission_gallery_denied">
+        <![CDATA[Storage permissions are needed to Pick Gallery Image. Please turn on requested permissions from Settings > Permissions.]]></string>
+    <string name="permission_camera_denied">
+        <![CDATA[Camera and Storage permissions are needed to capture image. Please all both requested permissions from Settings > Permissions.]]></string>
+
+    <string name="error_failed_to_create_camera_image_file">Failed to create Camera image file</string>
+    <string name="error_failed_pick_gallery_image">Failed to pick Gallery image</string>
+    <string name="error_failed_to_crop_image">Failed to crop image</string>
+    <string name="error_failed_to_compress_image">Failed to compress image</string>
+    <string name="error_task_cancelled">Task Cancelled</string>
+    <string name="add_comment">Add Comments</string>
+    <string name="default_notification_channel_id">home_medics</string>
+    <string name="medicine">Medicine</string>
+    <string name="forgot_password_instructions">To recover your password, you need to enter your registered phone number. We will sent the recovery code to phone number.</string>
+    <string name="new_password_instructions">Please enter the verification code that has been sent to your number.</string>
+    <string name="verification_code_description">We have sent you a verification code via SMS for mobile number verification.</string>
+    <string name="delivery_charges_message">200 delivery charges up to 3000 amount order</string>
+    <string name="transaction_completed">Thank-you, Transaction successfully completed!</string>
+    <string name="order_placed">Thank-you, We’ve received your request, Our representative will be in contact with you shortly.</string>
+    <string name="transaction_Failed">Transaction failed!</string>
+    <string name="cancel_transaction">Cancel Transaction</string>
+    <string name="service_placed_message">You will receive a call from our representative shortly.</string>
+
+</resources>

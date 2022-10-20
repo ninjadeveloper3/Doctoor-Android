@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.modules.main.MainActivity">
+
+    <data>
+
+        <variable
+            name="mainActivityVM"
+            type="com.Doctoor.app.ui.modules.main.MainActivityVM" />
+    </data>
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        tools:openDrawer="left">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".ui.modules.main.MainActivity">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                style="@style/Doctoor.App.Widget.ToolBar">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/toolbarTitle"
+                    style="@style/Doctoor.App.Widget.TextView.ToolBar"
+                    android:text="@{mainActivityVM.toolbarTitle}" />
+            </androidx.appcompat.widget.Toolbar>
+
+
+            <include
+                layout="@layout/content_main"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/bottomNavigation"
+                android:layout_below="@+id/toolbar" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab"
+                style="@style/Doctoor.App.FloatingActionButton"
+                android:layout_above="@+id/bottomNavigation"
+                android:layout_alignParentEnd="true" />
+
+            <com.Doctoor.app.widget.bottomnavigation.BottomNavigation
+                android:id="@+id/bottomNavigation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:background="@color/white"
+                app:bbn_badgeProvider="@string/bbn_badgeProvider"
+                app:bbn_entries="@menu/bottom_navigation_bar"
+                app:bbn_scrollEnabled="true"
+                app:layout_behavior="@string/bbn_phone_view_behavior" />
+
+        </RelativeLayout>
+
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/navigationView"
+            android:layout_width="320dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            app:elevation="@dimen/elevationMax"
+            app:insetForeground="@color/transparent"
+            app:itemBackground="@drawable/nv_square_selector"
+            app:itemTextAppearance="@style/Doctoor.App.Widget.NavigationItemTextAppearance">
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <include
+                        layout="@layout/nav_header_main"
+                        app:mainActivityVM="@{mainActivityVM}"
+                        app:user="@{mainActivityVM.mUserLiveData}" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:nestedScrollingEnabled="false"
+                        app:adapter="@{mainActivityVM.adapter}"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        tools:listitem="@layout/item_navigation_view" />
+
+                    <TextView
+                        android:id="@+id/versionName"
+                        style="@style/Doctoor.App.Widget.TextView.Light"
+                        android:layout_width="match_parent"
+                        android:background="#F4F4F6"
+                        android:gravity="start"
+                        android:paddingStart="@dimen/padding"
+                        android:paddingTop="@dimen/padding_medium"
+                        android:paddingEnd="@dimen/padding"
+                        android:paddingBottom="@dimen/padding_medium"/>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+            </androidx.core.widget.NestedScrollView>
+
+        </com.google.android.material.navigation.NavigationView>
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+</layout>

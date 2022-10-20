@@ -1,0 +1,101 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+                name="selectCityFragmentVM"
+                type="com.Doctoor.app.ui.modules.select_city.SelectCityFragmentVM" />
+
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/linearLayoutCompat"
+            style="@style/Doctoor.App.Layout.LinearLayout.Vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+                style="@style/Doctoor.App.Layout.LinearLayout.ForgotPassword"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:gravity="center"
+                android:padding="@dimen/padding_large"
+                android:paddingTop="@dimen/padding_x1_large"
+                android:paddingBottom="@dimen/padding_x1_large">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    app:srcCompat="@drawable/ic_map" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/Doctoor.App.Widget.TextView.LargeWhite"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:text="@string/select_city_location_desc"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_primary_medium" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                    style="@style/Doctoor.App.Layout.LinearLayout.Horizontal.wrap_content"
+                    android:layout_gravity="center_horizontal">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/changeCity"
+                        style="@style/Doctoor.App.Widget.TextView.ForgotPassword"
+                        android:layout_width="wrap_content"
+                        android:text="@string/change_city"
+                        android:textAllCaps="true"
+                        android:textColor="@color/blue" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/keepCity"
+                        style="@style/Doctoor.App.Widget.TextView.ForgotPassword"
+                        android:layout_width="wrap_content"
+                        android:layout_marginStart="@dimen/margin_small"
+                        android:text="@string/keep_location"
+                        android:textAllCaps="true"
+                        android:textColor="@color/blue"
+                        android:visibility="gone" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <!--Divider-->
+
+        <include layout="@layout/horizontal_divider" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+                style="@style/Doctoor.App.Layout.LinearLayout.Vertical.WrapContent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_large"
+                android:layout_marginTop="@dimen/margin_xxx_large"
+                android:layout_marginEnd="@dimen/margin_large">
+
+            <Spinner
+                    android:id="@+id/city_spinner"
+                    style="@style/Doctoor.App.Widget.Spinner"
+                    android:entries="@{selectCityFragmentVM.cityNames}"
+                    android:onItemSelected="@{(selectCityFragmentVM::onSelectCityItem)}" />
+
+            <!--Divider-->
+
+            <include layout="@layout/horizontal_divider" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        <com.Doctoor.app.widget.progressbutton.CircularProgressButton
+                android:id="@+id/submit"
+                style="@style/Doctoor.App.Widget.Button.Login.CircularProgressButton"
+                android:layout_marginTop="@dimen/margin_xxx_large"
+                android:onClick="@{()-> selectCityFragmentVM.onSubmit()}"
+                android:text="@string/get_started" />
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+</layout>

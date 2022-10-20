@@ -1,0 +1,67 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+                name="selectTestFragmentVM"
+                type="com.Doctoor.app.ui.modules.select_lab.test.SelectTestFragmentVM" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/tabanim_appbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:theme="@style/ThemeOverlay.AppCompat.Light"
+                android:visibility="@{selectTestFragmentVM.isSearchEnable?View.VISIBLE:View.GONE}">
+
+            <com.Doctoor.app.widget.EditTextRichDrawable
+                    android:id="@+id/testsSearchView"
+                    style="@style/Doctoor.App.Widget.TextInputEditText.SearchView"
+                    android:drawableEnd="@{selectTestFragmentVM.searchQuery.length()>0 ? @drawable/ic_clear : @drawable/ic_search}"
+                    android:drawableRight="@{selectTestFragmentVM.searchQuery.length()>0 ? @drawable/ic_clear : @drawable/ic_search}"
+                    android:hint="@string/search_for_lab_tests"
+                    android:imeOptions="actionSearch"
+                    android:onTextChanged="@{selectTestFragmentVM.onTextChanged}"
+                    android:singleLine="true"
+                    android:text="@={selectTestFragmentVM.searchQuery}"
+                    app:compoundDrawableHeight="@dimen/drawable_larger"
+                    app:compoundDrawableWidth="@dimen/drawable_larger"
+                    app:layout_scrollFlags="scroll|enterAlways"
+                    app:onSearchSubmit="@{selectTestFragmentVM.onSearchSubmit}" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/light_sky_blue"
+                android:orientation="vertical"
+                app:layout_behavior="@string/scroll_behavior">
+
+            <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{selectTestFragmentVM.isSearchEnable?View.GONE:View.VISIBLE}">
+
+                <include layout="@layout/prior_notice" />
+            </FrameLayout>
+
+            <include
+                    layout="@layout/refresh_recycler_view"
+                    app:adapter="@{selectTestFragmentVM}" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

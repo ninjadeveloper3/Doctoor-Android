@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="AspectRatioImageView">
+        <attr name="aspectRatio" format="float" />
+        <attr name="aspectRatioEnabled" format="boolean" />
+        <attr name="dominantMeasurement">
+            <enum name="width" value="0" />
+            <enum name="height" value="1" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="CenterIconButton">
+        <attr name="drawableTint" format="color" />
+        <attr name="android:drawablePadding" />
+    </declare-styleable>
+
+    <declare-styleable name="TextViewRichDrawable">
+        <attr name="compoundDrawableWidth" format="dimension"/>
+        <attr name="compoundDrawableHeight" format="dimension"/>
+        <attr name="drawableStartVector" format="reference" />
+        <attr name="drawableTopVector" format="reference" />
+        <attr name="drawableEndVector" format="reference" />
+        <attr name="drawableBottomVector" format="reference" />
+        <attr name="rtdrawableTint" format="reference" />
+    </declare-styleable>
+
+    <attr name="card_background" format="color|reference"/>
+    <attr name="icon_color" format="color|reference"/>
+    <attr name="timeLineBackground" format="reference"/>
+    <attr name="patch_deletion" format="color"/>
+    <attr name="patch_addition" format="color"/>
+    <attr name="patch_ref" format="color"/>
+    <attr name="dividerColor" format="color|reference"/>
+    <attr name="comment_box_style" format="reference"/>
+
+    <declare-styleable name="SquareImageView">
+        <attr name="hwRatio" format="float|reference" />
+    </declare-styleable>
+
+    <declare-styleable name="IconButton">
+        <attr name="iconPadding" format="dimension"/>
+    </declare-styleable>
+
+    <declare-styleable name="CurrencyWidgets">
+        <attr name="currency_symbol" format="string"/>
+        <attr name="show_currency" format="boolean"/>
+        <attr name="show_commas" format="boolean"/>
+    </declare-styleable>
+
+    <declare-styleable name="SquaredImage">
+        <attr name="useHeight" format="boolean"/>
+    </declare-styleable>
+
+    <declare-styleable name="CircleImageView">
+        <attr name="civ_border_width" format="dimension" />
+        <attr name="civ_border_color" format="color" />
+        <attr name="civ_border_overlay" format="boolean" />
+        <attr name="civ_circle_background_color" format="color" />
+    </declare-styleable>
+
+    <!-- styles for the 'BottomNavigation' View -->
+    <declare-styleable name="BottomNavigation">
+        <attr name="bbn_entries" format="reference" />
+        <attr name="bbn_badgeProvider" format="string" />
+    </declare-styleable>
+
+    <!-- styles for the menu resource -->
+    <declare-styleable name="BottomNavigationMenu">
+        <!-- menu default background color -->
+        <attr name="android:background" />
+
+        <!-- default badge color -->
+        <attr name="bbn_badgeColor" format="color" />
+
+        <!-- animation duration for the menu items -->
+        <attr name="bbn_itemAnimationDuration" format="integer" />
+
+        <!-- ripple selector color -->
+        <attr name="bbn_rippleColor" format="color" />
+
+        <attr name="bbn_itemColorActive" format="color" />
+
+        <attr name="bbn_itemColorInactive" format="color" />
+
+        <!-- item disabled color -->
+        <attr name="bbn_itemColorDisabled" format="color" />
+
+        <!-- force fixed behavior and always display item labels -->
+        <!-- default implementation is false and the labels are -->
+        <!-- shown only if there are less than 4 items in the menu -->
+        <attr name="bbn_alwaysShowLabels" format="boolean" />
+    </declare-styleable>
+
+    <!-- attributes for the 'item' tag within the menu resource. -->
+    <declare-styleable name="BottomNavigationMenuItem">
+        <!-- The ID of the item. -->
+        <attr name="android:id" />
+
+        <!-- The title associated with the item. -->
+        <attr name="android:title" />
+
+        <!-- The icon associated with this item.  This icon will not always be shown, so
+             the title should be sufficient in describing this item. -->
+        <attr name="android:icon" />
+
+        <!-- Whether the item is enabled (not currently used). -->
+        <attr name="android:enabled" />
+
+        <!-- background color for the selected tab. If omitted, or 0, the background
+         color will not change and the BottomNavigationMenu#background will be always used -->
+        <attr name="android:color" />
+    </declare-styleable>
+
+    <!-- style for the scroll behavior -->
+    <declare-styleable name="BottomNavigationBehavior">
+        <attr name="bbn_animationDuration" format="integer" />
+        <attr name="bbn_scrollEnabled" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="CustomEditText">
+        <attr name="android:inputType" />
+        <attr name="android:padding" />
+        <attr name="android:paddingLeft" />
+        <attr name="android:paddingRight" />
+        <attr name="android:paddingTop" />
+        <attr name="android:paddingBottom" />
+        <attr name="libIZO_setBackgroundColor" format="color" />
+        <attr name="libIZO_setBorderColor" format="color" />
+        <attr name="libIZO_setBorderView" format="boolean" />
+        <attr name="libIZO_setFont" format="string" />
+        <attr name="libIZO_setStrokeWidth" format="dimension" />
+        <attr name="libIZO_setCornerRadius" format="dimension" />
+        <attr name="libIZO_setClearIconVisible" format="boolean" />
+        <attr name="libIZO_clearIconTint" format="color" />
+        <attr name="libIZO_setCursorColor" format="color" />
+        <attr name="libIZO_hideShowPasswordIconTint" format="color" />
+        <attr name="libIZO_setPrefix" format="string" />
+        <attr name="libIZO_setPrefixTextColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="LineThroughTextView">
+        <attr name="lt_lineColor" format="color" />
+        <attr name="lt_text" format="string" />
+        <attr name="lt_textSize" format="dimension" />
+        <attr name="lt_textColor" format="color" />
+        <attr name="lt_textPadding" format="dimension" />
+        <attr name="lt_lineHeight" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="CircularProgressButton">
+        <attr name="spinning_bar_width" format="dimension"/>
+        <attr name="spinning_bar_color" format="color"/>
+        <attr name="spinning_bar_padding" format="dimension"/>
+        <attr name="initialCornerAngle" format="dimension"/>
+        <attr name="finalCornerAngle" format="dimension"/>
+    </declare-styleable>
+
+    <declare-styleable name="ValidatedInputTextLayout">
+        <attr name="autoValidate" format="boolean"/>
+        <attr name="autoTrim" format="boolean"/>
+        <attr name="isRequired" format="boolean"/>
+        <attr name="errorAlwaysEnabled" format="boolean"/>
+        <attr name="requiredValidationMessage" format="string"/>
+        <attr name="minLength" format="integer">
+            <enum name="zero" value="0"/>
+        </attr>
+        <attr name="maxLength" format="integer">
+            <enum name="indefinite" value="-1"/>
+        </attr>
+        <attr name="lengthValidationMessage" format="string"/>
+        <attr name="regex" format="string"/>
+        <attr name="regexValidationMessage" format="string"/>
+    </declare-styleable>
+
+    <declare-styleable name="PageIndicatorView">
+        <attr name="piv_orientation">
+            <enum name="horizontal" value="0" />
+            <enum name="vertical" value="1" />
+        </attr>
+
+        <attr name="piv_viewPager" format="reference" />
+        <attr name="piv_select" format="integer" />
+
+        <attr name="piv_count" format="integer" />
+        <attr name="piv_dynamicCount" format="boolean" />
+
+        <attr name="piv_radius" format="dimension" />
+        <attr name="piv_padding" format="dimension" />
+        <attr name="piv_strokeWidth" format="dimension" />
+        <attr name="piv_scaleFactor" format="float" />
+        <attr name="piv_autoVisibility" format="boolean" />
+
+        <attr name="piv_unselectedColor" format="color" />
+        <attr name="piv_selectedColor" format="color" />
+
+        <attr name="piv_interactiveAnimation" format="boolean" />
+        <attr name="piv_animationDuration" format="integer" />
+        <attr name="piv_animationType">
+            <enum name="none" value="0" />
+            <enum name="color" value="1" />
+            <enum name="scale" value="2" />
+            <enum name="worm" value="3" />
+            <enum name="slide" value="4" />
+            <enum name="fill" value="5" />
+            <enum name="thinWorm" value="6" />
+            <enum name="drop" value="7" />
+            <enum name="swap" value="8" />
+            <enum name="scale_down" value="9" />
+        </attr>
+        <attr name="piv_rtl_mode">
+            <enum name="on" value="0" />
+            <enum name="off" value="1" />
+            <enum name="auto" value="2" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="SliderView">
+
+        <attr name="sliderIndicatorOrientation">
+            <enum name="horizontal" value="0" />
+            <enum name="vertical" value="1" />
+        </attr>
+
+        <attr name="sliderIndicatorRadius" format="dimension" />
+        <attr name="sliderIndicatorPadding" format="dimension" />
+        <attr name="sliderIndicatorMargin" format="dimension" />
+
+        <attr name="sliderIndicatorGravity">
+            <flag name="bottom" value="80" />
+            <flag name="center" value="17" />
+            <flag name="center_horizontal" value="1" />
+            <flag name="center_vertical" value="16" />
+            <flag name="clip_horizontal" value="8" />
+            <flag name="clip_vertical" value="128" />
+            <flag name="end" value="8388613" />
+            <flag name="fill" value="119" />
+            <flag name="fill_horizontal" value="7" />
+            <flag name="fill_vertical" value="112" />
+            <flag name="left" value="3" />
+            <flag name="right" value="5" />
+            <flag name="start" value="8388611" />
+            <flag name="top" value="48" />
+        </attr>
+
+        <attr name="sliderIndicatorUnselectedColor" format="color" />
+        <attr name="sliderIndicatorSelectedColor" format="color" />
+        <attr name="sliderIndicatorAnimationDuration" format="integer" />
+        <attr name="sliderAnimationDuration" format="integer" />
+
+        <attr name="sliderIndicatorRtlMode">
+            <enum name="on" value="0" />
+            <enum name="off" value="1" />
+            <enum name="auto" value="2" />
+        </attr>
+
+        <attr name="sliderScrollTimeInSec" format="integer" />
+
+        <attr name="sliderCircularHandlerEnabled" format="boolean" />
+        <attr name="sliderAutoCycleEnabled" format="boolean" />
+        <attr name="sliderStartAutoCycle" format="boolean" />
+
+        <attr name="sliderAutoCycleDirection">
+            <enum name="right" value="0" />
+            <enum name="left" value="1" />
+            <enum name="back_and_forth" value="2" />
+        </attr>
+
+    </declare-styleable>
+
+    <declare-styleable name="textview_typeface">
+        <attr name="textFont" format="enum">
+            <enum name="mark_pro_ragular" value="0" />
+            <enum name="mark_pro_light" value="1" />
+            <enum name="mark_pro_medium" value="2" />
+            <enum name="mark_pro_bold" value="3" />
+            <enum name="mark_pro_book" value="4" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="QuantityView">
+        <attr name="qv_addButtonText" format="string" />
+        <attr name="qv_addButtonBackground" format="color|reference" />
+        <attr name="qv_addButtonTextColor" format="color" />
+
+        <attr name="qv_removeButtonText" format="string" />
+        <attr name="qv_removeButtonBackground" format="color|reference" />
+        <attr name="qv_removeButtonTextColor" format="color" />
+
+        <attr name="qv_quantity" format="integer" />
+        <attr name="qv_quantityDialog" format="boolean" />
+        <attr name="qv_quantityBackground" format="color|reference" />
+        <attr name="qv_quantityTextColor" format="color" />
+        <attr name="qv_quantityPadding" format="dimension" />
+
+        <attr name="qv_maxQuantity" format="integer" />
+        <attr name="qv_minQuantity" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="MaterialSpinner">
+        <attr format="color" name="ms_baseColor"/>
+        <attr format="color" name="ms_highlightColor"/>
+        <attr format="color" name="ms_errorColor"/>
+        <attr format="string" name="ms_error"/>
+        <attr format="string" name="ms_hint"/>
+        <attr format="color" name="ms_hintColor"/>
+        <attr format="dimension" name="ms_hintTextSize"/>
+        <attr format="string" name="ms_floatingLabelText"/>
+        <attr format="color" name="ms_floatingLabelColor"/>
+        <attr format="boolean" name="ms_multiline"/>
+        <attr format="integer" name="ms_nbErrorLines"/>
+        <attr format="string" name="ms_typeface"/>
+        <attr format="boolean" name="ms_alignLabels"/>
+        <attr format="dimension" name="ms_thickness"/>
+        <attr format="dimension" name="ms_thickness_error"/>
+        <attr format="dimension" name="ms_arrowSize"/>
+        <attr format="color" name="ms_arrowColor"/>
+        <attr format="boolean" name="ms_enableFloatingLabel"/>
+        <attr format="boolean" name="ms_enableErrorLabel"/>
+        <attr format="boolean" name="ms_alwaysShowFloatingLabel"/>
+        <attr format="boolean" name="ms_isRtl"/>
+        <attr format="reference" name="ms_hintView"/>
+        <attr format="reference" name="ms_dropDownHintView"/>
+    </declare-styleable>
+
+    <declare-styleable name="MultiStateView">
+        <attr name="msv_loadingView" format="reference" />
+        <attr name="msv_emptyView" format="reference" />
+        <attr name="msv_errorView" format="reference" />
+        <attr name="msv_viewState" format="enum">
+            <enum name="content" value="0" />
+            <enum name="error" value="1" />
+            <enum name="empty" value="2" />
+            <enum name="loading" value="3" />
+        </attr>
+        <attr name="msv_animateViewChanges" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="RatioImageView">
+        <attr name="groupId" format="string" />
+        <attr name="adjustWidth" format="boolean"/>
+    </declare-styleable>
+
+</resources>

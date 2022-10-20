@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="medicineCategoryItemVM"
+            type="com.Doctoor.app.ui.modules.medicine.category.MedicineCategoryItemVM" />
+
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        style="@style/Doctoor.App.Layout.CardView.MedicineDetails"
+        app:cardBackgroundColor="@color/white"
+        app:contentPadding="@dimen/no_padding">
+
+        <com.Doctoor.app.widget.SquaredLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="?android:attr/selectableItemBackground"
+            android:orientation="vertical"
+            android:padding="@dimen/padding">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/drawable_xx_larger"
+                android:layout_height="@dimen/drawable_xx_larger"
+                app:imageUrl="@{medicineCategoryItemVM.item.image}"
+                app:srcCompat="@drawable/ic_health_fitness" />
+
+            <com.Doctoor.app.widget.TextViewRichDrawable
+                style="@style/Doctoor.App.Widget.TextView.Bold"
+                android:layout_height="wrap_content"
+                android:layout_width="100dp"
+                android:maxLines="2"
+                android:text="@{medicineCategoryItemVM.categoryName}"
+                android:textSize="@dimen/text_secondary_medium" />
+
+            <include
+                layout="@layout/item_arrow_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small" />
+
+        </com.Doctoor.app.widget.SquaredLinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

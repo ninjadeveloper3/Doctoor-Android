@@ -1,0 +1,789 @@
+<resources>
+
+    <style name="Doctoor" parent="Theme.Base.Doctoor">
+
+    </style>
+
+    <style name="Doctoor.App">
+
+    </style>
+
+    <style name="Doctoor.App.Widget.NavigationItemTextAppearance" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">@dimen/text_primary_medium</item>
+        <item name="android:textStyle">normal</item>
+
+        <item name="android:paddingTop">@dimen/padding_small</item>
+        <item name="android:paddingBottom">@dimen/padding_small</item>
+
+    </style>
+
+    <style name="Doctoor.App.Widget.CardViewLayout" parent="Widget.MaterialComponents.CardView">
+        <item name="android:layout_margin">@dimen/lab_card_margin</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+
+    </style>
+
+    <style name="Doctoor.App.Layout.CardView.Home" parent="Widget.MaterialComponents.CardView">
+        <item name="cardElevation">@dimen/elevationMedium</item>
+        <item name="cardCornerRadius">@dimen/elevationMax</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/margin_medium</item>
+        <item name="android:layout_marginBottom">@dimen/padding_small</item>
+        <item name="android:layout_marginEnd">@dimen/margin</item>
+        <item name="android:layout_marginStart">@dimen/margin</item>
+        <item name="cardBackgroundColor">@color/white</item>
+        <item name="android:stateListAnimator">@animator/lift_on_touch</item>
+        <item name="android:clickable">true</item>
+        <item name="android:foreground">?android:attr/selectableItemBackground</item>
+
+    </style>
+
+    <style name="Doctoor.App.Widget.RelativeLayout" parent="Widget.Support.CoordinatorLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:gravity">center_vertical</item>
+
+    </style>
+
+    <style name="Doctoor.App.Widget.EasyPaisaLogo" parent="Doctoor">
+        <item name="android:layout_width">300dp</item>
+        <item name="android:layout_height">100dp</item>
+        <item name="android:src">@drawable/logo_easypaisa</item>
+        <item name="android:contentDescription">@string/app_name</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="aspectRatio">.4</item>
+        <item name="aspectRatioEnabled">true</item>
+    </style>
+
+
+    <style name="Doctoor.App.Widget.AppLogo" parent="Doctoor">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:src">@drawable/ic_app_icon</item>
+        <item name="android:contentDescription">@string/app_name</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="aspectRatio">.3</item>
+        <item name="aspectRatioEnabled">true</item>
+    </style>
+
+    <style name="Doctoor.App.Widget.TranslucentStatus" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowTranslucentStatus">true</item>
+
+    </style>
+
+    <style name="Doctoor.App.Widget.TextInputLayout" parent="Widget.Design.TextInputLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/margin_medium</item>
+        <item name="hintTextAppearance">@style/Widget.App.TextInputLayout.TextAppearance.Hint</item>
+        <item name="android:textColorHint">@color/textColorHintPrimary</item>
+        <item name="errorTextAppearance">@style/Widget.App.TextInputLayout.TextAppearance.Error
+        </item>
+        <item name="android:fontFamily">@font/mark_pro_medium</item>
+        <item name="fontFamily">@font/mark_pro_medium</item>
+        <item name="font">@font/mark_pro_medium</item>
+
+    </style>
+
+    <style name="Widget.App.TextInputLayout.TextAppearance.Hint" parent="TextAppearance.Design.Hint">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/text_primary_medium</item>
+        <item name="android:textColorHint">@color/textColorHintPrimary</item>
+        <item name="android:fontFamily">@font/mark_pro_medium</item>
+        <item name="fontFamily">@font/mark_pro_medium</item>
+        <item name="font">@font/mark_pro_medium</item>
+
+    </style>
+
+    <style name="Widget.App.TextInputLayout.TextAppearance.Error" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/md_red_800</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">@font/mark_pro_medium</item>
+        <item name="fontFamily">@font/mark_pro_medium</item>
+        <item name="font">@font/mark_pro_medium</item>
+
+    </style>
+
+    <style name="Doctoor.App.Widget.TextInputEditText" parent="Base.Widget.MaterialComponents.TextInputEditText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/text_primary_normal</item>
+        <item name="android:textColor">@color/textColorsPrimaryDark</item>
+        <item name="android:textCursorDrawable">@drawable/et_cursor_handler</item>
+        <item name="android:theme">@style/Theme.EditText</item>
+        <item name="android:paddingStart">@dimen/padding_small</item>
+        <item name="android:paddingLeft">@dimen/padding_small</item>
+        <item name="android:paddingRight">@dimen/padding_small</item>
+        <item name="android:paddingEnd">@dimen/padding_small</item>
+        <item name="android:textColorHint">@color/textColorHintPrimary</item>
+
+    </style>
+
+    <style name="Doctoor.App.Widget.TextInputEditText.Phone" parent="Doctoor.App.Widget.TextInputEditText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:drawablePadding">@dimen/no_padding</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textColorHint">@color/textColorHintPrimary</item>
+        <item name="colorControlNormal">@color/colorControlNormal</item>
+        <item name="colorControlActivated">@color/colorControlActivated</item>
+        <item name="android:theme">@style/Theme.EditText</item>
+        <item name="colorControlHighlight">@color/colorControlHighlight</item>
+        <item name="android:drawableEnd">@drawable/ic_phone</item>
+        <item name="android:drawableRight">@drawable/ic_phone</item>
+        <item name="compoundDrawableHeight">@dimen/drawable_larger</item>
+        <item name="compoundDrawableWidth">@dimen/drawable_larger</item>
+        <item name="android:maxLength">15</item>
+        <item name="android:fontFamily">@font/mark_pro_ragular</item>
+        <item name="fontFamily">@font/mark_pro_ragular</item>
+        <item name="font">@font/mark_pro_ragular</item>
+
+    </style>
+
+    <style name="Doctoor.App.Widget.TextInputEditText.Password" parent="Doctoor.App.Widget.TextInputEditText">
+        <item name="android:hint">@string/password</item>
+        <item name="android:drawablePadding">@dimen/padding</item>
+        <item name="android:imeOptions">actionDone</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:drawableRight">@drawable/ic_password</item>
+        <item name="compoundDrawableHeight">@dimen/drawable_larger</item>
+        <item name="compoundDrawableWidth">@dimen/drawable_larger</item>
+        <item name="android:layout_marginTop">@dimen/activity_vertical_margin</item>
+        <item name="android:maxLength">15</item>
+        <item name="android:fontFamily">@font/mark_pro_ragular</item>
+        <item name="fontFamily">@font/mark_pro_ragular</item>
+        <item name="font">@font/mark_pro_ragular</item>
+    </style>
+
+    <style name="Doctoor.App.Widget.TextInputEditText.TextInput" parent="Doctoor.App.Widget.TextInputEditText">
+        <item name="android:paddingStart">@dimen/padding_large</item>
+        <item name="android:paddingLeft">@dimen/padding_large</item>
+        <item name="android:drawablePadding">@dimen/padding</item>
+        <item name="compoundDrawableHeight">@dimen/drawable_larger</item>
+        <item name="compoundDrawableWidth">@dimen/drawable_larger</item>
+        <item name="android:layout_marginTop">@dimen/activity_vertical_margin</item>
+
+    </style>
+
+    <style name="Doctoor.App.Widget.TextInputEditText.Login" parent="Doctoor.App.Widget.TextInputEditText">
+        <item name="android:maxLines">1</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:paddingTop">@dimen/padding</item>
+        <item name="android:paddingBottom">@dimen/padding</item>
+        <item name="android:drawablePadding">@dimen/padding</item>
+        <item name="android:textColorHint">@color/textColorHint</item>
+        <item name="colorControlNormal">@color/colorControlNormal</item>
+        <item name="colorControlActivated">@color/colorControlActivated</item>
+        <item name="android:theme">@style/Theme.EditText</item>
+        <item name="android:textCursorDrawable">@drawable/et_cursor_handler</item>
+        <item name="colorControlHighlight">@color/colorControlHighlight</item>
+        <item name="compoundDrawableHeight">@dimen/drawable_larger</item>
+        <item name="compoundDrawableWidth">@dimen/drawable_larger</item>
+
+    </style>
+
+    <style name="Doctoor.App.Widget.TextInputEditText.FullName" parent="Doctoor.App.Widget.TextInputEditText.Login">
+        <item name="android:maxLength">15</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:inputType">textCapWords|textPersonName</item>
+        <item name="android:hint">@string/full_name</item>
+        <item name="android:drawableEnd">@drawable/ic_full_name</item>
+        <item name="android:drawableRight">@drawable/ic_full_name</item>
+        <item name="android:fontFamily">@font/mark_pro_ragular</item>
+        <item name="fontFamily">@font/mark_pro_ragular</item>
+        <item name="font">@font/mark_pro_ragular</item>
+
+    </style>
+
+    <style name="Doctoor.App.Widget.TextInputEditText.Email" parent="Doctoor.App.Widget.TextInputEditText.Login">
+        <item name="android:inputType">textCapWords|textEmailAddress</item>
+        <item name="android:hint">@string/email_address</item>
+        <item name="android:drawableEnd">@drawable/ic_email_address</item>
+        <item name="android:drawableRight">@drawable/ic_email_address</item>
+        <item name="android:fontFamily">@font/mark_pro_ragular</item>
+        <item name="fontFamily">@font/mark_pro_ragular</item>
+        <item name="font">@font/mark_pro_ragular</item>
+        <item name="android:textColorHint">@color/textColorHintPrimary</item>
+
+
+    </style>
+
+    <style name="Doctoor.App.DOBLayout" parent="Doctoor.App.Widget.TextInputEditText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">55dp</item>
+        <item name="android:textSize">@dimen/text_primary_medium</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:paddingStart">@dimen/padding_large</item>
+        <item name="android:paddingLeft">@dimen/padding_large</item>
+        <item name="android:drawablePadding">@dimen/padding</item>
+        <item name="android:drawableRight">@drawable/ic_calander_icon</item>
+        <item name="compoundDrawableHeight">@dimen/drawable_larger</item>
+        <item name="compoundDrawableWidth">@dimen/drawable_larger</item>
+        <item name="android:background">@drawable/grey_layout_gradient</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:fontFamily">@font/mark_pro_medium</item>
+        <item name="fontFamily">@font/mark_pro_medium</item>
+        <item name="font">@font/mark_pro_medium</item>
+
+    </style>
+
+    <!--Login button style-->
+
+    <style name="Doctoor.App.Widget.Button.Login" parent="Widget.AppCompat.Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?actionBarSize</item>
+        <item name="android:minHeight">?actionBarSize</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:background">@drawable/btn_default_rounded_selector</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/text_primary_medium</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:maxHeight">?actionBarSize</item>
+        <item name="android:elevation">@dimen/elevationHigh</item>
+        <item name="android:fontFamily">@font/mark_pro_bold</item>
+        <item name="fontFamily">@font/mark_pro_bold</item>
+        <item name="font">@font/mark_pro_bold</item>
+
+    </style>
+
+    <style name="Doctoor.App.Widget.Button.Login.CircularProgressButton" parent="Doctoor.App.Widget.Button.Login">
+        <item name="finalCornerAngle">50dp</item>
+        <item name="initialCornerAngle">0dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/btn_default_rounded_selector</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="spinning_bar_color">@color/blue</item>
+        <item name="spinning_bar_padding">@dimen/padding_smallest</item>
+        <item name="spinning_bar_width">2dp</item>
+        <item name="android:paddingLeft">@dimen/padding</item>
+        <item name="android:paddingRight">@dimen/padding</item>
+        <item name="android:layout_marginTop">@dimen/margin_xx_large</item>
+        <item name="android:layout_marginStart">@dimen/margin_xxx_large</item>
+        <item name="android:layout_marginEnd">@dimen/margin_xxx_large</item>
+
+    </style>
+
+    <style name="Doctoor.App.Widget.ForgotPassword" parent="Widget.Support.CoordinatorLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/activity_vertical_margin</item>
+
+    </style>
+
+    <style name="Doctoor.App.Widget.ForgotPassword.Text" parent="Doctoor.App.Widget.NavigationItemTextAppearance">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingBottom">0dp</item>
+        <item name="android:paddingTop">0dp</item>
+        <item name="android:layout_marginEnd">10dp</item>
+        <item name="android:layout_marginStart">10dp</item>
+
+    </style>
+
+
+    <style name="Doctoor.App.SocialIcons">
+        <item name="android:layout_width">50dp</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_margin">10dp</item>
+
+    </style>
+
+    <style name="Doctoor.App.Widget.TextView" parent="TextAppearance.AppCompat.Title">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/text_primary_normal</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:fontFamily">@font/mark_pro_light</item>
+
+    </style>
+
+    <style name="Doctoor.App.Widget.TextView.SubHeading" parent="Doctoor.App.Widget.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/text_secondary_small</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:fontFamily">@font/mark_pro_ragular</item>
+        <item name="fontFamily">@font/mark_pro_ragular</item>
+        <item name="font">@font/mark_pro_ragular</item>
+    </style>
+
+    <style name="Doctoor.App.Widget.TextView.Bold" parent="Doctoor.App.Widget.TextView">
+        <item name="android:textSize">@dimen/text_primary_small</item>
+        <item name="android:fontFamily">@font/mark_pro_bold</item>
+        <item name="fontFamily">@font/mark_pro_bold</item>
+        <item name="font">@font/mark_pro_bold</item>
+
+    </style>
+
+    <style name="Doctoor.App.Widget.TextView.Bold.OrderItem" parent="Doctoor.App.Widget.TextView.Bold">
+        <item name="android:textSize">@dimen/text_secondary_small</item>
+
+    </style>
+
+    <style name="Doctoor.App.Widget.TextView.Date" parent="Doctoor.App.Widget.TextView">
+        <item name="android:textSize">@dimen/text_primary_small</item>
+        <item name="android:fontFamily">@font/mark_pro_ragular</item>
+        <item name="fontFamily">@font/mark_pro_ragular</item>
+        <item name="font">@font/mark_pro_ragular</item>
+        <item name="android:drawablePadding">@dimen/padding_small</item>
+        <item name="android:drawableStart">@drawable/ic_date</item>
+        <item name="android:drawableLeft">@drawable/ic_date</item>
+        <item name="compoundDrawableHeight">@dimen/drawable</item>
+        <item name="compoundDrawableWidth">@dimen/drawable</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="Doctoor.App.Widget.TextView.Light" parent="Doctoor.App.Widget.TextView">
+        <item name="android:textSize">@dimen/text_primary_normal</item>
+        <item name="android:fontFamily">@font/mark_pro_light</item>
+        <item name="fontFamily">@font/mark_pro_light</item>
+        <item name="font">@font/mark_pro_light</item>
+
+    </style>
+
+    <style name="Doctoor.App.Widget.TextView.PrivacyPolicy" parent="Doctoor.App.Widget.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:background">#eeeeee</item>
+        <item name="android:fontFamily">@font/mark_pro_light</item>
+        <item name="fontFamily">@font/mark_pro_light</item>
+        <item name="font">@font/mark_pro_light</item>
+        <item name="android:textSize">@dimen/text_secondary_small</item>
+        <item name="android:layout_gravity">center_vertical</item>
+
+    </style>
+
+    <style name="Doctoor.App.Widget.TextView.FullName" parent="Doctoor.App.Widget.TextView">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:textSize">@dimen/text_secondary_medium</item>
+
+    </style>
+
+    <style name="Doctoor.App.Widget.TextView.FullName.Bold" parent="Doctoor.App.Widget.TextView.FullName">
+        <item name="android:fontFamily">@font/mark_pro_bold</item>
+        <item name="fontFamily">@font/mark_pro_bold</item>
+        <item name="font">@font/mark_pro_bold</item>
+    </style>
+
+    <style name="Doctoor.App.Widget.TextView.Label" parent="Doctoor.App.Widget.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/text_primary_small</item>
+        <item name="android:fontFamily">@font/mark_pro_medium</item>
+        <item name="fontFamily">@font/mark_pro_medium</item>
+        <item name="font">@font/mark_pro_medium</item>
+
+    </style>
+
+    <style name="Doctoor.App.Widget.TextView.Landing" parent="Doctoor.App.Widget.TextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:fontFamily">@font/mark_pro_book</item>
+        <item name="fontFamily">@font/mark_pro_book</item>
+        <item name="font">@font/mark_pro_book</item>
+        <item name="android:textSize">@dimen/text_primary_small</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:drawablePadding">8dp</item>
+        <item name="android:background">@drawable/bg_btn_login_selector</item>
+        <item name="android:drawableEnd">@drawable/ic_arrow_right</item>
+        <item name="android:padding">@dimen/margin</item>
+
+    </style>
+
+    <style name="Doctoor.App.Widget.TextView.ForgotPassword" parent="Doctoor.App.Widget.TextView.Light">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:text">@string/forgot_password</item>
+        <item name="android:paddingTop">@dimen/padding_small</item>
+        <item name="android:paddingBottom">@dimen/padding_small</item>
+        <item name="android:background">?selectableItemBackground</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/text_primary_normal</item>
+    </style>
+
+    <style name="Doctoor.App.Layout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+
+    </style>
+
+    <!--Layout Styles Start-->
+    <style name="Doctoor.App.Layout.LinearLayout" parent="Doctoor.App.Layout">
+        <item name="android:focusableInTouchMode">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+
+    <style name="Doctoor.App.Layout.LinearLayout.Horizontal" parent="Doctoor.App.Layout.LinearLayout">
+        <item name="android:orientation">horizontal</item>
+
+    </style>
+
+    <style name="Doctoor.App.Layout.LinearLayout.Horizontal.wrap_content" parent="Doctoor.App.Layout.LinearLayout.Horizontal">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+
+    </style>
+
+    <style name="Doctoor.App.Layout.LinearLayout.Horizontal.match_parent" parent="Doctoor.App.Layout.LinearLayout.Horizontal">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+
+    </style>
+
+    <style name="Doctoor.App.Layout.LinearLayout.Vertical" parent="Doctoor.App.Layout.LinearLayout">
+        <item name="android:orientation">vertical</item>
+        <item name="android:background">@color/white</item>
+
+    </style>
+
+    <style name="Doctoor.App.Layout.LinearLayout.Vertical.match_parent" parent="Doctoor.App.Layout.LinearLayout">
+        <item name="android:orientation">vertical</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:layout_height">match_parent</item>
+
+    </style>
+
+    <style name="Doctoor.App.Widget.TextView.LargeWhite" parent="Doctoor.App.Widget.TextView.Light">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/text_primary_large</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:textAlignment">center</item>
+
+    </style>
+
+    <style name="Doctoor.App.Widget.TextView.LargeWhite.Bold" parent="Doctoor.App.Widget.TextView.LargeWhite">
+        <item name="android:fontFamily">@font/mark_pro_bold</item>
+        <item name="fontFamily">@font/mark_pro_bold</item>
+        <item name="font">@font/mark_pro_bold</item>
+
+    </style>
+
+    <style name="Doctoor.App.Layout.LinearLayout.ForgotPassword" parent="Doctoor.App.Layout.LinearLayout.Vertical">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@color/blue</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingTop">@dimen/padding</item>
+        <item name="android:paddingBottom">@dimen/padding_x2_large</item>
+        <item name="android:paddingStart">@dimen/padding</item>
+        <item name="android:paddingEnd">@dimen/padding</item>
+    </style>
+
+    <style name="Doctoor.App.Widget.TextInputEditText.Code" parent="Doctoor.App.Widget.TextInputEditText.Login">
+        <item name="android:inputType">phone</item>
+        <item name="android:drawableEnd">@drawable/ic_phone</item>
+        <item name="android:drawableRight">@drawable/ic_phone</item>
+        <item name="android:fontFamily">@font/mark_pro_ragular</item>
+        <item name="fontFamily">@font/mark_pro_ragular</item>
+        <item name="font">@font/mark_pro_ragular</item>
+    </style>
+
+    <style name="Doctoor.App.Widget.TextView.Resend" parent="Doctoor.App.Widget.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/text_primary_normal</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:layout_marginTop">@dimen/margin_medium</item>
+        <item name="android:layout_gravity">end</item>
+        <item name="android:background">@drawable/bg_pink_gradient</item>
+        <item name="android:padding">@dimen/padding_smaller</item>
+
+    </style>
+
+    <style name="Doctoor.App.Widget.RadioButton.Gender" parent="Widget.AppCompat.CompoundButton.RadioButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:textSize">@dimen/text_primary_normal</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:layout_weight">1</item>
+
+    </style>
+
+    <style name="Doctoor.App.Widget.TextInputEditText.CorporationCode" parent="Doctoor.App.Widget.TextInputEditText.Login">
+        <item name="android:drawableEnd">@drawable/ic_corporate_code</item>
+        <item name="android:drawableRight">@drawable/ic_corporate_code</item>
+        <item name="android:maxLength">20</item>
+        <item name="android:inputType">textPersonName</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:fontFamily">@font/mark_pro_ragular</item>
+        <item name="fontFamily">@font/mark_pro_ragular</item>
+        <item name="font">@font/mark_pro_ragular</item>
+
+    </style>
+
+    <style name="Doctoor.App.Layout.LinearLayout.Vertical.WrapContent" parent="Doctoor.App.Layout.LinearLayout.Vertical">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+
+    </style>
+
+    <style name="Doctoor.App.Widget.Spinner" parent="Widget.AppCompat.Spinner">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:background">@drawable/spinner_background</item>
+        <item name="android:entries">@array/city_array</item>
+        <item name="android:textSize">@dimen/text_primary_extra_medium</item>
+        <item name="android:paddingLeft">@dimen/padding_xx_large</item>
+        <item name="android:paddingStart">@dimen/padding_xx_large</item>
+
+    </style>
+
+
+    <style name="Doctoor.App.CircularImage">
+        <item name="android:layout_width">@dimen/drawable_xxxx_large</item>
+        <item name="android:layout_height">@dimen/drawable_xxxx_large</item>
+
+    </style>
+
+    <style name="Doctoor.App.ProfileEditIcon">
+        <item name="android:layout_width">@dimen/drawable_large</item>
+        <item name="android:layout_height">@dimen/drawable_large</item>
+        <item name="android:layout_gravity">center|end</item>
+        <item name="android:layout_marginStart">85dp</item>
+        <item name="android:layout_marginTop">20dp</item>
+
+    </style>
+
+    <style name="Doctoor.App.Widget.TextInputEditText.Profile" parent="Doctoor.App.Widget.TextInputEditText.Login">
+        <item name="android:inputType">text</item>
+        <item name="compoundDrawableHeight">@dimen/drawable_larger</item>
+        <item name="compoundDrawableWidth">@dimen/drawable_larger</item>
+        <item name="android:fontFamily">@font/mark_pro_ragular</item>
+        <item name="fontFamily">@font/mark_pro_ragular</item>
+        <item name="font">@font/mark_pro_ragular</item>
+    </style>
+
+
+    <style name="Doctoor.App.CircularImageBorder">
+        <item name="android:layout_width">56dp</item>
+        <item name="android:layout_height">57dp</item>
+        <item name="android:contentDescription">@string/lab_icon</item>
+        <item name="android:background">@drawable/white_rounded_circle</item>
+        <item name="android:layout_margin">@dimen/margin_smallest</item>
+
+    </style>
+
+    <style name="Doctoor.App.Widget.TextView.LeftPinkCircle" parent="Doctoor.App.Widget.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/text_primary_normal</item>
+        <item name="android:layout_marginTop">@dimen/margin_medium</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:layout_gravity">start</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:drawableLeft">@drawable/ic_pink_dot</item>
+        <item name="android:drawablePadding">@dimen/padding_small</item>
+        <item name="android:textAlignment">textStart</item>
+        <item name="compoundDrawableHeight">@dimen/drawable_small</item>
+        <item name="compoundDrawableWidth">@dimen/drawable_small</item>
+    </style>
+
+    <style name="Doctoor.App.Layout.LinearLayout.Vertical.MatchParent" parent="Doctoor.App.Layout.LinearLayout.Vertical">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+
+    </style>
+
+    <style name="Doctoor.App.Widget.TabLayout" parent="Widget.MaterialComponents.TabLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="tabIndicatorColor">@color/blue</item>
+        <item name="tabTextAppearance">@style/Doctoor.App.Widget.TabTextAppearance</item>
+        <item name="tabTextColor">@color/tab_text_color</item>
+        <item name="tabUnboundedRipple">true</item>
+        <item name="tabSelectedTextColor">@color/blue</item>
+        <item name="tabIndicatorHeight">1dp</item>
+        <item name="tabMode">fixed</item>
+        <item name="tabBackground">@color/white</item>
+        <item name="android:minHeight">?attr/actionBarSize</item>
+    </style>
+
+    <style name="Doctoor.App.Widget.TabTextAppearance" parent="@style/TextAppearance.Design.Tab">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/textColorTitlePrimary</item>
+        <item name="android:fontFamily">@font/mark_pro_medium</item>
+        <item name="fontFamily">@font/mark_pro_medium</item>
+        <item name="font">@font/mark_pro_medium</item>
+        <item name="textAllCaps">false</item>
+    </style>
+
+    <style name="Doctoor.App.Widget.TextView.ToolBar" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">?attr/actionBarSize</item>
+        <item name="android:minWidth">?attr/actionBarSize</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:layout_gravity">center|center_vertical|center_horizontal</item>
+        <item name="android:gravity">center|center_vertical|center_horizontal</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:fontFamily">@font/mark_pro_bold</item>
+        <item name="fontFamily">@font/mark_pro_bold</item>
+        <item name="font">@font/mark_pro_bold</item>
+
+    </style>
+
+    <style name="Doctoor.App.Widget.ToolBar" parent="Widget.MaterialComponents.Toolbar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?attr/actionBarSize</item>
+        <item name="android:minHeight">?attr/actionBarSize</item>
+        <item name="android:background">@drawable/bg_toolbar</item>
+        <item name="title">@null</item>
+
+    </style>
+
+    <style name="Doctoor.App.Widget.TextInputEditText.Coupon" parent="Doctoor.App.Widget.TextInputEditText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?attr/actionBarSize</item>
+        <item name="android:minHeight">?attr/actionBarSize</item>
+        <item name="android:background">@drawable/grey_rounded</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textColorHint">@color/black</item>
+        <item name="android:paddingStart">@dimen/padding_medium</item>
+        <item name="android:paddingEnd">@dimen/padding_medium</item>
+        <item name="android:inputType">textCapWords</item>
+        <item name="android:fontFamily">@font/mark_pro_medium</item>
+        <item name="fontFamily">@font/mark_pro_medium</item>
+        <item name="font">@font/mark_pro_medium</item>
+    </style>
+
+    <style name="Doctoor.App.Widget.TextInputEditText.SearchView" parent="Doctoor.App.Widget.TextInputEditText">
+        <item name="android:layout_margin">@dimen/margin</item>
+        <item name="android:background">@drawable/bg_searchview</item>
+        <item name="android:drawableEnd">@drawable/ic_search</item>
+        <item name="android:drawableRight">@drawable/ic_search</item>
+        <item name="compoundDrawableHeight">@dimen/drawable_larger</item>
+        <item name="compoundDrawableWidth">@dimen/drawable_larger</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:textColorHint">@color/black</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:fontFamily">@font/mark_pro_medium</item>
+        <item name="fontFamily">@font/mark_pro_medium</item>
+        <item name="font">@font/mark_pro_medium</item>
+    </style>
+
+
+    <style name="Doctoor.App.Widget.TextView.LeftDrawable" parent="Doctoor.App.Widget.TextView.Light">
+        <item name="compoundDrawableHeight">20dp</item>
+        <item name="compoundDrawableWidth">20dp</item>
+        <item name="android:drawablePadding">@dimen/padding_small</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/mark_pro_bold</item>
+        <item name="fontFamily">@font/mark_pro_bold</item>
+        <item name="font">@font/mark_pro_bold</item>
+        <item name="android:textSize">@dimen/text_primary_small</item>
+
+    </style>
+
+    <style name="Doctoor.App.Layout.CardView.MedicineDetails" parent="Widget.MaterialComponents.CardView">
+        <item name="cardElevation">@dimen/elevationFlat</item>
+        <item name="cardCornerRadius">@dimen/elevationMax</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="contentPadding">@dimen/padding</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:stateListAnimator">@animator/lift_on_touch</item>
+    </style>
+
+    <style name="Doctoor.App.Widget.TextView.MedicineWarning" parent="Doctoor.App.Widget.TextView.Light">
+        <item name="android:textSize">@dimen/text_primary_small</item>
+        <item name="android:paddingStart">@dimen/padding</item>
+    </style>
+
+    <style name="Doctoor.App.Widget.TextView.WarningHeading" parent="Doctoor.App.Widget.TextView">
+        <item name="android:gravity">center|top</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:fontFamily">@font/mark_pro_bold</item>
+        <item name="fontFamily">@font/mark_pro_bold</item>
+        <item name="font">@font/mark_pro_bold</item>
+        <item name="android:paddingStart">@dimen/padding</item>
+
+    </style>
+
+    <style name="Doctoor.App.Widget.TextView.ContinueShopping" parent="Doctoor.App.Widget.TextView.LeftDrawable">
+        <item name="compoundDrawableHeight">20dp</item>
+        <item name="compoundDrawableWidth">20dp</item>
+        <item name="android:drawablePadding">@dimen/padding_small</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/mark_pro_bold</item>
+        <item name="fontFamily">@font/mark_pro_bold</item>
+        <item name="font">@font/mark_pro_bold</item>
+        <item name="android:textSize">@dimen/text_primary_small</item>
+        <item name="android:text">@string/continue_shopping</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:padding">@dimen/padding</item>
+        <item name="android:drawableStart">@drawable/ic_continue_shopping</item>
+        <item name="android:drawableLeft">@drawable/ic_continue_shopping</item>
+
+    </style>
+
+    <style name="Doctoor.App.Widget.TextView.CheckOut" parent="Doctoor.App.Widget.TextView.LeftDrawable">
+        <item name="compoundDrawableHeight">20dp</item>
+        <item name="compoundDrawableWidth">20dp</item>
+        <item name="android:drawablePadding">@dimen/padding_small</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/mark_pro_bold</item>
+        <item name="fontFamily">@font/mark_pro_bold</item>
+        <item name="font">@font/mark_pro_bold</item>
+        <item name="android:textSize">@dimen/text_primary_small</item>
+        <item name="android:text">@string/add_to_cart</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:background">@color/design_default_color_primary</item>
+        <item name="android:padding">@dimen/padding</item>
+        <item name="android:drawableStart">@drawable/ic_add_to_cart</item>
+        <item name="android:drawableLeft">@drawable/ic_add_to_cart</item>
+
+    </style>
+
+    <style name="Doctoor.App.Widget.Spinner.Simple" parent="Widget.AppCompat.Spinner">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/shipping_spinner_background</item>
+        <item name="android:textSize">@dimen/text_primary_larger</item>
+    </style>
+
+    <style name="Doctoor.App.CircularImageBorder.Checkout">
+        <item name="android:layout_width">80dp</item>
+        <item name="android:layout_height">80dp</item>
+        <item name="android:contentDescription">@string/lab_icon</item>
+        <item name="android:background">@drawable/white_rounded_circle</item>
+        <item name="android:layout_margin">@dimen/margin_smallest</item>
+
+    </style>
+
+    <style name="Doctoor.App.Widget.checkBoxStyle" parent="Doctoor.App.Widget.TextView.Light">
+        <item name="colorAccent">#000000</item>
+        <item name="colorControlNormal">@color/grey</item>
+    </style>
+
+
+    <style name="Doctoor.App.FloatingActionButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">@dimen/fab_margin</item>
+        <item name="fabCustomSize">45dp</item>
+        <item name="maxImageSize">30dp</item>
+        <item name="srcCompat">@drawable/ic_help</item>
+        <item name="android:backgroundTint">@color/toolbar_color</item>
+    </style>
+
+</resources>

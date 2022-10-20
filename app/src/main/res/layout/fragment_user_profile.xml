@@ -1,0 +1,112 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="userProfileFragmentVM"
+            type="com.Doctoor.app.ui.modules.profile.UserProfileVM" />
+
+    </data>
+
+    <ScrollView style="@style/Doctoor.App.Layout.LinearLayout.Vertical.WrapContent">
+
+        <androidx.appcompat.widget.LinearLayoutCompat style="@style/Doctoor.App.Layout.LinearLayout.Vertical.WrapContent">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                style="@style/Doctoor.App.Layout.LinearLayout.Vertical.WrapContent"
+                android:layout_height="200dp"
+                android:background="@drawable/profile_background"
+                android:gravity="center"
+                android:padding="@dimen/padding">
+
+                <com.Doctoor.app.widget.CircleImageView
+                    style="@style/Doctoor.App.CircularImage"
+                    app:civ_border_color="@color/pink"
+                    app:civ_border_width="2dp"
+                    app:loadAvatar='@{(userProfileFragmentVM.avatar!=null?userProfileFragmentVM.avatar:" ")}'
+                    app:srcCompat="@drawable/doctor_placegolder" />
+
+                <com.Doctoor.app.widget.TextViewRichDrawable
+                    style="@style/Doctoor.App.Widget.TextView.Bold"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@{userProfileFragmentVM.fullName}"
+                    android:textSize="@dimen/text_secondary_medium" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                style="@style/Doctoor.App.Layout.LinearLayout.Vertical.WrapContent"
+                android:padding="@dimen/padding">
+
+                <com.Doctoor.app.widget.validatedtextinputlayout.ValidatedTextInputLayout style="@style/Doctoor.App.Widget.TextInputLayout">
+
+                    <com.Doctoor.app.widget.EditTextRichDrawable
+                        style="@style/Doctoor.App.Widget.TextInputEditText.FullName"
+                        android:enabled="false"
+                        android:imeOptions="actionNext"
+                        android:text="@={userProfileFragmentVM.fullName}"
+                        app:validateMinLength="@{4}"
+                        app:validateType='@{"username"}'
+                        app:validateTypeAutoDismiss="@{true}" />
+
+                </com.Doctoor.app.widget.validatedtextinputlayout.ValidatedTextInputLayout>
+
+                <com.Doctoor.app.widget.validatedtextinputlayout.ValidatedTextInputLayout style="@style/Doctoor.App.Widget.TextInputLayout">
+
+                    <com.Doctoor.app.widget.EditTextRichDrawable
+                        style="@style/Doctoor.App.Widget.TextInputEditText.Email"
+                        android:enabled="false"
+                        android:imeOptions="actionNext"
+                        android:text="@={userProfileFragmentVM.email}"
+                        app:validateType='@{"email"}'
+                        app:validateTypeAutoDismiss="@{true}" />
+
+                </com.Doctoor.app.widget.validatedtextinputlayout.ValidatedTextInputLayout>
+
+                <com.Doctoor.app.widget.validatedtextinputlayout.ValidatedTextInputLayout
+                    android:id="@+id/phone_layout"
+                    style="@style/Doctoor.App.Widget.TextInputLayout">
+
+                    <com.Doctoor.app.widget.CustomEditText
+                        style="@style/Doctoor.App.Widget.TextInputEditText.Phone"
+                        android:enabled="false"
+                        android:hint="@string/mobile_no"
+                        android:imeOptions="actionNext"
+                        android:inputType="phone"
+                        android:text="@={userProfileFragmentVM.phone}"
+                        app:libIZO_setClearIconVisible="false"
+                        app:validPhone='@{"^((\\+92)|(0092))-{0,1}\\d{3}-{0,1}\\d{7}$|^\\d{11}$|^\\d{4}-\\d{7}$"}'
+                        app:validateEmpty="@{true}"
+                        app:validateMaxLength="@{15}"
+                        app:validateMinLength="@{11}"
+                        app:validateTypeAutoDismiss="@{true}" />
+
+                </com.Doctoor.app.widget.validatedtextinputlayout.ValidatedTextInputLayout>
+
+                <com.Doctoor.app.widget.validatedtextinputlayout.ValidatedTextInputLayout style="@style/Doctoor.App.Widget.TextInputLayout">
+
+                    <com.Doctoor.app.widget.EditTextRichDrawable
+                        style="@style/Doctoor.App.Widget.TextInputEditText.Profile"
+                        android:drawableEnd="@drawable/ic_female"
+                        android:drawableRight="@drawable/ic_female"
+                        android:enabled="false"
+                        android:hint="@string/gender"
+                        android:text="@={userProfileFragmentVM.gender}" />
+
+                </com.Doctoor.app.widget.validatedtextinputlayout.ValidatedTextInputLayout>
+
+                <com.Doctoor.app.widget.progressbutton.CircularProgressButton
+                    android:id="@+id/save"
+                    style="@style/Doctoor.App.Widget.Button.Login.CircularProgressButton"
+                    android:onClick="@{()-> userProfileFragmentVM.onEditPress()}"
+                    android:text="Edit Profile" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </ScrollView>
+</layout>

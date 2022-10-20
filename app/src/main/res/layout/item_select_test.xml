@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="selectTestItemVM"
+            type="com.Doctoor.app.ui.modules.select_lab.test.SelectTestItemVM" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        style="@style/Doctoor.App.Layout.CardView.MedicineDetails"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true">
+
+        <LinearLayout style="@style/Doctoor.App.Layout.LinearLayout.Horizontal.match_parent">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                style="@style/Doctoor.App.Layout.LinearLayout.Horizontal.match_parent"
+                android:layout_width="0dp"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1">
+
+                <com.Doctoor.app.widget.SquareImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/lab_test_rounded"
+                    android:contentDescription="@string/lab_icon"
+                    android:padding="@dimen/padding_small"
+                    app:imageUrl="@{selectTestItemVM.item.logo}"
+                    app:srcCompat="@drawable/ic_lab_test" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_small">
+
+                    <com.Doctoor.app.widget.SquareImageView
+                        android:id="@+id/cart"
+                        android:layout_width="@dimen/drawable_x_large"
+                        android:layout_height="@dimen/drawable_x_large"
+                        android:layout_alignParentEnd="true"
+                        android:contentDescription="@string/lab_icon"
+                        android:onClick="@{()-> selectTestItemVM.onCartClick(selectTestItemVM.item)}"
+                        app:isInCart="@{selectTestItemVM.isInCart}"
+                        app:srcCompat="@drawable/ic_cart_selected" />
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        style="@style/Doctoor.App.Layout.LinearLayout.Vertical.WrapContent"
+                        android:layout_toStartOf="@id/cart">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/name"
+                            style="@style/Doctoor.App.Widget.TextView.Bold"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:singleLine="true"
+                            android:text="@{selectTestItemVM.item.test_name}" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/Doctoor.App.Widget.TextView.Light"
+                            android:ellipsize="end"
+                            android:singleLine="true"
+                            android:text="@{selectTestItemVM.item.description}"
+                            android:textSize="@dimen/text_primary_x_normal" />
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            style="@style/Doctoor.App.Layout.LinearLayout.Horizontal.wrap_content"
+                            android:gravity="center">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                style="@style/Doctoor.App.Widget.TextView.Light"
+                                android:layout_gravity="center"
+                                android:text="@string/rupees"
+                                android:textAlignment="center" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                style="@style/Doctoor.App.Widget.TextView.Bold"
+                                android:layout_gravity="center"
+                                android:textAlignment="center"
+                                android:textColor="@color/price"
+                                android:textSize="@dimen/text_secondary_medium"
+                                app:itemPrice="@{selectTestItemVM.item.price}" />
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                </RelativeLayout>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </LinearLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

@@ -1,0 +1,56 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="selectLabFragmentVM"
+            type="com.Doctoor.app.ui.modules.select_lab.SelectLabFragmentVM" />
+
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <com.Doctoor.app.widget.TextViewRichDrawable
+                android:id="@+id/textViewRichDrawable"
+                style="@style/Doctoor.App.Widget.TextView.Light"
+                android:layout_height="0dp"
+                android:layout_margin="@dimen/margin_xx_large"
+                android:drawableTop="@drawable/ic_prescription_bordered"
+                android:drawablePadding="@dimen/padding_medium"
+                android:onClick="@{(v)-> selectLabFragmentVM.onPrescription(v)}"
+                android:text="@string/upload_prescription"
+                app:compoundDrawableHeight="70dp"
+                app:compoundDrawableWidth="70dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/margin_xx_large"
+                android:background="@color/light_sky_blue"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewRichDrawable"
+                app:layout_constraintVertical_bias="0.0">
+
+                <include
+                    layout="@layout/refresh_recycler_view"
+                    app:adapter="@{selectLabFragmentVM}" />
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

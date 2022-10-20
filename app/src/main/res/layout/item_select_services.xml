@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+                name="medicalServicesItemVM"
+                type="com.Doctoor.app.ui.modules.service_type.MedicalServicesItemVM" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+            style="@style/Doctoor.App.Layout.CardView.MedicineDetails"
+            app:contentPadding="@dimen/no_padding">
+
+        <LinearLayout style="@style/Doctoor.App.Layout.LinearLayout.Horizontal.match_parent">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                    style="@style/Doctoor.App.Layout.LinearLayout.Horizontal.match_parent"
+                    android:layout_width="0dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:padding="@dimen/padding">
+
+                <com.Doctoor.app.widget.CircleImageView
+                        android:layout_width="@dimen/drawable_xxx_large"
+                        android:layout_height="@dimen/drawable_xxx_large"
+                        android:layout_gravity="center"
+                        android:layout_marginEnd="@dimen/margin_medium"
+                        app:srcCompat="@drawable/doctor_placegolder" />
+
+                <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    <com.Doctoor.app.widget.SquareImageView
+                            android:id="@+id/cart"
+                            android:layout_width="@dimen/drawable_x_large"
+                            android:layout_height="@dimen/drawable_x_large"
+                            android:layout_alignParentEnd="true"
+                            android:contentDescription="@string/lab_icon"
+                            app:srcCompat="@drawable/ic_cart_selected" />
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/name"
+                            style="@style/Doctoor.App.Widget.TextView.Bold"
+                            android:layout_height="wrap_content"
+                            android:text="Johan"
+                            android:textSize="@dimen/text_secondary_medium" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/designation"
+                            style="@style/Doctoor.App.Widget.TextView.Light"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/margin_small"
+                            android:layout_toEndOf="@id/name"
+                            android:text="(attendant)"
+                            android:textSize="@dimen/text_secondary_normal" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/availability"
+                            style="@style/Doctoor.App.Widget.TextView.Bold"
+                            android:layout_below="@+id/name"
+                            android:layout_alignBaseline="@id/time"
+                            android:layout_centerVertical="true"
+                            android:text="@string/availability"
+                            android:textAlignment="center"
+                            android:textColor="@color/md_green_600" />
+
+                    <com.Doctoor.app.widget.TextViewRichDrawable
+                            android:id="@+id/time"
+                            style="@style/Doctoor.App.Widget.TextView.Light"
+                            android:layout_below="@+id/name"
+                            android:layout_marginStart="@dimen/margin_smaller"
+                            android:layout_toEndOf="@+id/availability"
+                            android:drawableLeft="@drawable/ic_time"
+                            android:drawablePadding="@dimen/padding_smaller"
+                            android:text="@string/dummy_time"
+                            app:compoundDrawableHeight="@dimen/drawable_large" />
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                            android:id="@+id/price"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/time">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                                style="@style/Doctoor.App.Widget.TextView.Bold"
+                                android:layout_gravity="center"
+                                android:text="@string/cost"
+                                android:textAlignment="center"
+                                android:textSize="@dimen/text_secondary_normal" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                                style="@style/Doctoor.App.Widget.TextView.Light"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="@dimen/margin_smaller"
+                                android:text="@string/rupees"
+                                android:textAlignment="center" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                                style="@style/Doctoor.App.Widget.TextView.Bold"
+                                android:layout_gravity="center"
+                                android:text="@string/five_hundred"
+                                android:textAlignment="center"
+                                android:textColor="@color/pink"
+                                android:textSize="@dimen/text_secondary_medium" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                                style="@style/Doctoor.App.Widget.TextView.Light"
+                                android:layout_marginStart="@dimen/margin_smallest"
+                                android:text="/ hr"
+                                android:textSize="@dimen/text_secondary_small" />
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                </RelativeLayout>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </LinearLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

@@ -1,0 +1,240 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@android:id/content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            android:orientation="vertical">
+
+        <ScrollView
+                android:id="@+id/mainLayout"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                        style="@style/Doctoor.App.Layout.LinearLayout.Horizontal.match_parent"
+                        android:background="@color/md_grey_A400"
+                        android:gravity="center">
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                            style="@style/Doctoor.App.Layout.LinearLayout.Vertical.WrapContent"
+                            android:layout_width="wrap_content"
+                            android:layout_margin="@dimen/margin_small"
+                            android:background="@color/transparent"
+                            android:gravity="center">
+
+                        <com.Doctoor.app.widget.SquareImageView
+                                style="@style/Doctoor.App.CircularImageBorder.Checkout"
+                                app:srcCompat="@drawable/ic_shipping_address_selected" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                                style="@style/Doctoor.App.Widget.TextView.Bold"
+                                android:layout_gravity="center"
+                                android:text="Shipping"
+                                android:textSize="@dimen/text_secondary_normal" />
+
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                            style="@style/Doctoor.App.Layout.LinearLayout.Vertical.WrapContent"
+                            android:layout_width="wrap_content"
+                            android:layout_margin="@dimen/margin_small"
+                            android:background="@color/transparent"
+                            android:gravity="center">
+
+                        <com.Doctoor.app.widget.SquareImageView
+                                style="@style/Doctoor.App.CircularImageBorder.Checkout"
+                                app:srcCompat="@drawable/ic_billing_address_without_select" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                                style="@style/Doctoor.App.Widget.TextView.Bold"
+                                android:layout_gravity="center"
+                                android:text="Billing"
+                                android:textColor="@color/grey"
+                                android:textSize="@dimen/text_secondary_normal" />
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                            style="@style/Doctoor.App.Layout.LinearLayout.Vertical.WrapContent"
+                            android:layout_width="wrap_content"
+                            android:layout_margin="@dimen/margin_small"
+                            android:background="@color/transparent"
+                            android:gravity="center">
+
+                        <com.Doctoor.app.widget.SquareImageView
+                                style="@style/Doctoor.App.CircularImageBorder.Checkout"
+                                app:srcCompat="@drawable/ic_payment_without_select" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                                style="@style/Doctoor.App.Widget.TextView.Bold"
+                                android:layout_gravity="center"
+                                android:text="Payment"
+                                android:textColor="@color/grey"
+                                android:textSize="@dimen/text_secondary_normal" />
+
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingStart="@dimen/padding"
+                        android:paddingEnd="@dimen/padding"
+                        android:paddingBottom="@dimen/padding">
+
+                    <com.Doctoor.app.widget.validatedtextinputlayout.ValidatedTextInputLayout style="@style/Doctoor.App.Widget.TextInputLayout">
+
+                        <com.Doctoor.app.widget.EditTextRichDrawable
+                                style="@style/Doctoor.App.Widget.TextInputEditText.FullName"
+                                android:hint="First Name"
+                                android:imeOptions="actionNext"
+                                android:maxLength="7"
+                                android:text="@={shippingFragmentVM.firstName}"
+                                app:validateType='@{"username"}'
+                                app:validateTypeAutoDismiss="@{true}" />
+
+                    </com.Doctoor.app.widget.validatedtextinputlayout.ValidatedTextInputLayout>
+
+                    <com.Doctoor.app.widget.validatedtextinputlayout.ValidatedTextInputLayout style="@style/Doctoor.App.Widget.TextInputLayout">
+
+                        <com.Doctoor.app.widget.EditTextRichDrawable
+                                style="@style/Doctoor.App.Widget.TextInputEditText.FullName"
+                                android:hint="Last Name"
+                                android:imeOptions="actionNext"
+                                android:maxLength="7"
+                                android:text="@={shippingFragmentVM.lastName}"
+                                app:validateType='@{"username"}'
+                                app:validateTypeAutoDismiss="@{true}" />
+
+                    </com.Doctoor.app.widget.validatedtextinputlayout.ValidatedTextInputLayout>
+
+                    <com.Doctoor.app.widget.validatedtextinputlayout.ValidatedTextInputLayout
+                            android:id="@+id/phone_layout"
+                            style="@style/Doctoor.App.Widget.TextInputLayout">
+
+                        <com.Doctoor.app.widget.EditTextRichDrawable
+                                style="@style/Doctoor.App.Widget.TextInputEditText.Phone"
+                                android:hint="@string/phone_no"
+                                android:imeOptions="actionNext"
+                                android:inputType="phone"
+                                android:text="@={shippingFragmentVM.phone}"
+                                app:validPhone='@{"^((\\+92)|(0092))-{0,1}\\d{3}-{0,1}\\d{7}$|^\\d{11}$|^\\d{4}-\\d{7}$"}'
+                                app:validateEmpty="@{true}"
+                                app:validateMaxLength="@{15}"
+                                app:validateMinLength="@{11}"
+                                app:validateTypeAutoDismiss="@{true}" />
+
+                    </com.Doctoor.app.widget.validatedtextinputlayout.ValidatedTextInputLayout>
+
+                    <com.Doctoor.app.widget.validatedtextinputlayout.ValidatedTextInputLayout style="@style/Doctoor.App.Widget.TextInputLayout">
+
+                        <com.Doctoor.app.widget.EditTextRichDrawable
+                                style="@style/Doctoor.App.Widget.TextInputEditText.Email"
+                                android:imeOptions="actionDone"
+                                android:text="@={shippingFragmentVM.email}"
+                                app:validateType='@{"email"}'
+                                app:validateTypeAutoDismiss="@{true}" />
+
+                    </com.Doctoor.app.widget.validatedtextinputlayout.ValidatedTextInputLayout>
+
+                    <com.Doctoor.app.widget.validatedtextinputlayout.ValidatedTextInputLayout style="@style/Doctoor.App.Widget.TextInputLayout">
+
+                        <com.Doctoor.app.widget.EditTextRichDrawable
+                                style="@style/Doctoor.App.Widget.TextInputEditText.FullName"
+                                android:drawableEnd="@drawable/ic_address_icon"
+                                android:drawableRight="@drawable/ic_address_icon"
+                                android:hint="@string/address"
+                                android:imeOptions="actionNext"
+                                android:inputType="textPostalAddress"
+                                android:maxLength="500"
+                                android:text="@={shippingFragmentVM.address}"
+                                app:validateEmpty="@{true}"
+                                app:validateTypeAutoDismiss="@{true}" />
+
+                    </com.Doctoor.app.widget.validatedtextinputlayout.ValidatedTextInputLayout>
+
+                    <com.Doctoor.app.widget.MaterialSpinner
+                            android:id="@+id/provinceSpinner"
+                            style="@style/Doctoor.App.Widget.Spinner.Simple"
+                            android:onItemSelected="@{(shippingFragmentVM::onProvinceSelected)}"
+                            app:ms_alignLabels="true"
+                            app:ms_arrowColor="@color/black"
+                            app:ms_arrowSize="16dp"
+                            app:ms_enableFloatingLabel="true"
+                            app:ms_errorColor="#C02524"
+                            app:ms_floatingLabelColor="@color/black"
+                            app:ms_floatingLabelText="Select Province"
+                            app:ms_hint="Select Province"
+                            app:ms_hintColor="@color/textColorHintPrimary"
+                            app:ms_hintTextSize="@dimen/text_primary_normal"
+                            app:ms_multiline="false"
+                            app:ms_thickness="0.5dp"
+                            app:selectedPosition="@{shippingFragmentVM.provincePosition}" />
+
+                    <com.Doctoor.app.widget.MaterialSpinner
+                            android:id="@+id/citySpinner"
+                            style="@style/Doctoor.App.Widget.Spinner.Simple"
+                            android:onItemSelected="@{(shippingFragmentVM::onSelectCityItem)}"
+                            app:ms_alignLabels="true"
+                            app:ms_arrowColor="@color/black"
+                            app:ms_arrowSize="16dp"
+                            app:ms_enableErrorLabel="false"
+                            app:ms_enableFloatingLabel="true"
+                            app:ms_errorColor="#C02524"
+                            app:ms_floatingLabelColor="@color/black"
+                            app:ms_floatingLabelText="Select City"
+                            app:ms_hint="Select City"
+                            app:ms_hintColor="@color/textColorHintPrimary"
+                            app:ms_hintTextSize="@dimen/text_primary_normal"
+                            app:ms_multiline="false"
+                            app:ms_thickness="0.5dp"
+                            app:selectedPosition="@{shippingFragmentVM.cityPosition}" />
+
+                    <androidx.appcompat.widget.AppCompatCheckBox
+                            style="@style/Doctoor.App.Widget.checkBoxStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin"
+                            android:checked="@{shippingFragmentVM.isSameAddress.booleanValue()}"
+                            android:onClick="@{()-> shippingFragmentVM.onCheckClick()}"
+                            android:text="@string/is_billing_address_same"
+                            android:textSize="@dimen/text_primary_normal" />
+
+                    <com.Doctoor.app.widget.progressbutton.CircularProgressButton
+                            style="@style/Doctoor.App.Widget.Button.Login.CircularProgressButton"
+                            android:onClick="@{()-> shippingFragmentVM.onCheckout()}"
+                            android:text="@string/checkout" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        </ScrollView>
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <data>
+
+        <variable
+                name="shippingFragmentVM"
+                type="com.Doctoor.app.ui.modules.checkout.shipping.ShippingFragmentVM" />
+
+    </data>
+
+</layout>
